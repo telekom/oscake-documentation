@@ -46,31 +46,51 @@ ORT has a mechanism to control the handling of source code packages in order to 
 
 tbd: (1) link to an example, (2) link to the ORT section
 
-## Running ORT using TDOSCA Testcase#5
+## Running ORT using TDOSCA [Testcase#5](https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw)
 
 ### Preparation 
-
-#### IMPORTANT delete storage
- `storages {
-      local {
-        backend {
-          localFileStorage {
-            directory = "[your_path]/scannerStorage"
-            compression = false
-          }
-        }
-      }
-	}`
+1. Adapt the ort.conf to your needs - you can use the [example](tbd) and update the directory entries: `[yourFileStorageDirectory]` and `[yourScannerArchive]`
+2. Be sure that the directory `[yourFileStorageDirectory]` in `ort.conf` is empty. ORT has a mechanism to download only files which were not downloadet yet. As the OSCake-Reporter needs all the source code files, the directory **must be empty** before a new project is processed 
+3. Prepare the `license-classifications.yml` [file](tbd) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the category `instanced`.
+4. If you want to exclude some packages from being processed in a default way, create the file `.ort.yml`. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
+5. Customise the `oscake.conf` configuration file (tbd). Adapt the "scopePatterns" which are responsible to retrieve the scope of the license information in a file (default, directory, file) 
+6. Create your [workingDirectory] 
+7. Create the [outputDirectory] - it can be a sub directory of your working directory
 
 
-#### Download GIT-Repo
+### Download GIT-Repo
+Go to your working directory and clone the repository 
 
-#### Configuring .ort.conf
+`git clone https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw.git`
+
+Now you should see a directory `tdosca-tc05-simplhw` which contains the requested source code
+
+
+
+If you want to exclude some packages copy the file [.ort.conf](tbd) to `[workingDirectory]/tdosca-tc05-simplhw/input-sources`
 
 ### Analyzer
+Go to the installation directory of your ORT instance and run the following command
+
+`cli/build/install/ort/bin/ort -c ort.conf analyze -i [workingDirectory]\tdosca-tc05-simplhw\input-sources -o [outputDirectory]`
+
+ORT will generate the file `analyzer-result.yml` in the [outputDirectory].
 
 ### Scanner
 
-### OSCake-Report
+Call the following command to start the scan operation
 
-### Example Output: *.oscc
+`cli\build\install\ort\bin\ort -c ort.conf scan -i [outputDirectory]\analyzer-result.yml -o [outputDirectory]`
+
+The scanner generates the file `scan-result.yml` and the directories `native-scan-results` and `downloads`. The runtime of the scanner depends on the size of the project and the used packages.
+
+### OSCake-Report
+Call the following command to create the OSCake input:
+
+`cli\build\install\ort\bin\ort -c ort.conf report -i [outputDirectory]\scan-result.yml -o
+[outputDirectory] -f OSCake -O OSCake=nativeScanResultsDir=[outputDirectory]\native-scan-results -O OSCake=sourceCodeDownloadDir=[outputDirectory]\downloads -O OSCake=configFile=oscake.conf
+--license-configuration-file=[yourPathTo]\license-classifications.yml`
+
+The reporter combines the different files and produces the files:
+* OSCake-Report.oscc (tbd link zu examples)
+* tdosca-tc05.zip (tbd link zu examples)
