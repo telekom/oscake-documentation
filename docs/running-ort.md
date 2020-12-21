@@ -31,6 +31,17 @@ Information about licenses (reference, tag, notice, text) is kept deeply in the 
 ### Preparation 
 
 #### IMPORTANT delete storage
+ `storages {
+      local {
+        backend {
+          localFileStorage {
+            directory = "[your_path]/scannerStorage"
+            compression = false
+          }
+        }
+      }
+	}`
+
 
 #### Download GIT-Repo
 
