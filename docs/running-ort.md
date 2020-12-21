@@ -1,8 +1,7 @@
 # Running ORT with OSCake-Reporter
-The following sections show the use of ORT in order to produce the input files for OSCake (Open Source Compliance artifact knowledge engine). The output consist of:
-* OSCake-Report.oscc: reporter output in a DSL
-* zip-File: containing the relevant generated or copied files
-
+The following sections show the use of [ORT](https://github.com/oss-review-toolkit/ort) in order to produce the input files for [OSCake](https://github.com/Open-Source-Compliance/OSCake) ("Open Source Compliance artifact knowledge engine"). The output consists of:
+* OSCake-Report.oscc: reporter output in a DSL - [Example](https://github.com/Open-Source-Compliance/OSCake/blob/main/test/a-input.oscc/oscake-reference.oscc)
+* zip-File: zip-archive, containing the relevant generated or copied files
 
 ## Install ORT
 
