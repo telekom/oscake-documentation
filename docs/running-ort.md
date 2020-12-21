@@ -25,7 +25,12 @@ Depending on different criteria (e.g. "declared license") the license text has t
 
 `OSCake=sourceCodeDownloadDir=[your_path]/downloads`
 
-#### ort.conf
+#### Path to a specific OSCake-configuration file
+This file contains information about default values for OSCake reporter which are independent from the objects of investigation (projects)
+
+`OSCake=configFile=[your_path]/oscake.conf`
+
+tbd: link to an example file
 
 
 #### Used ORT configuration options
@@ -34,6 +39,11 @@ Depending on different criteria (e.g. "declared license") the license text has t
 * option `-o`: specifies the output directory: `-o [your_path]`
 * option `--license-configuration-file`: path to a a file containing information about licenses (different categories) `--license-configuration-file=license-classifications.yml`
 * option `-f`: name of the report: `-f OScake`
+
+#### Used ORT excludes
+ORT has a mechanism to control the handling of source code packages in order to exclude them (e.g. because they are only used for testing purposes). Therefore, it is possible to place a file with the name `.ort.yml` directly in the root directory of the source code.
+
+tbd: (1) link to an example, (2) link to the ORT section
 
 ## Running ORT using TDOSCA Testcas#5
 
