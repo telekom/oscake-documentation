@@ -1,5 +1,7 @@
 # Running ORT with OSCake-Reporter
-specific settings for the OSCake
+The following sections show the use of ORT in order to produce the input files for OSCake (Open Source Compliance artifact knowledge engine). The output consist of:
+* OSCake-Report.oscc: reporter output in a DSL
+* zip-File: containing the relevant generated or copied files
 
 
 ## Install ORT
@@ -45,7 +47,7 @@ ORT has a mechanism to control the handling of source code packages in order to 
 
 tbd: (1) link to an example, (2) link to the ORT section
 
-## Running ORT using TDOSCA Testcas#5
+## Running ORT using TDOSCA Testcase#5
 
 ### Preparation 
 
