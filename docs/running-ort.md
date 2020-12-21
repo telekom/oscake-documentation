@@ -1,35 +1,35 @@
-#Running ORT with OSCake-Reporter
+# Running ORT with OSCake-Reporter
 
-##Install ORT
+## Install ORT
 
-##OSCake-Configuration
+## OSCake-Configuration
 
-###Parameters
+### Parameters
 
-####Param1
+#### Param1
 
-####Param2
+#### Param2
 
-###Files
+### Files
 
-####ort.conf
+#### ort.conf
 
-####license
+#### license
 
-##Running ORT using TDOSCA Testcas#5
+## Running ORT using TDOSCA Testcas#5
 
-###Preparation 
+### Preparation 
 
-####IMPORTANT delete storage
+#### IMPORTANT delete storage
 
-####Download GIT-Repo
+#### Download GIT-Repo
 
-####Configuring .ort.conf
+#### Configuring .ort.conf
 
-###Analyzer
+### Analyzer
 
-###Scanner
+### Scanner
 
-###OSCake-Report
+### OSCake-Report
 
-###Example Output: *.oscc
+### Example Output: *.oscc
