@@ -39,3 +39,21 @@ ort {
     ]
     ...
 ```
+### ScanCode Archive
+Files ("compliance artifacts") which are matching the archive patterns are copied to the localFilestorage
+```
+    archive {
+      patterns = [
+          "license*",
+          "licence*",
+          "*.license",
+		.....
+		  ]
+      storage {
+        localFileStorage {
+          directory = "................."
+		  compression = false
+        }
+      }```
+	  
+	  
