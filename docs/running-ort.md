@@ -1,12 +1,15 @@
 # Running ORT with OSCake-Reporter
-The following sections show the use of [ORT](https://github.com/oss-review-toolkit/ort) in order to produce the input files for [OSCake](https://github.com/Open-Source-Compliance/OSCake) ("Open Source Compliance artifact knowledge engine"). The ORT OSCake-Reporter generates the following files:
+The following sections show the use of [ORT](https://github.com/telekom/ort) in order to produce the input files for [OSCake](https://github.com/Open-Source-Compliance/OSCake) ("Open Source Compliance artifact knowledge engine"). The ORT OSCake-Reporter generates the following files:
 * *OSCake-Report.oscc*: reporter output in a DSL - [Example](https://github.com/Open-Source-Compliance/OSCake/blob/main/test/a-input.oscc/oscake-reference.oscc)
 * *zip-File*: flat zip-archive, containing the license-relevant generated or copied files
 
 ## Install ORT
 
 * General information about ORT see https://github.com/telekom/ort
-* Installation and verification see https://github.com/telekom/ort/blob/dsl-main/docs/getting-started.md#2-download--install-ort
+* Installation and verification prerequisites  [see](https://github.com/telekom/ort/blob/dsl-main/docs/getting-started.md#1-prerequisites)
+  * `git clone --recurse-submodules https://github.com/telekom/ort.git`
+  * `cd ort`
+  * `./gradlew installDist`
 
 ## OSCake-Configuration
 In order to use the OSCake-Reporter, several parameters have to be set using the appropriate ORT commandline style and a specific configuration file has to be provided. 
@@ -64,7 +67,7 @@ Go to your working directory and clone the repository
 A directory `tdosca-tc05-simplhw` containing the requested source code is created.
 
 
-If you want to exclude some packages copy the file [.ort.conf](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/ort.conf) to `[workingDirectory]/tdosca-tc05-simplhw/input-sources`
+If you want to exclude some packages copy the file [.ort.yml](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/.ort.yml) to `[workingDirectory]/tdosca-tc05-simplhw/input-sources`
 
 ### Analyzer
 Go to the installation directory of your ORT instance and run the following command
