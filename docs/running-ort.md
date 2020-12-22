@@ -89,5 +89,5 @@ Call the following command to create the OSCake input:
 --license-configuration-file=[yourPathTo]/license-classifications.yml`
 
 The reporter combines the different input files and produces the output files:
-* OSCake-Report.oscc (https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/OSCake-Report.oscc)
-* tdosca-tc05.zip (https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/tdosca-tc05.zip)
+* [OSCake-Report.oscc](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/OSCake-Report.oscc)
+* [tdosca-tc05.zip](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/tdosca-tc05.zip)
