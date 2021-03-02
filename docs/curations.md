@@ -21,7 +21,7 @@ Supplementary files are generated if curations are enbaled:
 * `[pid]_curated.zip`: archive containing curated license files (`pid` = project identifier in oscc-file)
 
 ## Structure of Curation Files
-Generally, every curation file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the curation to a specific package contained in the original \*.oscc file. If the version is empty, the curation will be applied to every package disregarding the version number. Additionally, the version number can be defeined by means of an an IVY-expression - definig a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html. If  more than one curation for a specific package will be found, no curation for this package will be applied.
+Generally, every curation file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the curation to a specific package contained in the original \*.oscc file. If the version is empty, the curation will be applied to every package disregarding the version number. Additionally, the version number can be defined by means of an an IVY-expression - definig a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html). If  more than one curation for a specific package will be found, no curation for this package will be applied.
 
 ```
 - id: "Maven:joda-time:joda-time:2.10.8"
@@ -88,7 +88,7 @@ For a defined `file_scope` one or more license modifications may be defined. The
 
 Depending on the `file_scope` the curation is not only applied to the `fileLicensings`-section in the oscc-file but also to the `defaultLicensings` or `dirLicensings`-section.
 
-If a `defaultLicensing` is via the ORT-Analyzer (e.g. license found in pom.xml file) - happens when the scanner does not find a file with a license text - the license is specified as "declared"-license. In order to make curations in this case, the following example may be applied:
+If a `defaultLicensing` is set via the ORT-Analyzer (e.g. license found in pom.xml file) - happens when the scanner does not find a file with a license text - the license is specified as "declared"-license. In order to make curations in this case, the following example may be applied:
 
 ```
   curations:
