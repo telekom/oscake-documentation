@@ -10,6 +10,7 @@
 	5. Go to source folder "ort/reporter" and edit "build.gradle.kts"
 		1. Add `val hopliteVersion: String by project` at the top
 		2. Add the following lines to the `dependencies` section
+		
 			*implementation("com.sksamuel.hoplite:hoplite-core:$hopliteVersion")*
 			*implementation("com.sksamuel.hoplite:hoplite-hocon:$hopliteVersion")*
 	6. Go to source folder "ort/reporter/src/main/resources/META-INF/services" and append the following line to the file "org.ossreviewtoolkit.reporter.Reporter"
