@@ -1,3 +1,12 @@
+# Branch: "oscake-reporter"
+from March 2021
+
+When unarchiving the files in class [*LicenseInfoResolver*](https://github.com/telekom/ort/blob/oscake-reporter/model/src/main/kotlin/licenses/LicenseInfoResolver.kt#L226) on Windows-based systems correctly, the backslash has to be changed to slash (otherwise the glob pattern-matching won't work)
+
+
+# Branch: "dsl-main"
+till end of February 2021
+
 ## Quick Fixes in "Scanner" module
 ### 1. Archiving Files
 Files matching the pattern list in [ort.conf](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/ort.conf) (`scanner.archive.patterns`) are stored in the `scanner.storage.localFileStorage.directory` which is also configured in ort.conf. The sub-path of the file depends on the IDs of the project or packages: e.g.: `./Maven/de.tdosca.tc05/tdosca-tc05/1.0/[hash code]/archive.zip`
