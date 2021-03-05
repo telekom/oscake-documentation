@@ -9,6 +9,7 @@ Contains findings and documentation on ORT and the DSL extension to ORT.
 | [ort-dsl-reporter.md] | Documentation on the dsl reporter for ORT. |
 | [ort-quick-fixes.md] | Quick fixes in ORT modules |
 | [curations.md] | Curations for OSCake files (*.oscc) |
+| [integration.md] | Integration into a new master branch |
 
 [running-ort.md]: ./docs/running-ort.md
 [configuration.md]: ./docs/configuration.md
@@ -16,3 +17,4 @@ Contains findings and documentation on ORT and the DSL extension to ORT.
 [ort-dsl-reporter.md]: ./docs/ort-dsl-reporter.md
 [ort-quick-fixes.md]: ./docs/ort-quick-fixes.md
 [curations.md]: ./docs/curations.md
+[integration.md]: ./docs/integration.md
