@@ -16,6 +16,7 @@
 			"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%COPYING.lic"
 		}],
 		"dirLicensings": [],
+		"reuseLicensings": [],
 		"fileLicensings": [{
 			"fileScope": "src/main/java/de/tdosca/common/EnvService.java",
 			"fileLicenses": [{

@@ -89,7 +89,7 @@ Call the following command to create the OSCake input:
 
 `cli/build/install/ort/bin/ort -c ort.conf report -i [outputDirectory]/scan-result.yml -o
 [outputDirectory] -f OSCake -O OSCake=nativeScanResultsDir=[outputDirectory]/native-scan-results -O OSCake=sourceCodeDownloadDir=[outputDirectory]/downloads -O OSCake=configFile=oscake.conf
---license-configuration-file=[yourPathTo]/license-classifications.yml`
+--license-classifications-file=[yourPathTo]/license-classifications.yml`
 
 The reporter combines the different input files and produces the output files:
 * [OSCake-Report.oscc](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/OSCake-Report.oscc)
