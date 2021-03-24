@@ -103,6 +103,28 @@ If a `defaultLicensing` is set via the ORT-Analyzer (e.g. license found in pom.x
 
 Instead of a specific `file_scope` the string "<DEFAULT_LICENSING>" may be used. The curations defined by the `modifier` will only be applied for "default"-licenses marked as "declared"-licenses.
 
+### Curations for Licenses found in REUSE compliant packages
+For a defined `file_scope` one or more license modifications may be defined. The following example is discussed below:
+
+```
+- id: "Unmanaged::example:3a3dc3011b4e20b3e143656527905c0cbc7d91f1"
+  package_modifier: "update"
+  curations:
+    - file_scope: "LICENSES/CC-BY-4.02.txt"
+      file_licenses:
+        - modifier: "insert"
+          reason: "explanation"
+          license: "Apache-2.0"
+          license_text_in_archive: "packages/CC_BY.txt"
+   - file_scope: "img/cat.jpg"
+     file_licenses:
+       - modifier: "insert"
+         license: "BSD-3"
+         license_text_in_archive: null
+```
+1. Example for file_scope: `LICENSES/CC-BY-4.02.txt`: if the path to the file starts with "LICENSES" and the package with the id is categorized as REUSE-compliant, a file has to be specified for `license_text_in_archive`. This example creates a license entry in the "fileLicensings" section and due to the specific path an entry in the "reuseLicensings" list.
+2. Example for file_scope: `img/cat.jpg`: in REUSE-compliant packages every binary file has an additional text file attached with the name of the binary file and a suffix ".license", containing license information about the binary file (e.g. `img/cat.jpg.license`). If a binary files has to be curated, the name of the binary file has to be used for the file scope - not the ".license" file.
+
 ### Curations for Copyrights
 For a defined `file_scope` one or more copyright modifications may be defined. The following examples are discussed below:
 
