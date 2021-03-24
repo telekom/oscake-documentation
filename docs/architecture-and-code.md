@@ -3,7 +3,7 @@
 The reporter is implemented in the file [`OSCakeReporter.kt`](https://github.com/telekom/ort/blob/dsl-main/reporter/src/main/kotlin/reporters/OSCakeReporter.kt). In order to be loaded by the tool, the reporter has to be defined in the file [`org.ossreviewtoolkit.reporter.Reporter`](https://github.com/telekom/ort/blob/dsl-main/reporter/src/main/resources/META-INF/services/org.ossreviewtoolkit.reporter.Reporter) and has to implement the interface [`Reporter`](https://github.com/telekom/ort/blob/dsl-main/reporter/src/main/kotlin/Reporter.kt).
 
 ## Logging and Error Handling
-In general, ORT returns an integer value after program termination. A value of 0 shows that no program relevant errors happened. Logic or semantic problems/errors during the "Analyzer" and "Scan"-steps are directly reported in the output file: `scan_result.yml`:
+In general, ORT returns an integer value after program termination. A value of 0 shows that no program relevant errors happened. Logical or semantic problems/errors during the "Analyzer" and "Scan"-steps are directly reported in the output file: `scan_result.yml`:
 ```
 analyzer:
     ...
@@ -27,11 +27,11 @@ The occurrence of issues during analyzing or scanning is also propagated to the 
 08:42:05.168 INFO OSCakeReporter: [Identifier(type=Maven, namespace=de.tdosca.tc06, name=tdosca-tc06, version=1.0) - ......
 ```
 
-Different log-levels ("INFO", "WARN", "ERROR") are used to indicate the severity of the problem (according to the definition of levels in [Apache log4j2](https://logging.apache.org/log4j/2.x/). Only problems of severity "WARN" and "ERROR" are reported as `hasIssues` in the oscc-file. A warning or an error on the package-level, automatically leads to the setting of `hasIssues` at the top level.
+Different log-levels ("INFO", "WARN", "ERROR") are used to indicate the severity of the problem (according to the definition of levels in [Apache log4j2](https://logging.apache.org/log4j/2.x/) ). Only problems of severity "WARN" and "ERROR" are reported as `hasIssues` in the oscc-file. A warning or an error on the package-level, automatically leads to the setting of `hasIssues` at the top level.
 
 ## Apache log4j2.xml configuration
 In order to separate log information from ORT in general and the OSCake-Reporter specifically, the log4j2.xml configuration file is used (found in folder: `cli/src/main/resources`)
-The OSCake-Reporter uses the class `org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.OSCakeLoggerManager` and therefore, the follwing configuration is used (see section "Loggers"):
+The OSCake-Reporter uses the class `org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.OSCakeLoggerManager` and therefore, the following configuration is applied (see section "Loggers"):
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
