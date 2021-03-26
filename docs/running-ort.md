@@ -11,8 +11,9 @@ The following sections show the use of [ORT](https://github.com/telekom/ort) in 
   * `cd ort`
   * `./gradlew installDist`
 
+
 ## OSCake-Configuration
-In order to use the OSCake-Reporter, several parameters have to be set using the appropriate ORT commandline style and a specific configuration file has to be provided. 
+In order to use the OSCake-Reporter, several parameters have to be set using the appropriate ORT commandline style. Additionally, a specific configuration file has to be provided ([ort.conf](./examples/ort.conf)) 
 
 ### Parameters
 ORT handles commandline parameters in several ways:
@@ -39,7 +40,7 @@ The [configuration file](https://github.com/telekom/ort-dsl-documentation/blob/m
 * option `-c`: ORT uses the file `ort.conf` from the user's directory as default, but can be set also by a commandline parameter: `-c [your_path]/ort.conf`
 * option `-i`: path to the scan results: `-i [your_path]/scan-result.yml`
 * option `-o`: specifies the output directory: `-o [your_path]`
-* option `--license-configuration-file`: path to a a file containing information about licenses and their categories (e.g. *declared* license) `--license-configuration-file=license-classifications.yml`
+* option `--license-classifications-file`: path to a a file containing information about licenses and their categories (e.g. *declared* license) `--license-classifications-file=license-classifications.yml`
 * option `-f`: name of the report: `-f OScake`
 
 #### Used ORT excludes
