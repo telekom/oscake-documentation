@@ -59,3 +59,24 @@ The OSCake-Reporter uses the class `org.ossreviewtoolkit.reporter.reporters.osCa
 </Configuration>
 ```
 The issues are documented in the file `OSCake.log` and on the `Console2`, too. The logfile can be found in the current working directory.
+
+### Alternative log4j2.xml configuration file
+In case that a specific configuration file for log4j2 should be used, a JVM parameter may be passed: `-Dlog4j.configurationFile=[path to the configuration file]`.
+As the ORT tool is started by means of a script - found in `ort/cli/build/scripts` - this parameter can be passed in the following way (example for Windows-based systems):
+```
+set ORT_OPTS="-Dlog4j.configurationFile=[path to the configuration file]"
+
+cli\build\install\ort\bin\ort [all your parameters]
+```
+
+### Alternative path in log4j2.xml for the output file
+Another way to pass a value to the default log4j2.xml file is to pass it as an environment variable (example for Windows-based systems):
+
+`set log4jOutputFolder=[path to the output folder]`
+
+This variable can then be used in the log4j2.xml in the following way:
+
+```
+<File name="LogFile" fileName="${sys:log4jOutputFolder}OSCake.log" append="false">
+```
+

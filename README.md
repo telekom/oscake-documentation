@@ -18,3 +18,7 @@ Contains findings and documentation on ORT and the DSL extension to ORT.
 [ort-quick-fixes.md]: ./docs/ort-quick-fixes.md
 [curations.md]: ./docs/curations.md
 [integration.md]: ./docs/integration.md
+
+## Overview: ORT - OSCakeReporter
+[overview]: ./docs/overview.png
+![Overview][overview]
