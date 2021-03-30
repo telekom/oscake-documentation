@@ -1,5 +1,5 @@
-# ort-dsl-documentation
-Contains findings and documentation on ORT and the DSL extension to ORT.
+# OSCake Documentation
+Contains findings and documentation on OSCake the OSCake reporter extension to ORT.
 
 | File          | Description                                                           |
 | ------------------- | --------------------------------------------------------------------- |
