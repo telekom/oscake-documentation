@@ -10,6 +10,7 @@ Contains findings and documentation on OSCake the OSCake reporter extension to O
 | [ort-quick-fixes.md] | Quick fixes in ORT modules |
 | [curations.md] | Curations for OSCake files (*.oscc) |
 | [integration.md] | How to integrate OSCakeRporter into a new master branch |
+| [oscake-merger.md] | Merge different *.oscc files |
 
 [running-ort.md]: ./docs/running-ort.md
 [configuration.md]: ./docs/configuration.md
@@ -18,6 +19,7 @@ Contains findings and documentation on OSCake the OSCake reporter extension to O
 [ort-quick-fixes.md]: ./docs/ort-quick-fixes.md
 [curations.md]: ./docs/curations.md
 [integration.md]: ./docs/integration.md
+[oscake-merger.md]: ./docs/oscake-merger.md
 
 ## Overview: ORT - OSCakeReporter
 [overview]: ./docs/overview.png
