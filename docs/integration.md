@@ -18,6 +18,6 @@
 	
 		*org.ossreviewtoolkit.reporter.reporters.OSCakeReporter*
 
-	7. Apply Quick-Fixes as described [here](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/ort-quick-fixes.md)
+	7. Apply Quick-Fixes as described [here](./ort-quick-fixes.md)
 4. Execute gradle task "instDist" from command line or IntelliJ: Task/distribution/instDist
 5. Hope for the best :)

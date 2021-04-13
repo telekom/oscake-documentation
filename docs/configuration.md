@@ -57,7 +57,7 @@ Files ("compliance artifacts") which are matching the archive patterns (`glob`-[
     }
   
 ## License categorization in license-classifications.yml
-For categorization of licenses, the `license-classifications.yml`-File is used. For OSCake the category "instanced" is needed and has to be assigned to the appropriate license entries (a complete file can be found [here](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/license-classifications.yml).   
+For categorization of licenses, the `license-classifications.yml`-File is used. For OSCake the category "instanced" is needed and has to be assigned to the appropriate license entries (a complete file can be found [here](./examples/license-classifications.yml).   
 
 	categories:
 	- name: "instanced"

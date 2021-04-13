@@ -31,7 +31,7 @@ Depending on different criteria (e.g. "declared license") the license text has t
 `OSCake=sourceCodeDownloadDir=[your_path]/downloads`
 
 #### Path to a specific OSCake-configuration file
-The [configuration file](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/oscake.conf) contains information about default values for OSCake reporter which are project independent: 
+The [configuration file](./examples/oscake.conf) contains information about default values for OSCake reporter which are project independent: 
 
 `OSCake=configFile=[your_path]/oscake.conf`
 
@@ -44,18 +44,18 @@ The [configuration file](https://github.com/telekom/ort-dsl-documentation/blob/m
 * option `-f`: name of the report: `-f OScake`
 
 #### Used ORT excludes
-ORT has a mechanism ([configuration file](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/.ort.yml)) to control the handling of source code packages in order to exclude them (e.g. because they are only used for testing purposes). Therefore, it is possible to place a file with the name `.ort.yml` directly in the root directory of the source code.
+ORT has a mechanism ([configuration file](./examples/.ort.yml)) to control the handling of source code packages in order to exclude them (e.g. because they are only used for testing purposes). Therefore, it is possible to place a file with the name `.ort.yml` directly in the root directory of the source code.
 
 Additional information can be found [here](https://github.com/oss-review-toolkit/ort/blob/master/docs/config-file-ort-yml.md#excluding-scopes)
 
 ## Running ORT using TDOSCA [Testcase#5](https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw)
 
 ### Preparation 
-1. Adapt the ort.conf to your needs - you can use the [example](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/ort.conf) and update the directory entries: `[yourFileStorageDirectory]` and `[yourScannerArchive]`. Specific  information about using commandline options for the scanner can be found [here](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/configuration.md)
+1. Adapt the ort.conf to your needs - you can use the [example](./examples/ort.conf) and update the directory entries: `[yourFileStorageDirectory]` and `[yourScannerArchive]`. Specific  information about using commandline options for the scanner can be found [here](./configuration.md)
 2. Be sure that the directory `[yourFileStorageDirectory]` in `ort.conf` is empty. ORT has a mechanism to download only files which were not downloadet yet. As the OSCake-Reporter needs all the source code files, the directory **must be empty** before a new project is processed 
-3. Prepare the `license-classifications.yml` [file](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
-4. If you want to exclude some packages from being processed in a default way, create the [file](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/.ort.yml) `.ort.yml`. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
-5. Customise the `oscake.conf` [configuration file](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/oscake.conf). Adapt the "scopePatterns" which are responsible to retrieve the scope of the license information of a file (default, directory, file) 
+3. Prepare the `license-classifications.yml` [file](./examples/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
+4. If you want to exclude some packages from being processed in a default way, create the [file](./examples/.ort.yml) `.ort.yml`. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
+5. Customise the `oscake.conf` [configuration file](./examples/oscake.conf). Adapt the "scopePatterns" which are responsible to retrieve the scope of the license information of a file (default, directory, file) 
 6. Create your [workingDirectory] 
 7. Create the [outputDirectory] - it can be a sub directory of your working directory
 
@@ -68,7 +68,7 @@ Go to your working directory and clone the repository
 A directory `tdosca-tc05-simplhw` containing the requested source code is created.
 
 
-If you want to exclude some packages copy the file [.ort.yml](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/.ort.yml) to `[workingDirectory]/tdosca-tc05-simplhw/input-sources`
+If you want to exclude some packages copy the file [.ort.yml](./examples/.ort.yml) to `[workingDirectory]/tdosca-tc05-simplhw/input-sources`
 
 ### Analyzer
 Go to the installation directory of your ORT instance and run the following command
@@ -93,5 +93,5 @@ Call the following command to create the OSCake input:
 --license-classifications-file=[yourPathTo]/license-classifications.yml`
 
 The reporter combines the different input files and produces the output files:
-* [OSCake-Report.oscc](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/OSCake-Report.oscc)
-* [tdosca-tc05.zip](https://github.com/telekom/ort-dsl-documentation/blob/main/docs/examples/tdosca-tc05.zip)
+* [OSCake-Report.oscc](./examples/OSCake-Report.oscc)
+* [tdosca-tc05.zip](./examples/tdosca-tc05.zip)
