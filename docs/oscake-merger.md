@@ -40,15 +40,15 @@ Options:
 * denotes required options.
 ```
 
-Option "-c": an identifier is a string defined by its type, namespace, name and version (e.g. "Maven:joda-time:joda-time:2.10.8"). If no output files are specified (options -f and -a) the filenames are generated based on the id, whereas ":" are replaced by ".". If the identifier contains characters which are not allowed in filenames (e.g. "\*") the program is aborted.
+Option "-c": An identifier is a string defined by its type, namespace, name and version (e.g. "Maven:joda-time:joda-time:2.10.8"). If no output files are specified (options -f and -a) the filenames are generated based on the ID, whereas ":" are replaced by ".". If the identifier contains characters which are not allowed in filenames (e.g. "\*") the program is aborted.
 
 
 ## Processing & Issues & Error Handling
 
-During the processing of the input files, every package is copied into the output file. In order to avoid collisions with referenced files in the zip archive, a unique identifier is prepended to the reference and to the name of the archived file.
+During the processing of the input files, every package is copied into the output file - if it does not already exist. In order to avoid collisions between file references in the zip archive, a unique identifier is prepended to the reference and also to the name of the archived file.
 
 If an \*.oscc file in the input folder has set the property "hasIssues" to "true", then this information is automatically propagated to the output file and the input file is excluded from further processing steps. 
 
 In larger projects it may happen that a specific package is contained in more than one input file. In this case, the first occurrence is imported and the content of the second one is checked against it. If there are some differences concerning the license or copyright information, this is logged - different file paths (references to the files in the archive) are ignored.
 
-The logging is implemented by means of `Apache log4j2` and can be configured as described in the OSCake-Reporter section (see [here](./docs/architecture-and-code.md) - but use `OS_CAKE_MERGER_OPTS`instead of `ORT_OPTS`)
+The logging is implemented by means of `Apache log4j2` and can be configured as described in the OSCake-Reporter section (see [here](./architecture-and-code.md) - but use `OS_CAKE_MERGER_OPTS`instead of `ORT_OPTS`)
