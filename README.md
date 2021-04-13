@@ -22,5 +22,5 @@ Contains findings and documentation on OSCake the OSCake reporter extension to O
 [oscake-merger.md]: ./docs/oscake-merger.md
 
 ## Overview: ORT - OSCakeReporter
-[overview]: ./docs/images/overview.png
+[overview]: ./docs/images/overview.jpg
 ![Overview][overview]
