@@ -12,7 +12,7 @@ The git repository can be found [here](https://github.com/telekom/oscake-merger)
 
 If the program is installed correctly, the following welcome screen should be displayed:
 
-![OSCake-Merger Welcome Screen](./images/merger_welcome_screen.png)
+![OSCake-Merger Welcome Screen](./images/merger_welcome_screen.jpg)
 
 The version information corresponds to the latest git commit.
 
