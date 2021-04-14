@@ -1,6 +1,6 @@
 # Running ORT with OSCake-Reporter
 The following sections show the use of [ORT](https://github.com/telekom/ort) in order to produce the input files for [OSCake](https://github.com/Open-Source-Compliance/OSCake) ("Open Source Compliance artifact knowledge engine"). The ORT OSCake-Reporter generates the following files:
-* *OSCake-Report.oscc*: reporter output in a DSL - [Example](https://github.com/Open-Source-Compliance/OSCake/blob/main/test/a-input.oscc/oscake-reference.oscc)
+* *OSCake-Report.oscc*: reporter output in a DSL - [Example](./examples/OSCake-Report.oscc)
 * *zip-File*: flat zip-archive, containing the license-relevant generated or copied files
 
 ## Install ORT
@@ -9,7 +9,7 @@ The following sections show the use of [ORT](https://github.com/telekom/ort) in 
 * Installation and verification prerequisites  [see](https://github.com/telekom/ort/blob/dsl-main/docs/getting-started.md#1-prerequisites)
   * `git clone --recurse-submodules https://github.com/telekom/ort.git`
   * `cd ort`
-  * `./gradlew installDist`
+  * `./gradlew installDist` (Info: If the command fails, the most probable cause is that a specific package dependency is not met. In this case you have to update the file `gradle.properties` and change the version accordingly)
 
 
 ## OSCake-Configuration
@@ -85,7 +85,10 @@ Call the following command to start the scan operation
 
 The scanner generates the file `scan-result.yml` and the directories `native-scan-results` and `downloads`. The running time of the scanner depends on the size of the project and the used packages.
 
-### OSCake-Report
+In case of a runtime error, the most probable cause is that the environment variable `LANG` is not set correctly (e.g. LANG="en_US.UTF-8"; export LANG) 
+
+### OSCake-Reporter
+
 Call the following command to create the OSCake input:
 
 `cli/build/install/ort/bin/ort -c ort.conf report -i [outputDirectory]/scan-result.yml -o
@@ -95,3 +98,41 @@ Call the following command to create the OSCake input:
 The reporter combines the different input files and produces the output files:
 * [OSCake-Report.oscc](./examples/OSCake-Report.oscc)
 * [tdosca-tc05.zip](./examples/tdosca-tc05.zip)
+
+In case of processing errors, the logfile `OSCake.log` is generated (details can be found [here](./architecture-and-code.md))
+
+### OSCake-Reporter with Curations
+
+If the scanner does not find the correct license or copyright information, it is possible to define curations for specific packages (a complete overview can be found [here](./curations.md)).
+
+1. "Enable" the curation mechanism in the config file `oscake.conf`
+```
+...
+	curations {
+		enabled = true
+		directory = "[path to the directory, which contains the curation files]"
+		fileStore = "[path to the directory, where the corresponding license files are kept]"
+	}
+...	
+```
+2. Create a curation file in yml-format - in this example we assume that the scanner did not find the given file (referenced in `file_scope`) and therefore, the copyright, the license and the corresonding file (referenced in `license_text_in_archive`) have to be added. The `license_text_in_archive`- path is relative to the `fileStore` defined in `oscake.conf`.
+
+```
+- id: "Maven:de.tdosca.tc05:tdosca-tc05:1.0"
+  package_modifier: "update"
+  curations:
+    - file_scope: "src/main/java/de/tdosca/common/LICENSE"
+      file_licenses:
+        - modifier: "insert"
+          reason: "file was not found by scanner"
+          license: "NEW_LICENSE"
+          license_text_in_archive: "newLicense/new_license.txt"
+      file_copyrights:
+        - modifier: "insert"
+          copyright: "Copyright 2010 by Konrad"		  
+```
+
+
+3. Re-run the Reporter - the applied curations are reflected in the files
+*  [OSCake-Report_curated.oscc](./examples/OSCake-Report_curated.oscc) 
+*  [tdosca-tc05_curated.zip](./examples/tdosca-tc05_curated.zip) 

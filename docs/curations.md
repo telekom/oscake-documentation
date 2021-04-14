@@ -8,8 +8,8 @@ Curations may be configured and enabled as follows:
 ...
 	curations {
 		enabled = true
-		directory = "curations/packages"
-		fileStore = "curations/store"
+		directory = "[path to the directory, which contains the curation files]"
+		fileStore = "[path to the directory, where the corresponding license files are kept]"
 	}
 }
 ``` 

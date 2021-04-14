@@ -5,7 +5,7 @@
 		"author": "OSCake-Reporter",
 		"release": "0.1",
 		"date": "2021-04-14T15:09:16.559444",
-		"archivePath": "./tdosca-tc05.zip",
+		"archivePath": "./tdosca-tc05_curated.zip",
 		"archiveType": "ZIP"
 	},
 	"complianceArtifactPackages": [
@@ -21,7 +21,18 @@
 					"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%COPYING.MIT"
 				}
 			],
-			"dirLicensings": [],
+			"dirLicensings": [
+				{
+					"dirScope": "src/main/java/de/tdosca/common",
+					"dirLicenses": [
+						{
+							"foundInFileScope": "src/main/java/de/tdosca/common/LICENSE",
+							"license": "NEW_LICENSE",
+							"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%newLicense%new_license.txt.NEW_LICENSE"
+						}
+					]
+				}
+			],
 			"reuseLicensings": [],
 			"fileLicensings": [
 				{
@@ -138,6 +149,20 @@
 					"fileCopyrights": [
 						{
 							"copyright": "Copyright (c) 2020 kreincke / Deutsche Telekom AG"
+						}
+					]
+				},
+				{
+					"fileScope": "src/main/java/de/tdosca/common/LICENSE",
+					"fileLicenses": [
+						{
+							"license": "NEW_LICENSE",
+							"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%newLicense%new_license.txt.NEW_LICENSE"
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright 2010 by Konrad"
 						}
 					]
 				}
