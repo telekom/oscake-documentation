@@ -51,13 +51,13 @@ Additional information can be found [here](https://github.com/oss-review-toolkit
 ## Running ORT using TDOSCA [Testcase#5](https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw)
 
 ### Preparation 
-1. Adapt the ort.conf to your needs - you can use the [example](./examples/ort.conf) and update the directory entries: `[yourFileStorageDirectory]` and `[yourScannerArchive]`. Specific  information about using commandline options for the scanner can be found [here](./configuration.md)
-2. Be sure that the directory `[yourFileStorageDirectory]` in `ort.conf` is empty. ORT has a mechanism to download only files which were not downloadet yet. As the OSCake-Reporter needs all the source code files, the directory **must be empty** before a new project is processed 
+1. Adapt the ort.conf to your needs - you can use the [example](./examples/ort.conf) and update the directory entries: `[yourFileStorageDirectory]` and `[yourScannerArchive]`. Specific  information about using commandline options for the scanner can be found [here](./configuration.md).
+2. Be sure that the directory `[yourFileStorageDirectory]` in `ort.conf` is empty. ORT has a mechanism to download only files which were not downloadet yet. As the OSCake-Reporter needs all the source code files, the directory **must be empty** before a new project is processed .
 3. Prepare the `license-classifications.yml` [file](./examples/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
-4. If you want to exclude some packages from being processed in a default way, create the [file](./examples/.ort.yml) `.ort.yml`. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
-5. Customise the `oscake.conf` [configuration file](./examples/oscake.conf). Adapt the "scopePatterns" which are responsible to retrieve the scope of the license information of a file (default, directory, file) 
-6. Create your [workingDirectory] 
-7. Create the [outputDirectory] - it can be a sub directory of your working directory
+4. If you want to exclude some packages from being processed in a default way, create the [file](./examples/.ort.yml) `.ort.yml` and copy it into the source code folder. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
+5. Customise the `oscake.conf` [configuration file](./examples/oscake.conf). Adapt the "scopePatterns" which are responsible to retrieve the scope of the license information of a file (default, directory, reuse, file).
+6. Create your [workingDirectory].
+7. Create the [outputDirectory] - it can also be a sub directory of your working directory.
 
 
 ### Download GIT-Repo
@@ -68,7 +68,7 @@ Go to your working directory and clone the repository
 A directory `tdosca-tc05-simplhw` containing the requested source code is created.
 
 
-If you want to exclude some packages copy the file [.ort.yml](./examples/.ort.yml) to `[workingDirectory]/tdosca-tc05-simplhw/input-sources`
+If you want to exclude some packages copy the file [.ort.yml](./examples/.ort.yml) into the directory `[workingDirectory]/tdosca-tc05-simplhw/input-sources`
 
 ### Analyzer
 Go to the installation directory of your ORT instance and run the following command
@@ -85,7 +85,7 @@ Call the following command to start the scan operation
 
 The scanner generates the file `scan-result.yml` and the directories `native-scan-results` and `downloads`. The running time of the scanner depends on the size of the project and the used packages.
 
-In case of a runtime error, the most probable cause is that the environment variable `LANG` is not set correctly (e.g. LANG="en_US.UTF-8"; export LANG) 
+In case of a runtime error, the most probable cause is that the environment variable `LANG` is not set correctly (e.g. LANG="en_US.UTF-8"; export LANG).
 
 ### OSCake-Reporter
 
@@ -99,7 +99,7 @@ The reporter combines the different input files and produces the output files:
 * [OSCake-Report.oscc](./examples/OSCake-Report.oscc)
 * [tdosca-tc05.zip](./examples/tdosca-tc05.zip)
 
-In case of processing errors, the logfile `OSCake.log` is generated (details can be found [here](./architecture-and-code.md))
+In case of processing errors, the logfile `OSCake.log` is generated (configuration details can be found [here](./architecture-and-code.md))
 
 ### OSCake-Reporter with Curations
 
