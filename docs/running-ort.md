@@ -3,6 +3,8 @@ The following sections show the use of [ORT](https://github.com/telekom/ort) in 
 * *OSCake-Report.oscc*: reporter output in a DSL - [Example](./examples/OSCake-Report.oscc)
 * *zip-File*: flat zip-archive, containing the license-relevant generated or copied files
 
+> Info: Sections marked with this style refer to instructions on how to run ORT with Docker 
+
 ## Install ORT
 
 * General information about ORT see https://github.com/telekom/ort
@@ -10,6 +12,15 @@ The following sections show the use of [ORT](https://github.com/telekom/ort) in 
   * `git clone --recurse-submodules https://github.com/telekom/ort.git`
   * `cd ort`
   * `./gradlew installDist` (Info: If the command fails, the most probable cause is that a specific package dependency is not met. In this case you have to update the file `gradle.properties` and change the version accordingly)
+
+> Steps to create a Docker image for ORT (Docker must be installed on your computer)
+> * `docker build -t ort .`
+> * run `docker run ort` to verify the image (the ORT start screen should be displayed)
+>
+> for further information about ORT and Docker see the following links:
+> * [ORT: Docker Build](https://github.com/telekom/ort#basic-usage)
+> * [ORT: Run with Docker](https://github.com/telekom/ort#run-using-docker)
+> * [ORT: Hints for Use with Docker](https://github.com/telekom/ort/blob/oscake-reporter/docs/hints-for-use-with-docker.md)
 
 
 ## OSCake-Configuration
@@ -51,6 +62,32 @@ Additional information can be found [here](https://github.com/oss-review-toolkit
 ## Running ORT using TDOSCA [Testcase#5](https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw)
 
 ### Preparation 
+
+A proposal for a complete folder structure including the necessary adapted files - which is used in the Docker examples - can be downloaded [here](./examples/ortExample.zip). 
+```
+.
+|-- conf
+|   |-- license-classifications.yml
+|   |-- ort.conf
+|   `-- oscake.conf
+|-- curations
+|   |-- packages
+|   |   `-- cur.yml
+|   `-- store
+|       `-- newLicense
+|           `-- new_license.txt
+|-- results
+|-- scanner
+|   |-- scannerArchive
+|   `-- scannerStorage
+`-- tdosca-tc05-simplhw
+    |-- README.md
+    |-- .....
+	| ...
+```
+
+If you want to prepare the configuration by yourself, you can follow the steps below: 
+
 1. Adapt the ort.conf to your needs - you can use the [example](./examples/ort.conf) and update the directory entries: `[yourFileStorageDirectory]` and `[yourScannerArchive]`. Specific  information about using commandline options for the scanner can be found [here](./configuration.md).
 2. Be sure that the directory `[yourFileStorageDirectory]` in `ort.conf` is empty. ORT has a mechanism to download only files which were not downloadet yet. As the OSCake-Reporter needs all the source code files, the directory **must be empty** before a new project is processed .
 3. Prepare the `license-classifications.yml` [file](./examples/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
@@ -58,17 +95,9 @@ Additional information can be found [here](https://github.com/oss-review-toolkit
 5. Customise the `oscake.conf` [configuration file](./examples/oscake.conf). Adapt the "scopePatterns" which are responsible to retrieve the scope of the license information of a file (default, directory, reuse, file).
 6. Create your [workingDirectory].
 7. Create the [outputDirectory] - it can also be a sub directory of your working directory.
-
-
-### Download GIT-Repo
-Go to your working directory and clone the repository 
-
-`git clone https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw.git`
-
-A directory `tdosca-tc05-simplhw` containing the requested source code is created.
-
-
-If you want to exclude some packages copy the file [.ort.yml](./examples/.ort.yml) into the directory `[workingDirectory]/tdosca-tc05-simplhw/input-sources`
+8. Clone the GIT-Repo into your working directory - a directory `tdosca-tc05-simplhw` containing the requested source code is created. If you want to exclude some packages (because they are only needed for testing reasons), copy the file [.ort.yml](./examples/.ort.yml) into the directory 
+ `[workingDirectory]/tdosca-tc05-simplhw/input-sources`  
+   `git clone https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw.git`
 
 ### Analyzer
 Go to the installation directory of your ORT instance and run the following command
@@ -76,6 +105,13 @@ Go to the installation directory of your ORT instance and run the following comm
 `cli/build/install/ort/bin/ort -c ort.conf analyze -i [workingDirectory]/tdosca-tc05-simplhw/input-sources -o [outputDirectory]`
 
 ORT will generate the file `analyzer-result.yml` in the [outputDirectory].
+
+> Run Analyzer from Docker using the unzipped [example file](./examples/ortExample.zip):  
+>
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf analyze -i ./tdosca-tc05-simplhw/input-sources -o ./results`  
+>
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. ORT will generate the file `analyzer-result.yml` in the subdirectory `./results`
+
 
 ### Scanner
 
@@ -86,6 +122,10 @@ Call the following command to start the scan operation
 The scanner generates the file `scan-result.yml` and the directories `native-scan-results` and `downloads`. The running time of the scanner depends on the size of the project and the used packages.
 
 In case of a runtime error, the most probable cause is that the environment variable `LANG` is not set correctly (e.g. LANG="en_US.UTF-8"; export LANG).
+
+> Run Scanner from Docker:
+>
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf scan -i ./results/analyzer-result.yml -o ./results`
 
 ### OSCake-Reporter
 
@@ -100,6 +140,13 @@ The reporter combines the different input files and produces the output files:
 * [tdosca-tc05.zip](./examples/tdosca-tc05.zip)
 
 In case of processing errors, the logfile `OSCake.log` is generated (configuration details can be found [here](./architecture-and-code.md))
+
+> Run OSCake-Reporter from Docker (with curations enabled):
+>
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf report -i ./results/scan-result.yml -o ./results -f OSCake -O OSCake=nativeScanResultsDir=./results/native-scan-results -O OSCake=sourceCodeDownloadDir=./results/downloads -O OSCake=configFile=./conf/oscake.conf --license-classifications-file=./conf/license-classifications.yml`  
+>
+> The generated files can be found in the folder `./results`. The logfile `OSCake.log` is created directly in the working directory.
+
 
 ### OSCake-Reporter with Curations
 
