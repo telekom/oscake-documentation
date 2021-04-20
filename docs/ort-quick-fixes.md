@@ -1,8 +1,12 @@
 # Branch: "oscake-reporter"
-from March 2021
+since March 2021
 
+### Windows - Path-Compatibility
+* Windows - Path-Compatibility
 When unarchiving the files in class [*LicenseInfoResolver*](https://github.com/telekom/ort/blob/oscake-reporter/model/src/main/kotlin/licenses/LicenseInfoResolver.kt#L226) on Windows-based systems correctly, the backslash has to be changed to slash (otherwise the glob pattern-matching won't work)
 
+### ./gradlew installDist
+* This gradle task leads to an error, because the version of the ` sw360ClientVersion` library is set to a value, which is not downloadable anymore. In order to change the version, go to the file `gradle.properties` and set the value for the key `sw360ClientVersion` to `13.1.0-64`. 
 
 # Branch: "dsl-main"
 till end of February 2021

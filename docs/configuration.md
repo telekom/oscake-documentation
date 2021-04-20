@@ -1,6 +1,6 @@
 ## Configuration of the "ScanCode"-Scanner in ort.conf
 
-#### ScanCode-Commandline options
+### ScanCode-Commandline options
 The commandline contains options for the scanner which can be found [here](https://scancode-toolkit.readthedocs.io/en/latest/cli-reference/basic-options.html)
 ```
 ort {
@@ -12,7 +12,20 @@ ort {
     .....
     }
 ```
-The option `--json-pp` is appended automatically to the commandLine by the ORT tool and cannot be changed
+The option `--json-pp` is appended automatically to the commandLine by the ORT tool and cannot be changed.
+
+#### ScanCode Option: --license-score
+The scanner classifies license findings based on the application of different matching rules. These scores can be found inside of the file `scan-results_ScanCode.json`.
+```
+      "licenses": [
+        {
+          "key": "mit",
+          "score": 100.0,
+          "name": "MIT License",
+		  .....
+```
+The default value for this option is set to 0. That means, that every license finding with a score of 0 and higher will be taken into account. If the number of these findings should be reduced (in case that the scanner marks texts as a license because it randomly matches a rule), the score can be set to a value between 0 and 100. More information can be found [here](https://scancode-toolkit.readthedocs.io/en/latest/cli-reference/basic-options.html#license-score-options). 
+
 
 ### ScanCode-Storages
 The storages can be configured as described [here](https://github.com/oss-review-toolkit/ort/blob/master/model/src/test/assets/reference.conf) - e.g.

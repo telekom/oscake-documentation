@@ -7,8 +7,9 @@ The git repository can be found [here](https://github.com/telekom/oscake-merger)
 
 1. Clone the repository: `git clone https://github.com/telekom/oscake-merger.git`
 2. Change into directory `oscake-merger`
-3. Run: `gradlew instDist`
-4. Run: `build\install\OSCake-Merger\bin\OSCake-Merger -v` for verification
+3. Run: `chmod 777 gradlew`
+3. Run: `./gradlew instDist`
+4. Run: `./build/install/OSCake-Merger/bin/OSCake-Merger -v` for verification
 
 If the program is installed correctly, the following welcome screen should be displayed:
 
