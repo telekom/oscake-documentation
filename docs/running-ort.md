@@ -183,3 +183,6 @@ If the scanner does not find the correct license or copyright information, it is
 3. Re-run the Reporter - the applied curations are reflected in the files
 *  [OSCake-Report_curated.oscc](./examples/OSCake-Report_curated.oscc) 
 *  [tdosca-tc05_curated.zip](./examples/tdosca-tc05_curated.zip) 
+
+### Additional information for [Testcase#6](https://github.com/Open-Source-Compliance/tdosca-tc06-plainhw.git)
+A complete folder structure to run the Reporter on **tdosca-tc06-plainhw** - after running the Analyzer and the Scanner - can be found [here](./examples/tc06.tar.gz).
