@@ -24,7 +24,7 @@ The following sections show the use of [ORT](https://github.com/telekom/ort) in 
 
 
 ## OSCake-Configuration
-In order to use the OSCake-Reporter, several parameters have to be set using the appropriate ORT commandline style. Additionally, a specific configuration file has to be provided ([ort.conf](./examples/ort.conf)) 
+In order to use the OSCake-Reporter, several parameters have to be set using the appropriate ORT commandline style. Additionally, a specific configuration file has to be provided ([ort.conf](./examples/ort.conf)) - see also comment in configuration file for changes between different versions.
 
 ### Parameters
 ORT handles commandline parameters in several ways:
