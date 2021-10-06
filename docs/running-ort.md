@@ -137,13 +137,13 @@ The OSCake-Reporter uses various information from the Analyzer and the Scanner. 
 
 When the reporter needs specific license information, which is not delivered by the scanner (e.g. when handling instanced licenses), the necessary source code files are downloaded from the VCS and stored in the `sourceCodesDir`. In order to use the scanner storage (which helps to speed up the scanning process), OSCake uses its own oscake-scan-results-cache. If enabled, the reporter copies the scan-results from ORT (`native-scan-results`-folder) into the oscake-scan-results-cache (package per package). If enabled and the ORT scan results do not exist (may happen, when a new scan is done, but the results are already in the scanner storage - consequently no folder `native-scan-results` exist in the output directory), it uses the oscake-scan-results-cache directly. If this option is disabled, the reporter takes the `native-scan-results`-folder as input.
 
-Call the following command to create the OSCake input:
+Call the following command to create the OSCake output:
 
 `cli/build/install/ort/bin/ort -c ort.conf report -i [outputDirectory]/scan-result.yml -o
 [outputDirectory] -f OSCake -O OSCake=configFile=oscake.conf
 --license-classifications-file=[yourPathTo]/license-classifications.yml`
 
-The reporter combines the different input files and produces the output files. If the original sourcecode is needed and not already downloaded to the sourcecodes folder, it is downloaded by the reporter from the used VCS and may lead to a longer runtime):
+The reporter combines the different input files and produces the output files (if the original sourcecode is needed and not already downloaded to the sourcecodes folder, it is downloaded by the reporter from the used VCS, which may lead to a longer runtime):
 * [OSCake-Report.oscc](./examples/OSCake-Report.oscc)
 * [tdosca-tc05.zip](./examples/tdosca-tc05.zip)
 
