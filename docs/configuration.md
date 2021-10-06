@@ -1,3 +1,7 @@
+## Configuration of the "OSCake"-Reporter
+
+Detailed infos may be found [here](./running-ort.md#oscake-configuration) and [here](./running-ort.md#preparation)
+
 ## Configuration of the "ScanCode"-Scanner in ort.conf
 
 ### ScanCode-Commandline options
@@ -28,7 +32,7 @@ The default value for this option is set to 0. That means, that every license fi
 
 
 ### ScanCode-Storages
-The storages can be configured as described [here](https://github.com/oss-review-toolkit/ort/blob/master/model/src/test/assets/reference.conf) - e.g.
+The storages can be configured as described [here](https://github.com/oss-review-toolkit/ort/blob/master/model/src/main/resources/reference.conf) - e.g.
 ```
 ort {
   scanner {

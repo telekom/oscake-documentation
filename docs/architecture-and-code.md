@@ -1,6 +1,6 @@
 ## OSCake-Reporter
 
-The reporter is implemented in the file [`OSCakeReporter.kt`](https://github.com/telekom/ort/blob/dsl-main/reporter/src/main/kotlin/reporters/OSCakeReporter.kt). In order to be loaded by the tool, the reporter has to be defined in the file [`org.ossreviewtoolkit.reporter.Reporter`](https://github.com/telekom/ort/blob/dsl-main/reporter/src/main/resources/META-INF/services/org.ossreviewtoolkit.reporter.Reporter) and has to implement the interface [`Reporter`](https://github.com/telekom/ort/blob/dsl-main/reporter/src/main/kotlin/Reporter.kt).
+The reporter is implemented in the file [`OSCakeReporter.kt`](https://github.com/telekom/ort/blob/oscake-reporter/reporter/src/main/kotlin/reporters/OSCakeReporter.kt). In order to be loaded by the tool, the reporter has to be defined in the file [`org.ossreviewtoolkit.reporter.Reporter`](https://github.com/telekom/ort/blob/oscake-reporter/reporter/src/main/resources/META-INF/services/org.ossreviewtoolkit.reporter.Reporter) and has to implement the interface [`Reporter`](https://github.com/telekom/ort/blob/oscake-reporter/reporter/src/main/kotlin/Reporter.kt).
 
 ## Logging and Error Handling
 In general, ORT returns an integer value after program termination. A value of 0 shows that no program relevant errors happened. Logical or semantic problems/errors during the "Analyzer" and "Scan"-steps are directly reported in the output file: `scan_result.yml`:

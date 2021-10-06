@@ -4,7 +4,7 @@
 		"cid": "Maven:de.tdosca.tc06:tdosca-tc06:1.0",
 		"author": "OSCake-Reporter",
 		"release": "0.1",
-		"date": "2021-04-26T08:39:32.327340700",
+		"date": "2021-10-06T13:54:02.012003400",
 		"archivePath": "./tdosca-tc06.zip",
 		"archiveType": "ZIP"
 	},
@@ -103,7 +103,7 @@
 					"fileScope": "pom.xml",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-unknown-spdx",
 							"licenseTextInArchive": null
 						}
 					],
@@ -354,8 +354,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/asia",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%asia.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%asia.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -630,8 +630,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/southamerica",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%southamerica.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%southamerica.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -944,8 +944,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/africa",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%africa.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%africa.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -1034,8 +1034,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/antarctica",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%antarctica.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%antarctica.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -1282,8 +1282,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/australasia",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%australasia.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%australasia.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -1934,8 +1934,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/etcetera",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%etcetera.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%etcetera.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -2684,8 +2684,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/northamerica",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%northamerica.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%northamerica.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -4306,8 +4306,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/europe",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%europe.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%europe.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -4338,7 +4338,7 @@
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-other-permissive",
 							"licenseTextInArchive": null
 						}
 					],
@@ -5388,8 +5388,8 @@
 					"fileScope": "src/main/java/org/joda/time/tz/src/backward",
 					"fileLicenses": [
 						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%backward.NOASSERTION"
+							"license": "LicenseRef-scancode-public-domain",
+							"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%src%main%java%org%joda%time%tz%src%backward.LicenseRef-scancode-public-domain"
 						}
 					],
 					"fileCopyrights": []
@@ -8776,11 +8776,11 @@
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-generic-cla",
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-generic-cla",
 							"licenseTextInArchive": null
 						}
 					],
@@ -16398,11 +16398,11 @@
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-generic-cla",
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-generic-cla",
 							"licenseTextInArchive": null
 						}
 					],
@@ -36709,11 +36709,11 @@
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-generic-cla",
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-generic-cla",
 							"licenseTextInArchive": null
 						}
 					],
@@ -44331,11 +44331,11 @@
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-generic-cla",
 							"licenseTextInArchive": null
 						},
 						{
-							"license": "NOASSERTION",
+							"license": "LicenseRef-scancode-generic-cla",
 							"licenseTextInArchive": null
 						}
 					],

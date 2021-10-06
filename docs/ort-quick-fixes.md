@@ -1,4 +1,6 @@
 # Branch: "oscake-reporter"
+since October 2021 - only necessary when creating a new fork or when merging with an incompatible ORT version!
+
 since March 2021
 
 ### Windows - Path-Compatibility
