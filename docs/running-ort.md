@@ -92,11 +92,12 @@ If you want to prepare the configuration by yourself, you can follow the steps b
 3. Prepare the `license-classifications.yml` [file](./examples/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
 4. If you want to exclude some packages from being processed in a default way, create the [file](./examples/.ort.yml) `.ort.yml` and copy it into the source code folder. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
 5. Customise the `oscake.conf` [configuration file](./examples/oscake.conf). .
-    1. Adapt the "scopePatterns" which are responsible for retrieving the scope of the license information of a file (default, directory, reuse, file)
+    1. Adapt the *scopePatterns* which are responsible for retrieving the scope of the license information of a file (default, directory, reuse, file)
 	2. Specify the curation settings, if enabled
-	3. Set the "sourceCodesDir" to the directory where the source codes are downloaded and kept, in order to extract original license infos
-	4. Configure the "ortScanResultsDir", which denotes the folder where the original ORT scan results are stored
-	5. Define the usage of the OSCake scan-results-cache. If enabled, the "directory" determines where the cache can be found 
+	3. Set the *sourceCodesDir* to the directory where the source codes are downloaded and kept, in order to extract original license infos
+	4. Configure the *ortScanResultsDir*, which denotes the folder where the original ORT scan results are stored
+	5. Define the usage of the OSCake scan-results-cache. If enabled, the *directory* determines where the cache can be stored/found 
+	6. If the output should be restricted to specific packages then, the configuration for *packageRestrictions.enabled* has to be set to `true` and the entry for *packageRestrictions.onlyIncludePackages* must contain a list of package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter *dependeny-granularity*.
 6. Create your [workingDirectory].
 7. Create the [outputDirectory] - it can also be a sub directory of your working directory.
 8. Clone the GIT-Repo into your working directory - a directory `tdosca-tc05-simplhw` containing the requested source code is created. If you want to exclude some packages (because they are only needed for testing reasons), copy the file [.ort.yml](./examples/.ort.yml) into the directory 
