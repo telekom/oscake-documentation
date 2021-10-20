@@ -40,7 +40,7 @@ The [configuration file](./examples/oscake.conf) contains information about defa
 
 In order to keep the output volume in the \*oscc file clearly represented, the level in the dependency tree of packages can be set - mainly used for verification reasons.
  
-`-O OSCake=dependeny-granularity=[level]` 
+`-O OSCake=dependency-granularity=[level]` 
 
 ORT stores newly created scan results in the output subdirectory "native-scan-results". The deletion of the content of this folder can be triggered by using the following option:
 
@@ -97,7 +97,7 @@ If you want to prepare the configuration by yourself, you can follow the steps b
 	3. Set the *sourceCodesDir* to the directory where the source codes are downloaded and kept, in order to extract original license infos
 	4. Configure the *ortScanResultsDir*, which denotes the folder where the original ORT scan results are stored
 	5. Define the usage of the OSCake scan-results-cache. If enabled, the *directory* determines where the cache can be stored/found 
-	6. If the output should be restricted to specific packages then, the configuration for *packageRestrictions.enabled* has to be set to `true` and the entry for *packageRestrictions.onlyIncludePackages* must contain a list of package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter *dependeny-granularity*.
+	6. If the output should be restricted to specific packages then, the configuration for *packageRestrictions.enabled* has to be set to `true` and the entry for *packageRestrictions.onlyIncludePackages* must contain a list of package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter *dependency-granularity*.
 6. Create your [workingDirectory].
 7. Create the [outputDirectory] - it can also be a sub directory of your working directory.
 8. Clone the GIT-Repo into your working directory - a directory `tdosca-tc05-simplhw` containing the requested source code is created. If you want to exclude some packages (because they are only needed for testing reasons), copy the file [.ort.yml](./examples/.ort.yml) into the directory 
