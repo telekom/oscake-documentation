@@ -1,10 +1,51 @@
 {
 	"hasIssues": false,
+	"config": {
+		"osCakeCommandLineParams": {
+			"configFile": "../tc06_V40/conf/oscake.conf"
+		},
+		"osCakeConfigFile": {
+			"scopePatterns": [
+				"license*",
+				"licence*",
+				"*.license",
+				"*.licence",
+				"unlicense",
+				"unlicence",
+				"copying*",
+				"copyright",
+				"notice*",
+				"LICENSE*",
+				"LICENCE*",
+				"*.LICENSE",
+				"*.LICENCE",
+				"UNLICENSE",
+				"UNLICENCE",
+				"COPYING*",
+				"COPYRIGHT",
+				"NOTICE*"
+			],
+			"curations": {
+				"fileStore": "../tc06_V40/curations/store",
+				"directory": "../tc06_V40/curations/packages",
+				"enabled": "false"
+			},
+			"sourceCodesDir": "../tc06_V40/sources",
+			"scanResultsCache": {
+				"directory": "../tc06_V40/oscakeNativeScanResults",
+				"enabled": "true"
+			},
+			"ortScanResultsDir": "../tc06_V40/results/native-scan-results",
+			"packageRestrictions": null,
+			"includeIssues": null,
+			"includeJsonPathInLogfile4ErrorsAndWarnings": false
+		}
+	},
 	"complianceArtifactCollection": {
 		"cid": "Maven:de.tdosca.tc06:tdosca-tc06:1.0",
 		"author": "OSCake-Reporter",
 		"release": "0.1",
-		"date": "2021-10-06T13:54:02.012003400",
+		"date": "2021-11-06T10:51:38.132170",
 		"archivePath": "./tdosca-tc06.zip",
 		"archiveType": "ZIP"
 	},
@@ -14,16 +55,19 @@
 			"release": "1.0",
 			"repository": "https://github.com/Open-Source-Compliance/tdosca-tc06-plainhw.git",
 			"id": "Maven:de.tdosca.tc06:tdosca-tc06:1.0",
+			"hasIssues": false,
 			"defaultLicensings": [
 				{
 					"foundInFileScope": "LICENSE",
 					"license": "MIT",
-					"licenseTextInArchive": "Maven%de.tdosca.tc06%tdosca-tc06%1.0%input-sources%LICENSE.MIT"
+					"licenseTextInArchive": "Maven%de.tdosca.tc06%tdosca-tc06%1.0%input-sources%LICENSE.MIT",
+					"hasIssues": false
 				},
 				{
 					"foundInFileScope": "LICENSE.Apache-2.0",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": null
+					"licenseTextInArchive": null,
+					"hasIssues": false
 				}
 			],
 			"dirLicensings": [
@@ -33,7 +77,8 @@
 						{
 							"foundInFileScope": "src/main/java/de/tdosca/common/LICENSE",
 							"license": "BSD-3-Clause",
-							"licenseTextInArchive": "Maven%de.tdosca.tc06%tdosca-tc06%1.0%input-sources%src%main%java%de%tdosca%common%LICENSE.BSD-3-Clause"
+							"licenseTextInArchive": "Maven%de.tdosca.tc06%tdosca-tc06%1.0%input-sources%src%main%java%de%tdosca%common%LICENSE.BSD-3-Clause",
+							"hasIssues": false
 						}
 					]
 				}
@@ -223,16 +268,19 @@
 			"release": "2.10.8",
 			"repository": "https://github.com/JodaOrg/joda-time.git",
 			"id": "Maven:joda-time:joda-time:2.10.8",
+			"hasIssues": false,
 			"defaultLicensings": [
 				{
 					"foundInFileScope": "LICENSE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%LICENSE.txt.Apache-2.0"
+					"licenseTextInArchive": "Maven%joda-time%joda-time%2.10.8%LICENSE.txt.Apache-2.0",
+					"hasIssues": false
 				},
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": null
+					"licenseTextInArchive": null,
+					"hasIssues": false
 				}
 			],
 			"dirLicensings": [],
@@ -5481,21 +5529,25 @@
 			"release": "2.14.0",
 			"repository": "https://gitbox.apache.org/repos/asf/logging-log4j2.git",
 			"id": "Maven:org.apache.logging.log4j:log4j-api:2.14.0",
+			"hasIssues": false,
 			"defaultLicensings": [
 				{
 					"foundInFileScope": "LICENSE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-api%2.14.0%LICENSE.txt.Apache-2.0"
+					"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-api%2.14.0%LICENSE.txt.Apache-2.0",
+					"hasIssues": false
 				},
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-1.1",
-					"licenseTextInArchive": null
+					"licenseTextInArchive": null,
+					"hasIssues": false
 				},
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": null
+					"licenseTextInArchive": null,
+					"hasIssues": false
 				}
 			],
 			"dirLicensings": [
@@ -5505,17 +5557,20 @@
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/LICENSE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-api%2.14.0%log4j-core%src%test%resources%META-INF%LICENSE.Apache-2.0"
+							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-api%2.14.0%log4j-core%src%test%resources%META-INF%LICENSE.Apache-2.0",
+							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
 							"license": "Apache-1.1",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": null,
+							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": null,
+							"hasIssues": false
 						}
 					]
 				},
@@ -5525,17 +5580,20 @@
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
 							"license": "Apache-1.1",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": null,
+							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": null,
+							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/LICENSE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-api%2.14.0%log4j-core%src%main%resources%META-INF%LICENSE.Apache-2.0"
+							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-api%2.14.0%log4j-core%src%main%resources%META-INF%LICENSE.Apache-2.0",
+							"hasIssues": false
 						}
 					]
 				}
@@ -6555,10 +6613,6 @@
 				{
 					"fileScope": "log4j-core/src/main/java/org/apache/logging/log4j/core/jackson/Log4jStackTraceElementDeserializer.java",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -8763,14 +8817,6 @@
 				{
 					"fileScope": "README.md",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -15658,10 +15704,6 @@
 						{
 							"license": "NOASSERTION",
 							"licenseTextInArchive": null
-						},
-						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": null
 						}
 					],
 					"fileCopyrights": []
@@ -16389,10 +16431,6 @@
 				{
 					"fileScope": "CONTRIBUTING.md",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -26018,14 +26056,6 @@
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
 						}
 					],
 					"fileCopyrights": []
@@ -26253,18 +26283,6 @@
 				{
 					"fileScope": "src/site/xdoc/javastyle.xml",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -30808,14 +30826,6 @@
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
 						}
 					],
 					"fileCopyrights": []
@@ -31363,10 +31373,6 @@
 				{
 					"fileScope": "doap_log4j2.rdf",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -33414,21 +33420,25 @@
 			"release": "2.14.0",
 			"repository": "https://gitbox.apache.org/repos/asf/logging-log4j2.git",
 			"id": "Maven:org.apache.logging.log4j:log4j-core:2.14.0",
+			"hasIssues": false,
 			"defaultLicensings": [
 				{
 					"foundInFileScope": "LICENSE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-core%2.14.0%LICENSE.txt.Apache-2.0"
+					"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-core%2.14.0%LICENSE.txt.Apache-2.0",
+					"hasIssues": false
 				},
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-1.1",
-					"licenseTextInArchive": null
+					"licenseTextInArchive": null,
+					"hasIssues": false
 				},
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": null
+					"licenseTextInArchive": null,
+					"hasIssues": false
 				}
 			],
 			"dirLicensings": [
@@ -33438,17 +33448,20 @@
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/LICENSE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-core%2.14.0%log4j-core%src%test%resources%META-INF%LICENSE.Apache-2.0"
+							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-core%2.14.0%log4j-core%src%test%resources%META-INF%LICENSE.Apache-2.0",
+							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
 							"license": "Apache-1.1",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": null,
+							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": null,
+							"hasIssues": false
 						}
 					]
 				},
@@ -33458,17 +33471,20 @@
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
 							"license": "Apache-1.1",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": null,
+							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": null,
+							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/LICENSE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-core%2.14.0%log4j-core%src%main%resources%META-INF%LICENSE.Apache-2.0"
+							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-core%2.14.0%log4j-core%src%main%resources%META-INF%LICENSE.Apache-2.0",
+							"hasIssues": false
 						}
 					]
 				}
@@ -34488,10 +34504,6 @@
 				{
 					"fileScope": "log4j-core/src/main/java/org/apache/logging/log4j/core/jackson/Log4jStackTraceElementDeserializer.java",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -36696,14 +36708,6 @@
 				{
 					"fileScope": "README.md",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -43591,10 +43595,6 @@
 						{
 							"license": "NOASSERTION",
 							"licenseTextInArchive": null
-						},
-						{
-							"license": "NOASSERTION",
-							"licenseTextInArchive": null
 						}
 					],
 					"fileCopyrights": []
@@ -44322,10 +44322,6 @@
 				{
 					"fileScope": "CONTRIBUTING.md",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -53951,14 +53947,6 @@
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
 						}
 					],
 					"fileCopyrights": []
@@ -54186,18 +54174,6 @@
 				{
 					"fileScope": "src/site/xdoc/javastyle.xml",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
@@ -58741,14 +58717,6 @@
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
 						}
 					],
 					"fileCopyrights": []
@@ -59296,10 +59264,6 @@
 				{
 					"fileScope": "doap_log4j2.rdf",
 					"fileLicenses": [
-						{
-							"license": "Apache-2.0",
-							"licenseTextInArchive": null
-						},
 						{
 							"license": "Apache-2.0",
 							"licenseTextInArchive": null
