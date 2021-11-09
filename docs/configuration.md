@@ -1,7 +1,7 @@
 ## Configuration of the "OSCake"-Reporter
 
 ### Commandline options
-In order to keep the output volume in the \*oscc file as concise as possible, the `dependency-granularity`can be set. It defines the tree level of package dependencies and restricts the packages concerning their level (mainly used for verification reasons).
+In order to keep the output volume in the \*oscc file as concise as possible, the `dependency-granularity`can be set. It defines the tree level of package dependencies and restricts the packages concerning to their level (mainly used for verification reasons).
  
 `-O OSCake=dependency-granularity=[level]` 
 
@@ -20,7 +20,7 @@ An example of the `oscake.conf` may be found [here](./examples/oscake.conf).
 5. `scanResultsCache` defines the usage of the OSCake scan-results-cache. If `enabled`, the `directory` determines where the cache can be stored/found 
 6. `packageRestrictions` - if `enabled` the output is restricted to the packages enumerated in `onlyIncludePackages`. This list contains the package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter `dependency-granularity` (this option will be overruled!).
 7. `packageInclusions` contains a list of packages (`forceIncludePackages`). These Packages are integrated into the ouput also if the `dependency-granularity` excludes them. Only works in conjunction with the command line option `dependency-granularity`.
-8. `includeIssues` specifies, if log messages (INFO, WARN, ERROR) are inluded in the oscc-file. The messages are assigned to different levels: Root, Package, Default-Scope and Dir-Scope. The `level` defines the granularity of the messages; 0..ERROR, 1..WARN+ERROR, 2..WARN+ERROR+INFO.
+8. `includeIssues` specifies, if log messages (INFO, WARN, ERROR) are included in the oscc-file. The messages are assigned to different levels: Root, Package, Default-Scope and Dir-Scope. The `level` defines the granularity of the messages: 0..ERROR, 1..WARN+ERROR, 2..WARN+ERROR+INFO.
 9. `includeJsonPathInLogfile4ErrorsAndWarnings` - when set, WARN- and ERROR-messages have a suffix representing a JsonPath in order to locate the issue in the oscc file more easily .
 
 
