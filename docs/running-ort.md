@@ -36,15 +36,9 @@ The [configuration file](./examples/oscake.conf) contains information about defa
 
 `-O OSCake=configFile=[your_path]/oscake.conf`
 
-#### Additional OSCake commandline parameters
+#### OSCake commandline parameters
 
-In order to keep the output volume in the \*oscc file clearly represented, the level in the dependency tree of packages can be set - mainly used for verification reasons.
- 
-`-O OSCake=dependency-granularity=[level]` 
-
-ORT stores newly created scan results in the output subdirectory "native-scan-results". The deletion of the content of this folder can be triggered by using the following option:
-
-`-O OSCake=--deleteOrtNativeScanResults` 
+Detailed infos may be found [here](./configuration.md).
 
 #### Used ORT configuration options for the reporter
 * option `-c`: ORT uses the file `ort.conf` from the user's directory as default, but can be set also by a commandline parameter: `-c [your_path]/ort.conf`
@@ -91,13 +85,7 @@ If you want to prepare the configuration by yourself, you can follow the steps b
 2. Be sure that the directory `[yourFileStorageDirectory]` in `ort.conf` is empty. ORT has a mechanism to download only files which were not downloaded yet. As the OSCake-Reporter needs all the source code files, the directory **must be empty** before a new project is processed .
 3. Prepare the `license-classifications.yml` [file](./examples/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
 4. If you want to exclude some packages from being processed in a default way, create the [file](./examples/.ort.yml) `.ort.yml` and copy it into the source code folder. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
-5. Customise the `oscake.conf` [configuration file](./examples/oscake.conf). .
-    1. Adapt the *scopePatterns* which are responsible for retrieving the scope of the license information of a file (default, directory, reuse, file)
-	2. Specify the curation settings, if enabled
-	3. Set the *sourceCodesDir* to the directory where the source codes are downloaded and kept, in order to extract original license infos
-	4. Configure the *ortScanResultsDir*, which denotes the folder where the original ORT scan results are stored
-	5. Define the usage of the OSCake scan-results-cache. If enabled, the *directory* determines where the cache can be stored/found 
-	6. If the output should be restricted to specific packages then, the configuration for *packageRestrictions.enabled* has to be set to `true` and the entry for *packageRestrictions.onlyIncludePackages* must contain a list of package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter *dependency-granularity*.
+5. Customise the `oscake.conf` [configuration file](./examples/oscake.conf). Details may be found [here](./configuration.md)
 6. Create your [workingDirectory].
 7. Create the [outputDirectory] - it can also be a sub directory of your working directory.
 8. Clone the GIT-Repo into your working directory - a directory `tdosca-tc05-simplhw` containing the requested source code is created. If you want to exclude some packages (because they are only needed for testing reasons), copy the file [.ort.yml](./examples/.ort.yml) into the directory 

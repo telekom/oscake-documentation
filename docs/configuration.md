@@ -2,6 +2,28 @@
 
 Detailed infos may be found [here](./running-ort.md#oscake-configuration) and [here](./running-ort.md#preparation)
 
+### Commandline options
+In order to keep the output volume in the \*oscc file as concise as possible, the level in the dependency tree of packages can be set (mainly used for verification reasons).
+ 
+`-O OSCake=dependency-granularity=[level]` 
+
+ORT stores newly created scan results in the output subdirectory "native-scan-results". The deletion of the content of this folder can be triggered by using the following option:
+
+`-O OSCake=--deleteOrtNativeScanResults` 
+
+### Configuration file: OSCake.conf
+
+An example of the `oscake.conf` may be found [here](./examples/oscake.conf).
+
+1. `scopePatterns` are responsible for retrieving the scope of the license information of a file (default, directory, reuse, file)
+2. `curations` - if enabled, the `directory` defines the folder where to find the curations for packages and the `fileStore` contains the folder name for the license texts
+3. `sourceCodesDir` is the path to the directory where the source codes are downloaded and kept, in order to extract original license infos
+4. `ortScanResultsDir` denotes the folder where the original ORT scan results are stored
+5. `scanResultsCache` defines the usage of the OSCake scan-results-cache. If `enabled`, the `directory` determines where the cache can be stored/found 
+6. `packageRestrictions` - if `enabled` the output is restricted to the packages enumerated in `onlyIncludePackages`. This list contains the package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter `dependency-granularity` (this option will be overruled!).
+7. `packageInclusions` contains a list of packages (`forceIncludePackages`). These Packages are integrated into the ouput also if the `dependency-granularity` excludes them. Only works in conjunction with the command line option `dependency-granularity`.
+
+
 ## Configuration of the "ScanCode"-Scanner in ort.conf
 
 ### ScanCode-Commandline options
