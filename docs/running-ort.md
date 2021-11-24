@@ -138,28 +138,31 @@ The reporter combines the different input files and produces the output files (i
 
 In case of processing errors, the logfile `OSCake.log` is generated (configuration details can be found [here](./architecture-and-code.md))
 
-> Run OSCake-Reporter from Docker (with curations enabled):
+> Run OSCake-Reporter from Docker:
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf report -i ./results/scan-result.yml -o ./results -f OSCake -O OSCake=configFile=./conf/oscake.conf --license-classifications-file=./conf/license-classifications.yml`  
 >
 > The generated files can be found in the folder `./results`. The logfile `OSCake.log` is created directly in the working directory.
 
 
-### OSCake-Reporter with Curations
+### OSCake-Curator
 
-If the scanner does not find the correct license or copyright information, it is possible to define curations for specific packages (a complete overview can be found [here](./curations.md)).
+If the scanner does not find the correct license or copyright information, the oscc-file is not completely correct. Therefore, it is possible to define curations for specific packages (a complete overview can be found [here](./curations.md)).
 
-1. "Enable" the curation mechanism in the config file `oscake.conf`
+1. Configure the curation mechanism in the file `ort.conf`
 ```
 ...
-	curations {
-		enabled = true
-		directory = "[path to the directory, which contains the curation files]"
-		fileStore = "[path to the directory, where the corresponding license files are kept]"
+  oscake {
+	oscakeCurations {
+		directory = "[path to the curation files]"
+		fileStore = "[path to the license files, referenced in the curation files]"
+		issueLevel = 2	# -1..not enabled, 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
 	}
+  }
 ...	
 ```
-2. Create a curation file in yml-format - in this example we assume that the scanner did not find the given file (referenced in `file_scope`) and therefore, the copyright, the license and the corresonding file (referenced in `license_text_in_archive`) have to be added. The `license_text_in_archive`- path is relative to the `fileStore` defined in `oscake.conf`.
+
+2. Create a curation file in yml-format - in this example we assume that the scanner did not find the given file (referenced in `file_scope`) and therefore, the copyright, the license and the corresonding file (referenced in `license_text_in_archive`) have to be added. The `license_text_in_archive`- path is relative to the `fileStore` defined in `ort.conf`.
 
 ```
 - id: "Maven:de.tdosca.tc05:tdosca-tc05:1.0"
@@ -176,10 +179,24 @@ If the scanner does not find the correct license or copyright information, it is
           copyright: "Copyright 2010 by Konrad"		  
 ```
 
+3. Run the Curator
 
-3. Re-run the Reporter - the applied curations are reflected in the files
+`cli/build/install/ort/bin/ort -c ort.conf oscake -a curator -i [inputDirectory]/OSCake-Report.oscc -o
+[outputDirectory]`
+
+The Curator applies all defined curations to the oscc-file and produces the following output files:
+
 *  [OSCake-Report_curated.oscc](./examples/OSCake-Report_curated.oscc) 
 *  [tdosca-tc05_curated.zip](./examples/tdosca-tc05_curated.zip) 
+
+> Run OSCake-Curator from Docker:
+>
+> Adapt `ort.conf` and create the curation files (*.yml)
+>
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a curator -i ./results/OSCake-Report.oscc -o ./results`  
+>
+> The generated files can be found in the folder `./results`. The logfile `OSCake.log` is created directly in the working directory.
+
 
 ### Additional information for [Testcase#6](https://github.com/Open-Source-Compliance/tdosca-tc06-plainhw.git)
 A complete folder structure to run the Reporter on **tdosca-tc06-plainhw** - after running the Analyzer and the Scanner - can be found [here](./examples/tc06.tar.gz).
