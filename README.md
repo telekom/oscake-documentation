@@ -3,11 +3,11 @@ Contains findings and documentation on OSCake the OSCake reporter extension to O
 
 | File          | Description                                                           |
 | ------------------- | --------------------------------------------------------------------- |
-| [running-ort.md] | Command line arguments and how to run ORT. |
-| [configuration.md] | Documentation on configuration files for ORT. |
+| [running-ort.md] | How to run ORT - commandline or docker. |
+| [configuration.md] | Documentation on configuration files and commandline parameters. |
 | [architecture-and-code.md] | Documentation on important classes, modules and architecture in general. |
 | [ort-quick-fixes.md] | Quick fixes in ORT modules |
-| [curations.md] | Curations for OSCake files (*.oscc) |
+| [curations.md] | How to run the Curator for OSCake files (*.oscc) |
 | [integration.md] | How to integrate OSCakeRporter into a new master branch |
 | [oscake-merger.md] | Merge different *.oscc files |
 | [generated-oscc-files.md] | Contains generated results of the OSCakeReporter |
