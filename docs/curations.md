@@ -1,24 +1,84 @@
 # Curations for OSCake files (*.oscc)
-The OSCakeReporter provides a simple mechanism to adapt information about licenses and copyrights in the generated output file. Due to missing or incomplete data in source files it is possible that relevant information is absent and has to be added manually via "curations".
+The ORT-module `oscake` provides a simple mechanism to adapt information about licenses and copyrights in a generated oscc-file (created by the OSCake-Reporter). Due to missing or incomplete data in source files or emerged issues (errors or warnings), it is possible that relevant information is absent and has to be added manually via "curations".
 
-## Configuration in oscake.conf
+## Curation of Errors or Warnings
+The oscc-file contains the tag `hasIssues` on the root, the package, the default-scope and the dir-scope. If `enabled`is set to true, errors, warnings and infos which occurred during the generation of the oscc-file (OSCakeReporter) are reported directly in the oscc-file depending on the `level` - set in `oscake.conf`.
+
+```
+	includeIssues {
+		enabled = true
+		level = 2	# 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
+	}
+```
+
+If enabled, and the level is set to 2, the oscc-file contains the following block after the tag `hasIssues` (on root, package, default-scope and dir-scope level). If one of the lists is empty, it will not be shown. If all the lists are empty, the tag `issues` is absent:
+
+```
+	"issues": {
+		"errors": [
+			{
+				"id": "E01",
+				"message": "Problem occurred ..."
+			}
+		],
+		"warnings": [
+			{
+				"id": "W01",
+				"message": "Issue in ORT-SCANNER - please check ORT-logfile or console output or scan-result.yml"
+			},
+			{
+				"id": "W_Maven:org.springframework.boot:spring-boot-starter:2.5.3",
+				"message": "packageRestrictions are enabled, but the package [Identifier(type=Maven, namespace=org.springframework.boot, name=spring-boot-starter, version=2.5.3)] was not found"
+			}
+		],
+		"infos": [
+			{
+				"id": "I02",
+				"message": "commandline parameter \"dependency-granularity\" is overruled due to packageRestrictions"
+			}
+		]
+	},
+```
+
+The id of an issue depends on the type ('E', 'W', 'I') and gets a two-digit number (consecutively numbered for each type on root level and on package level). Therefore, it is possible to curate specific issues by the "Curator"-application. If an issue occurs for a specific package, which is not contained in the `complianceArtifactPackages`, the id consists of the type and the identifier of the package (e.g. "W_Maven:org.springframework.boot:spring-boot-starter:2.5.3").
+
+
+## Configuration in ort.conf
 Curations may be configured and enabled as follows:
 
-```OSCake {
+```ort { {
 ...
-	curations {
-		enabled = true
+  oscake {
+  ...
+	oscakeCurations {
 		directory = "[path to the directory, which contains the curation files]"
 		fileStore = "[path to the directory, where the corresponding license files are kept]"
+		issueLevel = 2	# -1..not enabled, 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
 	}
+  }
 }
 ``` 
-Curations may generally be enabled or disabled. If enabled, the OSCakeReporter uses the "directory" to search for curation files in yml-syntax (with extension ".yml") and the "fileStore" for license files (simple text files containing license information - referenced in yml-files). Both folders can hold subdirectories to define a structure for the curation logic.
+
+## Run the "Curator"
+
+The Curator uses the `directory` to search for curation files in yml-syntax (with extension ".yml") and the `fileStore` for license files (simple text files containing license information - referenced in yml-files). Both folders can hold subdirectories to define a structure for the curation logic.
+
+Go to the installation directory of your ORT instance and run the following command:
+
+`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a curator -i "[path to the oscc-file]/OSCake-Report.oscc" -o "[path to the results directory]"`
+
+Depending on the `issueLevel`in `ort.conf` the curated oscc-file contains a list of issues of different levels.
+
+## Additional commandline parameters
+Reported warnings in the oscc-file with origin other than from "Reporter" (e.g. Scanner issues) cannot be curated with a yml-file (because there is no package reference). Therefore, the commandline parameter: `--ignoreRootWarnings` can be used. This parameter eliminates every issue with the structure "W??" (? = any digit) from the root-warnings-list.
 
 ## Output Files
-Supplementary files are generated if curations are enbaled:
+The Curator produces the follwoing files:
+
 * `OSCake-Report_curated.oscc`: curated output file in *.oscc format 
 * `[pid]_curated.zip`: archive containing curated license files (`pid` = project identifier in oscc-file)
+
+The original file `OSCake-Report.oscc` is not changed during the curation.
 
 ## Structure of Curation Files
 Generally, every curation file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the curation to a specific package contained in the original \*.oscc file. If the version is empty, the curation will be applied to every package disregarding the version number. Additionally, the version number can be defined by means of an an IVY-expression - defining a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html)). If  more than one curation for a specific package will be found, no curation for this package will be applied.
@@ -27,6 +87,8 @@ Generally, every curation file consists of one or more packages, identified by t
 - id: "Maven:joda-time:joda-time:2.10.8"
   package_modifier: "insert"
   repository: "https://www.joda.org/joda-time/"
+  resolved_issues: ["W01", "I01", "I02", "W12", "W13", "E11"]
+  source_root: "input-sources"
   comment: "example for an additional package - optional"
   curations:
     - file_scope: "LICENSE"
