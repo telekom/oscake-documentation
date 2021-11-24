@@ -15,7 +15,7 @@ scanner:
 
 Configuration errors concerning the OSCakeReporter lead to the termination of the program with an error message and a return value greater than 0.
 
-Issues of the `OSCakeReporter` are reported in the oscc-file either at the package-level or at the top-level (at the very beginning of the file):
+Issues of the `OSCakeReporter` are reported in the oscc-file either at the root-level, the package-level, the default-scope-level or at the directory-scope-level:
 ```
 {
 	"hasIssues": true|false,
@@ -24,10 +24,18 @@ Issues of the `OSCakeReporter` are reported in the oscc-file either at the packa
 The occurrence of issues during analyzing or scanning is also propagated to the oscc-file. Detailed information about an issue of the OSCakeReporter is logged in the configured logfile and/or on the console with as much as information possible to determine the origin of the problem.
 
 ```
-08:42:05.168 INFO OSCakeReporter: [Identifier(type=Maven, namespace=de.tdosca.tc06, name=tdosca-tc06, version=1.0) - ......
+11:07:30.607 WARN  OSCakeReporter: <<POST>> [Identifier(type=Maven, namespace=com.sun.activation, name=jakarta.activation, version=1.2.2)]: Declared license: <BSD-3-Clause> is instanced license - no license text provided! - jsonPath: "$.complianceArtifactPackages[?(@.pid=='jakarta.activation')]"
 ```
 
-Different log-levels ("INFO", "WARN", "ERROR") are used to indicate the severity of the problem (according to the definition of levels in [Apache log4j2](https://logging.apache.org/log4j/2.x/) ). Only problems of severity "WARN" and "ERROR" are reported as `hasIssues` in the oscc-file. A warning or an error on the package-level, automatically leads to the setting of `hasIssues` at the top level.
+The messages are structured as follows:
+- actual DateTimeStamp
+- log level: INFO, WARN, ERROR
+- name of the originator
+- processing phase: in double angular brackets
+- message text
+- path to the package, where the error occured as jsonPath-expression (only reported when the `includeJsonPathInLogfile4ErrorsAndWarnings` in `oscake.conf` is set 
+
+Different log-levels ("INFO", "WARN", "ERROR") are used to indicate the severity of the problem (according to the definition of levels in [Apache log4j2](https://logging.apache.org/log4j/2.x/) ). Only problems of severity "WARN" and "ERROR" are reported as `hasIssues` in the oscc-file. A warning or an error on the package-level or below (default-scope, dir-scope), automatically leads to the setting of `hasIssues` at the top level.
 
 ## Apache log4j2.xml configuration
 In order to separate log information from ORT in general and the OSCake-Reporter specifically, the log4j2.xml configuration file is used (found in folder: `cli/src/main/resources`)
