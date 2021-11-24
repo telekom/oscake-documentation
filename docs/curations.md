@@ -2,7 +2,7 @@
 The ORT-module `oscake` provides a simple mechanism to adapt information about licenses and copyrights in a generated oscc-file (created by the OSCake-Reporter). Due to missing or incomplete data in source files or emerged issues (errors or warnings), it is possible that relevant information is absent and has to be added manually via "curations".
 
 ## Curation of Errors or Warnings
-The oscc-file contains the tag `hasIssues` on the root, the package, the default-scope and the dir-scope. If `enabled`is set to true, errors, warnings and infos which occurred during the generation of the oscc-file (OSCakeReporter) are reported directly in the oscc-file depending on the `level` - set in `oscake.conf`.
+The oscc-file contains the tag `hasIssues` on the root, the package, the default-scope and the dir-scope. If `enabled`is set to true, errors, warnings and infos, which occurred during the generation of the oscc-file (OSCakeReporter), are reported directly in the oscc-file depending on the `level` - set in `oscake.conf`.
 
 ```
 	includeIssues {
@@ -40,7 +40,17 @@ If enabled, and the level is set to 2, the oscc-file contains the following bloc
 	},
 ```
 
-The id of an issue depends on the type ('E', 'W', 'I') and gets a two-digit number (consecutively numbered for each type on root level and on package level). Therefore, it is possible to curate specific issues by the "Curator"-application. If an issue occurs for a specific package, which is not contained in the `complianceArtifactPackages`, the id consists of the type and the identifier of the package (e.g. "W_Maven:org.springframework.boot:spring-boot-starter:2.5.3").
+The id of an issue depends on the type ('E', 'W', 'I') and gets a two-digit number as suffix (consecutively numbered for each type on root level and on package level). Therefore, it is possible to curate specific issues by the "Curator". If an issue occurs for a specific package, which is not contained in the `complianceArtifactPackages`, the id consists of the type and the identifier of the package (e.g. `"W_Maven:org.springframework.boot:spring-boot-starter:2.5.3")`. 
+
+A curation always contains the package-`id` at the very beginning, followed by the `packageModifier` (more details see below). The `resolved_issues` tag lists the issues which are treated by this curation. The Curator processes the curation and removes the listed issue-ids from the oscc-issues lists. At the end, the curated oscc-file only contains the issues, which are still open.
+
+```
+- id: "Maven:org.springframework.boot:spring-boot-starter:2.5.3"
+  package_modifier: "update"
+  resolved_issues: [W01, E01]
+```
+
+Issues with ids like `"W_Maven:org.springframework.boot:spring-boot-starter:2.5.3"` are removed from the lists only by means of a `package_modifier: insert`. The package will be included and the issue automatically removed, without naming it in the `resolved_issues` list.
 
 
 ## Configuration in ort.conf
