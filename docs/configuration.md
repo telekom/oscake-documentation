@@ -14,17 +14,19 @@ ORT stores newly created scan results in the output subdirectory "native-scan-re
 An example of the `oscake.conf` may be found [here](./examples/oscake.conf).
 
 1. `scopePatterns` are responsible for retrieving the scope of the license information of a file (default, directory, reuse, file)
-2. `curations` - if enabled, the `directory` defines the folder where to find the curations for packages and the `fileStore` contains the folder name for the assigned license texts
-3. `sourceCodesDir` is the path to the directory where the source codes are downloaded and kept, in order to extract original license infos
-4. `ortScanResultsDir` denotes the folder where the original ORT scan results are stored
-5. `scanResultsCache` defines the usage of the OSCake scan-results-cache. If `enabled`, the `directory` determines where the cache can be stored/found 
-6. `packageRestrictions` - if `enabled` the output is restricted to the packages enumerated in `onlyIncludePackages`. This list contains the package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter `dependency-granularity` (this option will be overruled!).
-7. `packageInclusions` contains a list of packages (`forceIncludePackages`). These Packages are integrated into the ouput also if the `dependency-granularity` excludes them. Only works in conjunction with the command line option `dependency-granularity`.
-8. `includeIssues` specifies, if log messages (INFO, WARN, ERROR) are included in the oscc-file. The messages are assigned to different levels: Root, Package, Default-Scope and Dir-Scope. The `level` defines the granularity of the messages: 0..ERROR, 1..WARN+ERROR, 2..WARN+ERROR+INFO.
-9. `includeJsonPathInLogfile4ErrorsAndWarnings` - when set, WARN- and ERROR-messages have a suffix representing a JsonPath in order to locate the issue in the oscc file more easily .
+2. `sourceCodesDir` is the path to the directory where the source codes are downloaded and kept, in order to extract original license infos
+3. `ortScanResultsDir` denotes the folder where the original ORT scan results are stored
+4. `scanResultsCache` defines the usage of the OSCake scan-results-cache. If `enabled`, the `directory` determines where the cache can be stored/found 
+5. `packageRestrictions` - if `enabled` the output is restricted to the packages enumerated in `onlyIncludePackages`. This list contains the package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter `dependency-granularity` (this option will be overruled!).
+6. `packageInclusions` contains a list of packages (`forceIncludePackages`). These Packages are integrated into the ouput also if the `dependency-granularity` excludes them. Only works in conjunction with the command line option `dependency-granularity`.
+7. `includeIssues` specifies, if log messages (INFO, WARN, ERROR) are included in the oscc-file. The messages are assigned to different levels: Root, Package, Default-Scope and Dir-Scope. The `level` defines the granularity of the messages: 0..ERROR, 1..WARN+ERROR, 2..WARN+ERROR+INFO.
+8. `includeJsonPathInLogfile4ErrorsAndWarnings` - when set, WARN- and ERROR-messages have a suffix representing a JsonPath in order to locate the issue in the oscc file more easily .
 
+## Configuration of the OSCake-Curator
 
-## Configuration of the "ScanCode"-Scanner in ort.conf
+A detailed description can be found [here](./curations.md#configuration-in-ortconf).
+
+## Configuration of the ORT-Scanner
 
 ### ScanCode-Commandline options
 The commandline contains options for the scanner which can be found [here](https://scancode-toolkit.readthedocs.io/en/latest/cli-reference/basic-options.html)
