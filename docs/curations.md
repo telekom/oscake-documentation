@@ -134,7 +134,9 @@ The curations are performed in a defined sequence:
 A curation is always defined for a specific `file_scope`. This definition may contain a concrete file path or a `glob`-pattern (the latter is only allowed for "update" and "delete")
 	
 ### Curations for Licenses
-For a defined `file_scope` one or more license modifications may be defined. The following examples are discussed below:
+For a defined `file_scope` one or more license modifications may be defined. If the tag `source_root` is set to a specific directory, and the path of the file_scope starts with this directory, it will be removed in the curated oscc-file.
+
+The following examples are discussed below:
 
 ``` ...
     file_licenses:
