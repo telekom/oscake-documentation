@@ -2,7 +2,7 @@
 The ORT-module oscake provides a simple mechanism to combine valid OSCake Reporter (and OSCake validated) output files (`\*.oscc`) into a single package for distribution.
 
 ## Commandline parameters
-In order to see the usage information of the program, run `build\install\OSCake-Merger\bin\OSCake-Merger -h`
+The following commandline parameters are available:
 
 ```
 Options:
@@ -18,7 +18,7 @@ Options:
 * denotes required options.
 ```
 
-Option "-c": An identifier is a string defined by its type, namespace, name and version (e.g. "Maven:joda-time:joda-time:2.10.8" - IVY-format). If no output file is specified (option -of) the filenames are generated based on the ID, whereas ":" are replaced by ".". If the identifier contains characters which are not allowed in filenames (e.g. "\*") the program is aborted.
+Option "-c": An identifier is a string defined by its type, namespace, name and version (e.g. "Maven:joda-time:joda-time:2.10.8" - IVY-format). If no output file is specified (option -of) the filename is generated based on the ID, whereas ":" are replaced by ".". If the identifier contains characters which are not allowed in filenames (e.g. "\*") the program is aborted.
 
 ## Run the "Merger"
 
