@@ -64,12 +64,44 @@ The scanner classifies license findings based on the application of different ma
 ```
 The default value for this option is set to 0. That means, that every license finding with a score of 0 and higher will be taken into account. If the number of these findings should be reduced (in case that the scanner marks texts as a license because it randomly matches a rule), the score can be set to a value between 0 and 100. More information can be found [here](https://scancode-toolkit.readthedocs.io/en/latest/cli-reference/basic-options.html#license-score-options). 
 
+#### ScanCode-License File Patterns
+Source files which match the patterns of license files are copied to the ScanCode Archive
+```
+ort {
+  licenseFilePatterns {
+	...
+    licenseFilenames = [
+          "license*",
+          "licence*",
+          "*.license",
+          "*.licence",
+          "unlicense",
+          "unlicence",
+          "copying*",
+          "copyright",
+          "notice",
+          "notice*",
+          "**/license*",
+          "**/licence*",
+          "**/*.license",
+          "**/*.licence",
+          "**/unlicense",
+          "**/unlicence",
+          "**/copying*",
+          "**/copyright",
+          "**/notice",
+          "**/notice*",
+      ]
+  }
+```
 
-### ScanCode-Storages
+#### ScanCode-Storages
 The storages can be configured as described [here](https://github.com/oss-review-toolkit/ort/blob/master/model/src/main/resources/reference.conf) - e.g.
 ```
 ort {
+...
   scanner {
+  ...
      storages {
         local {
            backend {
@@ -92,21 +124,16 @@ ort {
 ```
 #### ScanCode Archive
 Files ("compliance artifacts") which are matching the archive patterns (`glob`-[Patterns](https://www.malikbrowne.com/blog/a-beginners-guide-glob-patterns)) are copied to the localFilestorage
-
+```
     archive {
-      patterns = [
-          "license*",
-          "licence*",
-          "*.license",
-		.....
-		  ]
-      storage {
+      fileStorage {
         localFileStorage {
-          directory = "................."
+          directory = "........"
 		  compression = false
         }
+      }
     }
-  
+```  
 ## License categorization in license-classifications.yml
 For categorization of licenses, the `license-classifications.yml`-File is used. For OSCake the category "instanced" is needed and has to be assigned to the appropriate license entries (a complete file can be found [here](./examples/versionJan2022/license-classifications.yml).   
 

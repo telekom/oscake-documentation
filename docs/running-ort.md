@@ -56,7 +56,7 @@ Additional information can be found [here](https://github.com/oss-review-toolkit
 
 ### Preparation 
 
-A proposal for a complete folder structure including the necessary adapted files - which is used in the Docker examples - can be downloaded [here](./examples/ortExample.zip). 
+A proposal for a complete folder structure including the necessary adapted files - which is used in the Docker examples - can be downloaded [here](./examples/versionJan2022/ortExample.zip). 
 ```
 .
 |-- conf
@@ -99,7 +99,7 @@ Go to the installation directory of your ORT instance and run the following comm
 
 ORT will generate the file `analyzer-result.yml` in the [outputDirectory].
 
-> Run Analyzer from Docker using the unzipped [example file](./examples/ortExample.zip):  
+> Run Analyzer from Docker using the unzipped [example file](./examples/versionJan2022/ortExample.zip):  
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf analyze -i ./tdosca-tc05-simplhw/input-sources -o ./results`  
 >
