@@ -2,7 +2,7 @@
 
 >**Please note:** 
 >1. Packages with licenses defined in REUSE style cannot be deduplicated and stay unchanged during the process!
->2. Due to the goal of information reduction, this process may lead to obfuscate warnings and errors. To get rid of these issues use the Curator first!
+>2. Due to the goal of information reduction, this process may lead to obfuscating warnings and errors. To get rid of these issues use the Curator first!
 
 The general task of the deduplicator is to consolidate license and copyright definitions in order to reduce the size of the oscc file without losing important information. This is achieved by exploiting the hierarchy of the scope levels: *default-, dir- and file-scope*.
 
@@ -70,7 +70,7 @@ Go to the installation directory of your ORT instance and run the following comm
 
 `cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a deduplicator -if "[path to the oscc-file]"`
 
-The output files are stored in the same directory as the input files(e.g. if the oscc file is called `OSCake-Report.oscc` the resulting file is called `OSCake-Report_dedup.oscc`; the archive file also gets the suffix `_dedup`).
+The output files are stored in the same directory as the input files (e.g. if the oscc file is called `OSCake-Report.oscc` the resulting file is called `OSCake-Report_dedup.oscc`; the archive file also gets the suffix `_dedup`).
 
 
 ## Examples
