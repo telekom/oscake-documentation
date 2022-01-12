@@ -215,7 +215,7 @@ For a defined `file_scope` one or more copyright modifications may be defined. T
 3. Example: "delete": the `copyright` for a "delete" may contain the wildcards "\*" and/or "?". In this example every copyright statement containing the text "2001" will be deleted. If the wildcards are part of the text to be matched, then they have to be double-escaped: e.g.: \\\\*
 
 ## Example: Run the "Curator" for Testcase#5
-If the scanner does not find the correct license or copyright information, the oscc-file is not completely correct. Therefore, it is possible to define curations for specific packages (a complete overview can be found [here](./curations.md)).
+If the scanner does not find the correct license or copyright information, the oscc-file is not completely correct. Therefore, it is possible to define curations for specific packages.
 
 1. Configure the curation mechanism in the file `ort.conf`
 ```
