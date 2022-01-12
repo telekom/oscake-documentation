@@ -7,7 +7,7 @@ Versions from 12th of January, 2022
 
 ### tdosca-tc06-plainhw
 - [OSCake-Report.oscc](./examples/versionJan2022/tc06/OSCake-Report.oscc)
-- [tdosca-tc06.zip](./examples/versionJan2022/tc06/tdosca-tc05.zip)
+- [tdosca-tc06.zip](./examples/versionJan2022/tc06/tdosca-tc06.zip)
 
 ### REUSE
 - [OSCake-Report.oscc](./examples/versionJan2022/tc_REUSE/OSCake-Report.oscc)
