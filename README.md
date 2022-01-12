@@ -24,6 +24,6 @@ Contains findings and documentation on OSCake - the *OSCake-Reporter* extension 
 [ort-quick-fixes.md]: ./docs/ort-quick-fixes.md
 
 
-## Overview: ORT - OSCakeReporter
+## Overview: ORT - OSCake-Reporter & OSCake-Applications
 [overview]: ./docs/images/overview.jpg
 ![Overview][overview]
