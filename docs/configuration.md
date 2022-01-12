@@ -1,4 +1,4 @@
-## Configuration of the "OSCake"-Reporter
+## Configuration of the OSCake-Reporter
 
 ### Commandline options
 In order to keep the output volume in the \*oscc file as concise as possible, the `dependency-granularity`can be set. It defines the tree level of package dependencies and restricts the packages concerning to their level (mainly used for verification reasons).
@@ -11,7 +11,7 @@ ORT stores newly created scan results in the output subdirectory "native-scan-re
 
 ### Configuration file: OSCake.conf
 
-An example of the `oscake.conf` may be found [here](./examples/oscake.conf).
+An example of the `oscake.conf` may be found [here](./examples/versionJan2022/oscake.conf).
 
 1. `scopePatterns` are responsible for retrieving the scope of the license information of a file (default, directory, reuse, file)
 2. `sourceCodesDir` is the path to the directory where the source codes are downloaded and kept, in order to extract original license infos
@@ -20,11 +20,21 @@ An example of the `oscake.conf` may be found [here](./examples/oscake.conf).
 5. `packageRestrictions` - if `enabled` the output is restricted to the packages enumerated in `onlyIncludePackages`. This list contains the package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter `dependency-granularity` (this option will be overruled!).
 6. `packageInclusions` contains a list of packages (`forceIncludePackages`). These Packages are integrated into the ouput also if the `dependency-granularity` excludes them. Only works in conjunction with the command line option `dependency-granularity`.
 7. `includeIssues` specifies, if log messages (INFO, WARN, ERROR) are included in the oscc-file. The messages are assigned to different levels: Root, Package, Default-Scope and Dir-Scope. The `level` defines the granularity of the messages: 0..ERROR, 1..WARN+ERROR, 2..WARN+ERROR+INFO.
-8. `includeJsonPathInLogfile4ErrorsAndWarnings` - when set, WARN- and ERROR-messages have a suffix representing a JsonPath in order to locate the issue in the oscc file more easily .
+8. `includeJsonPathInLogfile4ErrorsAndWarnings` - when set, WARN- and ERROR-messages have a suffix representing a JsonPath in order to locate the issue in the oscc file more easily.
+9. `ignoreNOASSERTION` - when set to *true* license findings with the license indicator "NOASSERTION" are ignored.
+10. `hideSections = []` - contains a list of section names (*"config", "reuselicensings", "dirlicensings", "filelicensings"*) which are removed from the generated output - mostly for verification reasons. If the generated oscc-file has hidden sections no further processing (merging, deduplication, curation) is possible!
 
 ## Configuration of the OSCake-Curator
 
 A detailed description can be found [here](./curations.md#configuration-in-ortconf).
+
+## Configuration of the OSCake-Deduplicator
+
+A detailed description can be found [here](./deduplicator.md#Configuration).
+
+## Configuration of the OSCake-Merger
+
+There is no specific configuration necessary. The processing is only controlled by commandline parameters defined [here](./oscake-merger.md#commandline-parameters).
 
 ## Configuration of the ORT-Scanner
 
@@ -98,7 +108,7 @@ Files ("compliance artifacts") which are matching the archive patterns (`glob`-[
     }
   
 ## License categorization in license-classifications.yml
-For categorization of licenses, the `license-classifications.yml`-File is used. For OSCake the category "instanced" is needed and has to be assigned to the appropriate license entries (a complete file can be found [here](./examples/license-classifications.yml).   
+For categorization of licenses, the `license-classifications.yml`-File is used. For OSCake the category "instanced" is needed and has to be assigned to the appropriate license entries (a complete file can be found [here](./examples/versionJan2022/license-classifications.yml).   
 
 	categories:
 	- name: "instanced"

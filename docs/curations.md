@@ -60,7 +60,7 @@ Curations may be configured and enabled as follows:
 ...
   oscake {
   ...
-	oscakeCurations {
+	curator {
 		directory = "[path to the directory, which contains the curation files]"
 		fileStore = "[path to the directory, where the corresponding license files are kept]"
 		issueLevel = 2	# -1..not enabled, 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
@@ -114,7 +114,6 @@ Generally, every curation file consists of one or more packages, identified by t
         - modifier: "insert"
           reason: "explanation text - optional"
           copyright: "Copyright 2001-2013 Stephen Colebourne"
-    - file_scope: "subdir/LICENSE"
 - id: "Maven:org.apache:notify:1.8"
   package_modifier: "delete"
 ```
@@ -214,3 +213,46 @@ For a defined `file_scope` one or more copyright modifications may be defined. T
 1. Example: "insert": a new copyright statement is inserted to the given `file_scope`
 2. Example: "delete-all": all copyright statements for this `file_scope` are removed
 3. Example: "delete": the `copyright` for a "delete" may contain the wildcards "\*" and/or "?". In this example every copyright statement containing the text "2001" will be deleted. If the wildcards are part of the text to be matched, then they have to be double-escaped: e.g.: \\\\*
+
+## Example: Run the "Curator" for Testcase#5
+If the scanner does not find the correct license or copyright information, the oscc-file is not completely correct. Therefore, it is possible to define curations for specific packages (a complete overview can be found [here](./curations.md)).
+
+1. Configure the curation mechanism in the file `ort.conf`
+```
+...
+  oscake {
+	oscakeCurations {
+		directory = "[path to the curation files]"
+		fileStore = "[path to the license files, referenced in the curation files]"
+		issueLevel = 2	# -1..not enabled, 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
+	}
+  }
+...	
+```
+
+2. Create a curation file in yml-format - in this example we assume that the scanner did not find the given file (referenced in `file_scope`) and therefore, the copyright, the license and the corresonding file (referenced in `license_text_in_archive`) have to be added. The `license_text_in_archive`- path is relative to the `fileStore` defined in `ort.conf`.
+
+```
+- id: "Maven:de.tdosca.tc05:tdosca-tc05:1.0"
+  package_modifier: "update"
+  curations:
+    - file_scope: "src/main/java/de/tdosca/common/LICENSE"
+      file_licenses:
+        - modifier: "insert"
+          reason: "file was not found by scanner"
+          license: "NEW_LICENSE"
+          license_text_in_archive: "newLicense/new_license.txt"
+      file_copyrights:
+        - modifier: "insert"
+          copyright: "Copyright 2010 by Konrad"		  
+```
+
+3. Run the Curator
+
+`cli/build/install/ort/bin/ort -c ort.conf oscake -a curator -i [inputDirectory]/OSCake-Report.oscc -o
+[outputDirectory]`
+
+The Curator applies all defined curations to the oscc-file and produces the following output files:
+
+*  [OSCake-Report_curated.oscc](./examples/versionJan2022/tc05_curated/OSCake-Report_curated.oscc) 
+*  [tdosca-tc05_curated.zip](./examples/versionJan2022/tc05_curated/tdosca-tc05_curated.zip) 

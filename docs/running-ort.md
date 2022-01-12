@@ -1,7 +1,7 @@
 # Running ORT with OSCake-Reporter
 The following sections show the use of [ORT](https://github.com/telekom/ort) in order to produce the input files for [OSCake](https://github.com/Open-Source-Compliance/OSCake) ("Open Source Compliance artifact knowledge engine"). The ORT OSCake-Reporter generates the following files:
-* *OSCake-Report.oscc*: reporter output in a DSL - [Example](./examples/OSCake-Report.oscc)
-* *zip-File*: flat zip-archive, containing the license-relevant generated or copied files
+* *OSCake-Report.oscc*: reporter output in a DSL - [Example](./examples/versionJan2022/tc05/OSCake-Report.oscc)
+* *zip-File*: flat zip-archive, containing the license-relevant generated or copied files - [Example](./examples/versionJan2022/tc05/tdosca-tc05.zip)
 
 > Info: Sections marked with this style refer to instructions on how to run ORT with Docker 
 
@@ -24,7 +24,7 @@ The following sections show the use of [ORT](https://github.com/telekom/ort) in 
 
 
 ## OSCake-Configuration
-In order to use the OSCake-Reporter, several parameters have to be set using the appropriate ORT commandline style. Additionally, a specific configuration file has to be provided ([ort.conf](./examples/ort.conf)) - see also comment in configuration file for changes between different versions.
+In order to use the OSCake-Reporter, several parameters have to be set using the appropriate ORT commandline style. Additionally, a specific configuration file has to be provided ([ort.conf](./examples/versionJan2022/ort.conf)) - see also comment in configuration file for changes between different versions.
 
 ### Parameters
 ORT handles commandline parameters in several ways:
@@ -32,7 +32,7 @@ ORT handles commandline parameters in several ways:
 * Reporter-specific parameters - format: `[reporter name]=[parameter name]=[parameter value]`
 
 #### Path to a specific OSCake-configuration file
-The [configuration file](./examples/oscake.conf) contains information about default values for OSCake reporter which are project independent: 
+The [configuration file](./examples/versionJan2022/oscake.conf) contains information about default values for OSCake reporter which are project independent: 
 
 `-O OSCake=configFile=[your_path]/oscake.conf`
 
@@ -48,7 +48,7 @@ Detailed infos may be found [here](./configuration.md).
 * option `-f`: name of the report: `-f OScake`
 
 #### Used ORT excludes
-ORT has a mechanism ([configuration file](./examples/.ort.yml)) to control the handling of source code packages in order to exclude them (e.g. because they are only used for testing purposes). Therefore, it is possible to place a file with the name `.ort.yml` directly in the root directory of the source code.
+ORT has a mechanism ([configuration file](./examples/versionJan2022/.ort.yml)) to control the handling of source code packages in order to exclude them (e.g. because they are only used for testing purposes). Therefore, it is possible to place a file with the name `.ort.yml` directly in the root directory of the source code.
 
 Additional information can be found [here](https://github.com/oss-review-toolkit/ort/blob/master/docs/config-file-ort-yml.md#excluding-scopes)
 
@@ -81,14 +81,14 @@ A proposal for a complete folder structure including the necessary adapted files
 
 If you want to prepare the configuration by yourself, you can follow the steps below: 
 
-1. Adapt the ort.conf to your needs - you can use the [example](./examples/ort.conf) and update the directory entries: `[yourFileStorageDirectory]` and `[yourScannerArchive]`. Specific  information about using commandline options for the scanner can be found [here](./configuration.md).
+1. Adapt the ort.conf to your needs - you can use the [example](./examples/versionJan2022/ort.conf) and update the directory entries: `[yourFileStorageDirectory]` and `[yourScannerArchive]`. Specific  information about using commandline options for the scanner can be found [here](./configuration.md).
 2. Be sure that the directory `[yourFileStorageDirectory]` in `ort.conf` is empty. ORT has a mechanism to download only files which were not downloaded yet. As the OSCake-Reporter needs all the source code files, the directory **must be empty** before a new project is processed .
-3. Prepare the `license-classifications.yml` [file](./examples/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
-4. If you want to exclude some packages from being processed in a default way, create the [file](./examples/.ort.yml) `.ort.yml` and copy it into the source code folder. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
-5. Customise the `oscake.conf` [configuration file](./examples/oscake.conf). Details may be found [here](./configuration.md)
+3. Prepare the `license-classifications.yml` [file](./examples/versionJan2022/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
+4. If you want to exclude some packages from being processed in a default way, create the [file](./examples/versionJan2022/.ort.yml) `.ort.yml` and copy it into the source code folder. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
+5. Customise the `oscake.conf` [configuration file](./examples/versionJan2022/oscake.conf). Details may be found [here](./configuration.md)
 6. Create your [workingDirectory].
 7. Create the [outputDirectory] - it can also be a sub directory of your working directory.
-8. Clone the GIT-Repo into your working directory - a directory `tdosca-tc05-simplhw` containing the requested source code is created. If you want to exclude some packages (because they are only needed for testing reasons), copy the file [.ort.yml](./examples/.ort.yml) into the directory 
+8. Clone the GIT-Repo into your working directory - a directory `tdosca-tc05-simplhw` containing the requested source code is created. If you want to exclude some packages (because they are only needed for testing reasons), copy the file [.ort.yml](./examples/versionJan2022/.ort.yml) into the directory 
  `[workingDirectory]/tdosca-tc05-simplhw/input-sources`  
    `git clone https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw.git`
 
@@ -133,8 +133,8 @@ Call the following command to create the OSCake output:
 --license-classifications-file=[yourPathTo]/license-classifications.yml`
 
 The reporter combines the different input files and produces the output files (if the original sourcecode is needed and not already downloaded to the sourcecodes folder, it is downloaded by the reporter from the used VCS, which may lead to a longer runtime):
-* [OSCake-Report.oscc](./examples/OSCake-Report.oscc)
-* [tdosca-tc05.zip](./examples/tdosca-tc05.zip)
+* [OSCake-Report.oscc](./examples/versionJan2022/tc05/OSCake-Report.oscc)
+* [tdosca-tc05.zip](./examples/versionJan2022/tc05/tdosca-tc05.zip)
 
 In case of processing errors, the logfile `OSCake.log` is generated (configuration details can be found [here](./architecture-and-code.md))
 
@@ -143,60 +143,3 @@ In case of processing errors, the logfile `OSCake.log` is generated (configurati
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf report -i ./results/scan-result.yml -o ./results -f OSCake -O OSCake=configFile=./conf/oscake.conf --license-classifications-file=./conf/license-classifications.yml`  
 >
 > The generated files can be found in the folder `./results`. The logfile `OSCake.log` is created directly in the working directory.
-
-
-### OSCake-Curator
-
-If the scanner does not find the correct license or copyright information, the oscc-file is not completely correct. Therefore, it is possible to define curations for specific packages (a complete overview can be found [here](./curations.md)).
-
-1. Configure the curation mechanism in the file `ort.conf`
-```
-...
-  oscake {
-	oscakeCurations {
-		directory = "[path to the curation files]"
-		fileStore = "[path to the license files, referenced in the curation files]"
-		issueLevel = 2	# -1..not enabled, 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
-	}
-  }
-...	
-```
-
-2. Create a curation file in yml-format - in this example we assume that the scanner did not find the given file (referenced in `file_scope`) and therefore, the copyright, the license and the corresonding file (referenced in `license_text_in_archive`) have to be added. The `license_text_in_archive`- path is relative to the `fileStore` defined in `ort.conf`.
-
-```
-- id: "Maven:de.tdosca.tc05:tdosca-tc05:1.0"
-  package_modifier: "update"
-  curations:
-    - file_scope: "src/main/java/de/tdosca/common/LICENSE"
-      file_licenses:
-        - modifier: "insert"
-          reason: "file was not found by scanner"
-          license: "NEW_LICENSE"
-          license_text_in_archive: "newLicense/new_license.txt"
-      file_copyrights:
-        - modifier: "insert"
-          copyright: "Copyright 2010 by Konrad"		  
-```
-
-3. Run the Curator
-
-`cli/build/install/ort/bin/ort -c ort.conf oscake -a curator -i [inputDirectory]/OSCake-Report.oscc -o
-[outputDirectory]`
-
-The Curator applies all defined curations to the oscc-file and produces the following output files:
-
-*  [OSCake-Report_curated.oscc](./examples/OSCake-Report_curated.oscc) 
-*  [tdosca-tc05_curated.zip](./examples/tdosca-tc05_curated.zip) 
-
-> Run OSCake-Curator from Docker:
->
-> Adapt `ort.conf` and create the curation files (*.yml)
->
-> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a curator -i ./results/OSCake-Report.oscc -o ./results`  
->
-> The generated files can be found in the folder `./results`. The logfile `OSCake.log` is created directly in the working directory.
-
-
-### Additional information for [Testcase#6](https://github.com/Open-Source-Compliance/tdosca-tc06-plainhw.git)
-A complete folder structure to run the Reporter on **tdosca-tc06-plainhw** - after running the Analyzer and the Scanner - can be found [here](./examples/tc06.tar.gz).

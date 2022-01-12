@@ -1,51 +1,71 @@
 {
 	"hasIssues": false,
 	"config": {
-		"osCakeCommandLineParams": {
-			"configFile": "../tc06_V40/conf/oscake.conf"
-		},
-		"osCakeConfigFile": {
-			"scopePatterns": [
-				"license*",
-				"licence*",
-				"*.license",
-				"*.licence",
-				"unlicense",
-				"unlicence",
-				"copying*",
-				"copyright",
-				"notice*",
-				"LICENSE*",
-				"LICENCE*",
-				"*.LICENSE",
-				"*.LICENCE",
-				"UNLICENSE",
-				"UNLICENCE",
-				"COPYING*",
-				"COPYRIGHT",
-				"NOTICE*"
-			],
-			"curations": {
-				"fileStore": "../tc06_V40/curations/store",
-				"directory": "../tc06_V40/curations/packages",
-				"enabled": "false"
+		"reporter": {
+			"commandLineParams": {
+				"configFile": "..\\tc06_V50\\conf\\oscake.conf"
 			},
-			"sourceCodesDir": "../tc06_V40/sources",
-			"scanResultsCache": {
-				"directory": "../tc06_V40/oscakeNativeScanResults",
-				"enabled": "true"
-			},
-			"ortScanResultsDir": "../tc06_V40/results/native-scan-results",
-			"packageRestrictions": null,
-			"includeIssues": null,
-			"includeJsonPathInLogfile4ErrorsAndWarnings": false
+			"configFile": {
+				"scopePatterns": [
+					"license*",
+					"licence*",
+					"*.license",
+					"*.licence",
+					"unlicense",
+					"unlicence",
+					"copying*",
+					"copyright",
+					"notice*",
+					"LICENSE*",
+					"LICENCE*",
+					"*.LICENSE",
+					"*.LICENCE",
+					"UNLICENSE",
+					"UNLICENCE",
+					"COPYING*",
+					"COPYRIGHT",
+					"NOTICE*"
+				],
+				"copyrightScopePatterns": [
+					"README*",
+					"readme*"
+				],
+				"sourceCodesDir": "../tc06_V50/sources",
+				"scanResultsCache": {
+					"directory": "../tc06_V50/oscakeNativeScanResults",
+					"enabled": "false"
+				},
+				"ortScanResultsDir": "../tc06_V50/results/native-scan-results",
+				"packageRestrictions": {
+					"enabled": false,
+					"onlyIncludePackages": [
+						"Maven:com.sun.activation:jakarta.activation:1.2.2",
+						"Maven:com.sun.istack:istack-commons-runtime:3.0.12",
+						"Maven:org.springframework.boot:spring-boot-starter:2.5.3"
+					]
+				},
+				"packageInclusions": {
+					"enabled": false,
+					"forceIncludePackages": [
+						"Maven:org.slf4j:slf4j-api:1.7.31",
+						"Maven:org.springframework.boot:spring-boot-starter:2.5.3"
+					]
+				},
+				"includeIssues": {
+					"enabled": true,
+					"level": 2
+				},
+				"includeJsonPathInLogfile4ErrorsAndWarnings": true,
+				"ignoreNOASSERTION": false,
+				"hideSections": []
+			}
 		}
 	},
 	"complianceArtifactCollection": {
 		"cid": "Maven:de.tdosca.tc06:tdosca-tc06:1.0",
 		"author": "OSCake-Reporter",
 		"release": "0.1",
-		"date": "2021-11-06T10:51:38.132170",
+		"date": "2022-01-12T10:04:12.179780400",
 		"archivePath": "./tdosca-tc06.zip",
 		"archiveType": "ZIP"
 	},
@@ -55,8 +75,9 @@
 			"release": "1.0",
 			"repository": "https://github.com/Open-Source-Compliance/tdosca-tc06-plainhw.git",
 			"id": "Maven:de.tdosca.tc06:tdosca-tc06:1.0",
+			"sourceRoot": "input-sources",
 			"hasIssues": false,
-			"defaultLicensings": [
+			"defaultLicenses": [
 				{
 					"foundInFileScope": "LICENSE",
 					"license": "MIT",
@@ -66,8 +87,21 @@
 				{
 					"foundInFileScope": "LICENSE.Apache-2.0",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": null,
 					"hasIssues": false
+				}
+			],
+			"defaultCopyrights": [
+				{
+					"foundInFileScope": "NOTICE.md",
+					"copyright": "Copyright (c) 2020 Karsten Reincke / Deutsche Telekom AG <karsten.reincke@telekom.de>"
+				},
+				{
+					"foundInFileScope": "LICENSE",
+					"copyright": "Copyright 2020 Karsten Reincke, Deutsche Telekom AG"
+				},
+				{
+					"foundInFileScope": "README.md",
+					"copyright": "Copyright (c) 2020 Karsten Reincke / Deutsche Telekom AG"
 				}
 			],
 			"dirLicensings": [
@@ -80,10 +114,15 @@
 							"licenseTextInArchive": "Maven%de.tdosca.tc06%tdosca-tc06%1.0%input-sources%src%main%java%de%tdosca%common%LICENSE.BSD-3-Clause",
 							"hasIssues": false
 						}
+					],
+					"dirCopyrights": [
+						{
+							"foundInFileScope": "src/main/java/de/tdosca/common/LICENSE",
+							"copyright": "Copyright (c) 2020 kreincke / Deutsche Telekom AG"
+						}
 					]
 				}
 			],
-			"reuseLicensings": [],
 			"fileLicensings": [
 				{
 					"fileScope": "LICENSE",
@@ -268,8 +307,9 @@
 			"release": "2.10.8",
 			"repository": "https://github.com/JodaOrg/joda-time.git",
 			"id": "Maven:joda-time:joda-time:2.10.8",
+			"sourceRoot": "",
 			"hasIssues": false,
-			"defaultLicensings": [
+			"defaultLicenses": [
 				{
 					"foundInFileScope": "LICENSE.txt",
 					"license": "Apache-2.0",
@@ -279,12 +319,10 @@
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": null,
 					"hasIssues": false
 				}
 			],
-			"dirLicensings": [],
-			"reuseLicensings": [],
+			"defaultCopyrights": [],
 			"fileLicensings": [
 				{
 					"fileScope": "LICENSE.txt",
@@ -5529,8 +5567,9 @@
 			"release": "2.14.0",
 			"repository": "https://gitbox.apache.org/repos/asf/logging-log4j2.git",
 			"id": "Maven:org.apache.logging.log4j:log4j-api:2.14.0",
+			"sourceRoot": "",
 			"hasIssues": false,
-			"defaultLicensings": [
+			"defaultLicenses": [
 				{
 					"foundInFileScope": "LICENSE.txt",
 					"license": "Apache-2.0",
@@ -5540,14 +5579,38 @@
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-1.1",
-					"licenseTextInArchive": null,
 					"hasIssues": false
 				},
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": null,
 					"hasIssues": false
+				}
+			],
+			"defaultCopyrights": [
+				{
+					"foundInFileScope": "LICENSE.txt",
+					"copyright": "Copyright 1999-2005 The Apache Software Foundation"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 1999-2017 Apache Software Foundation"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 2002-2012 Ramnivas Laddad, Juergen Hoeller, Chris Beams"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 2004 Jason Paul Kitchen"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 2005-2006 Tim Fennell"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 2017 Remko Popma"
 				}
 			],
 			"dirLicensings": [
@@ -5563,14 +5626,26 @@
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
 							"license": "Apache-1.1",
-							"licenseTextInArchive": null,
 							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": null,
 							"hasIssues": false
+						}
+					],
+					"dirCopyrights": [
+						{
+							"foundInFileScope": "log4j-core/src/test/resources/META-INF/LICENSE",
+							"copyright": "Copyright 1999-2005 The Apache Software Foundation"
+						},
+						{
+							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
+							"copyright": "Copyright 1999-2012 Apache Software Foundation"
+						},
+						{
+							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
+							"copyright": "Copyright 2004 Jason Paul Kitchen"
 						}
 					]
 				},
@@ -5580,13 +5655,11 @@
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
 							"license": "Apache-1.1",
-							"licenseTextInArchive": null,
 							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": null,
 							"hasIssues": false
 						},
 						{
@@ -5595,10 +5668,33 @@
 							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-api%2.14.0%log4j-core%src%main%resources%META-INF%LICENSE.Apache-2.0",
 							"hasIssues": false
 						}
+					],
+					"dirCopyrights": [
+						{
+							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
+							"copyright": "Copyright 1999-2012 Apache Software Foundation"
+						},
+						{
+							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
+							"copyright": "Copyright 2005-2006 Tim Fennell"
+						},
+						{
+							"foundInFileScope": "log4j-core/src/main/resources/META-INF/LICENSE",
+							"copyright": "Copyright 1999-2005 The Apache Software Foundation"
+						}
+					]
+				},
+				{
+					"dirScope": "log4j-core/src/test/java/org/apache/logging/dumbster/smtp/readme.txt",
+					"dirLicenses": [],
+					"dirCopyrights": [
+						{
+							"foundInFileScope": "log4j-core/src/test/java/org/apache/logging/dumbster/smtp/readme.txt",
+							"copyright": "Copyright 2004 Jason Paul Kitchen"
+						}
 					]
 				}
 			],
-			"reuseLicensings": [],
 			"fileLicensings": [
 				{
 					"fileScope": "log4j-core/src/test/resources/META-INF/LICENSE",
@@ -33420,8 +33516,9 @@
 			"release": "2.14.0",
 			"repository": "https://gitbox.apache.org/repos/asf/logging-log4j2.git",
 			"id": "Maven:org.apache.logging.log4j:log4j-core:2.14.0",
+			"sourceRoot": "",
 			"hasIssues": false,
-			"defaultLicensings": [
+			"defaultLicenses": [
 				{
 					"foundInFileScope": "LICENSE.txt",
 					"license": "Apache-2.0",
@@ -33431,14 +33528,38 @@
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-1.1",
-					"licenseTextInArchive": null,
 					"hasIssues": false
 				},
 				{
 					"foundInFileScope": "NOTICE.txt",
 					"license": "Apache-2.0",
-					"licenseTextInArchive": null,
 					"hasIssues": false
+				}
+			],
+			"defaultCopyrights": [
+				{
+					"foundInFileScope": "LICENSE.txt",
+					"copyright": "Copyright 1999-2005 The Apache Software Foundation"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 1999-2017 Apache Software Foundation"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 2002-2012 Ramnivas Laddad, Juergen Hoeller, Chris Beams"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 2004 Jason Paul Kitchen"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 2005-2006 Tim Fennell"
+				},
+				{
+					"foundInFileScope": "NOTICE.txt",
+					"copyright": "Copyright 2017 Remko Popma"
 				}
 			],
 			"dirLicensings": [
@@ -33454,14 +33575,26 @@
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
 							"license": "Apache-1.1",
-							"licenseTextInArchive": null,
 							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": null,
 							"hasIssues": false
+						}
+					],
+					"dirCopyrights": [
+						{
+							"foundInFileScope": "log4j-core/src/test/resources/META-INF/LICENSE",
+							"copyright": "Copyright 1999-2005 The Apache Software Foundation"
+						},
+						{
+							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
+							"copyright": "Copyright 1999-2012 Apache Software Foundation"
+						},
+						{
+							"foundInFileScope": "log4j-core/src/test/resources/META-INF/NOTICE",
+							"copyright": "Copyright 2004 Jason Paul Kitchen"
 						}
 					]
 				},
@@ -33471,13 +33604,11 @@
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
 							"license": "Apache-1.1",
-							"licenseTextInArchive": null,
 							"hasIssues": false
 						},
 						{
 							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
 							"license": "Apache-2.0",
-							"licenseTextInArchive": null,
 							"hasIssues": false
 						},
 						{
@@ -33486,10 +33617,33 @@
 							"licenseTextInArchive": "Maven%org.apache.logging.log4j%log4j-core%2.14.0%log4j-core%src%main%resources%META-INF%LICENSE.Apache-2.0",
 							"hasIssues": false
 						}
+					],
+					"dirCopyrights": [
+						{
+							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
+							"copyright": "Copyright 1999-2012 Apache Software Foundation"
+						},
+						{
+							"foundInFileScope": "log4j-core/src/main/resources/META-INF/NOTICE",
+							"copyright": "Copyright 2005-2006 Tim Fennell"
+						},
+						{
+							"foundInFileScope": "log4j-core/src/main/resources/META-INF/LICENSE",
+							"copyright": "Copyright 1999-2005 The Apache Software Foundation"
+						}
+					]
+				},
+				{
+					"dirScope": "log4j-core/src/test/java/org/apache/logging/dumbster/smtp/readme.txt",
+					"dirLicenses": [],
+					"dirCopyrights": [
+						{
+							"foundInFileScope": "log4j-core/src/test/java/org/apache/logging/dumbster/smtp/readme.txt",
+							"copyright": "Copyright 2004 Jason Paul Kitchen"
+						}
 					]
 				}
 			],
-			"reuseLicensings": [],
 			"fileLicensings": [
 				{
 					"fileScope": "log4j-core/src/test/resources/META-INF/LICENSE",

@@ -1,8 +1,8 @@
-## OSCake-Reporter
+# OSCake-Reporter
 
 The reporter is implemented in the file [`OSCakeReporter.kt`](https://github.com/telekom/ort/blob/oscake-reporter/reporter/src/main/kotlin/reporters/OSCakeReporter.kt). In order to be loaded by the tool, the reporter has to be defined in the file [`org.ossreviewtoolkit.reporter.Reporter`](https://github.com/telekom/ort/blob/oscake-reporter/reporter/src/main/resources/META-INF/services/org.ossreviewtoolkit.reporter.Reporter) and has to implement the interface [`Reporter`](https://github.com/telekom/ort/blob/oscake-reporter/reporter/src/main/kotlin/Reporter.kt).
 
-## Logging and Error Handling
+### Logging and Error Handling
 In general, ORT returns an integer value after program termination. A value of 0 shows that no program relevant errors happened. Logical or semantic problems/errors during the "Analyzer" and "Scan"-steps are directly reported in the output file: `scan_result.yml`:
 ```
 analyzer:
@@ -37,7 +37,7 @@ The messages are structured as follows:
 
 Different log-levels ("INFO", "WARN", "ERROR") are used to indicate the severity of the problem (according to the definition of levels in [Apache log4j2](https://logging.apache.org/log4j/2.x/) ). Only problems of severity "WARN" and "ERROR" are reported as `hasIssues` in the oscc-file. A warning or an error on the package-level or below (default-scope, dir-scope), automatically leads to the setting of `hasIssues` at the top level.
 
-## Apache log4j2.xml configuration
+### Apache log4j2.xml configuration
 In order to separate log information from ORT in general and the OSCake-Reporter specifically, the log4j2.xml configuration file is used (found in folder: `cli/src/main/resources`)
 The OSCake-Reporter uses the class `org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.OSCakeLoggerManager` and therefore, the following configuration is applied (see section "Loggers"):
 
@@ -68,7 +68,7 @@ The OSCake-Reporter uses the class `org.ossreviewtoolkit.reporter.reporters.osCa
 ```
 The issues are documented in the file `OSCake.log` and on the `Console2`, too. The logfile can be found in the current working directory.
 
-### Alternative log4j2.xml configuration file
+#### Alternative log4j2.xml configuration file
 In case that a specific configuration file for log4j2 should be used, a JVM parameter may be passed: `-Dlog4j.configurationFile=[path to the configuration file]`.
 As the ORT tool is started by means of a script - found in `ort/cli/build/scripts` - this parameter can be passed in the following way (example for Windows-based systems):
 ```
@@ -77,7 +77,7 @@ set ORT_OPTS="-Dlog4j.configurationFile=[path to the configuration file]"
 cli\build\install\ort\bin\ort [all your parameters]
 ```
 
-### Alternative path in log4j2.xml for the output file
+#### Alternative path in log4j2.xml for the output file
 Another way to pass a value to the default log4j2.xml file is to pass it as an environment variable (example for Windows-based systems):
 
 `set log4jOutputFolder=[path to the output folder]`
@@ -88,3 +88,15 @@ This variable can then be used in the log4j2.xml in the following way:
 <File name="LogFile" fileName="${sys:log4jOutputFolder}OSCake.log" append="false">
 ```
 
+# ORT-Module: OSCake
+
+The OSCake-applications: Curator, Deduplicator and Merger are implemented in the ORT-Module with the name "oscake" and done by the following steps:
+
+1. Add a new module to the project (in IntelliJ via "Project Structure -> Project Settings -> Modules")
+2. Add the file `build.gradle.kts` in the root folder of the module and put the dependencies inside
+3. ORT-Module `model`: add property `val oscake: OSCakeConfiguration = OSCakeConfiguration()` at the end of the `data class OrtConfiguration` in the subfolder `config`.
+4. ORT-Module `model`: add class `OSCakeConfiguration.kt` containing the config definitions for the oscake applications
+5. ORT-Module `cli`:
+	- OrtMain.kt: add `OSCakeCommand()` to the `subcommands`- list
+	- add `OSCakeCommand.kt` in the subfolder `commands`; this kotlin file contains the logic for the different commandline options. The selection of a specific OSCake application is done via the ORT-option: `--app` or `-a` (also defined in this class file). The `run` method validates the set options and starts the selected application.
+6. ORT-Module `oscake`: this module contains a kotlin class for every application (`OSCakeCurator.kt`, `OSCakeDeduplicator.kt`, `OSCakeMerger.kt`) and the class `OSCakeApplication.kt`, which contains properties and functions used by all of them. Furthermore, every application has its own subfolder where to put the application specific code inside.

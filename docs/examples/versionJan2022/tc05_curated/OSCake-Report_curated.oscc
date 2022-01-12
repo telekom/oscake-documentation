@@ -1,10 +1,76 @@
 {
 	"hasIssues": false,
+	"config": {
+		"reporter": {
+			"commandLineParams": {
+				"configFile": "..\\tc05_V50\\conf\\oscake.conf",
+				"--dependency-granularity": "0"
+			},
+			"configFile": {
+				"scopePatterns": [
+					"license*",
+					"licence*",
+					"*.license",
+					"*.licence",
+					"unlicense",
+					"unlicence",
+					"copying*",
+					"copyright",
+					"notice*",
+					"LICENSE*",
+					"LICENCE*",
+					"*.LICENSE",
+					"*.LICENCE",
+					"UNLICENSE",
+					"UNLICENCE",
+					"COPYING*",
+					"COPYRIGHT",
+					"NOTICE*"
+				],
+				"copyrightScopePatterns": [
+					"README*",
+					"readme*"
+				],
+				"sourceCodesDir": "../tc05_V50/sources",
+				"scanResultsCache": {
+					"directory": "../tc05_V50/oscakeNativeScanResults",
+					"enabled": "false"
+				},
+				"ortScanResultsDir": "../tc05_V50/results/native-scan-results",
+				"packageRestrictions": {
+					"enabled": false,
+					"onlyIncludePackages": [
+						"Maven:com.sun.activation:jakarta.activation:1.2.2"
+					]
+				},
+				"packageInclusions": null,
+				"includeIssues": {
+					"enabled": true,
+					"level": 2
+				},
+				"includeJsonPathInLogfile4ErrorsAndWarnings": true,
+				"ignoreNOASSERTION": false,
+				"hideSections": []
+			}
+		},
+		"curator": {
+			"commandLineParams": {
+				"ignoreRootWarnings": "false",
+				"osccFile": "..\\tc05_V50\\results\\OSCake-Report.oscc",
+				"outputDir": "..\\tc05_V50\\results"
+			},
+			"configFile": {
+				"directory": "../tc05_V50/curations/packages",
+				"fileStore": "../tc05_V50/curations/store",
+				"issueLevel": "2"
+			}
+		}
+	},
 	"complianceArtifactCollection": {
 		"cid": "Maven:de.tdosca.tc05:tdosca-tc05:1.0",
-		"author": "OSCake-Reporter",
+		"author": "OSCake-Curator",
 		"release": "0.1",
-		"date": "2021-04-14T15:09:16.559444",
+		"date": "2022-01-12T09:36:57.834615700",
 		"archivePath": "./tdosca-tc05_curated.zip",
 		"archiveType": "ZIP"
 	},
@@ -14,11 +80,24 @@
 			"release": "1.0",
 			"repository": "https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw.git",
 			"id": "Maven:de.tdosca.tc05:tdosca-tc05:1.0",
-			"defaultLicensings": [
+			"sourceRoot": "input-sources",
+			"hasIssues": false,
+			"defaultLicenses": [
 				{
 					"foundInFileScope": "COPYING",
 					"license": "MIT",
-					"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%COPYING.MIT"
+					"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%COPYING.MIT",
+					"hasIssues": false
+				}
+			],
+			"defaultCopyrights": [
+				{
+					"foundInFileScope": "COPYING",
+					"copyright": "Copyright 2020 Karsten Reincke, Deutsche Telekom AG"
+				},
+				{
+					"foundInFileScope": "README.md",
+					"copyright": "Copyright (c) 2020 Karsten Reincke / Deutsche Telekom AG"
 				}
 			],
 			"dirLicensings": [
@@ -28,12 +107,18 @@
 						{
 							"foundInFileScope": "src/main/java/de/tdosca/common/LICENSE",
 							"license": "NEW_LICENSE",
-							"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%newLicense%new_license.txt.NEW_LICENSE"
+							"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%newLicense%new_license.txt.NEW_LICENSE",
+							"hasIssues": false
+						}
+					],
+					"dirCopyrights": [
+						{
+							"foundInFileScope": "src/main/java/de/tdosca/common/LICENSE",
+							"copyright": "Copyright 2022 by Konrad"
 						}
 					]
 				}
 			],
-			"reuseLicensings": [],
 			"fileLicensings": [
 				{
 					"fileScope": "COPYING",
@@ -69,11 +154,11 @@
 					"fileLicenses": [
 						{
 							"license": "BSD-2-Clause",
-							"licenseTextInArchive": null
+							"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%src%main%java%de%tdosca%common%EnvService.java.BSD-2-Clause"
 						},
 						{
 							"license": "BSD-2-Clause",
-							"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%src%main%java%de%tdosca%common%EnvService.java.BSD-2-Clause"
+							"licenseTextInArchive": null
 						}
 					],
 					"fileCopyrights": [
@@ -162,7 +247,7 @@
 					],
 					"fileCopyrights": [
 						{
-							"copyright": "Copyright 2010 by Konrad"
+							"copyright": "Copyright 2022 by Konrad"
 						}
 					]
 				}

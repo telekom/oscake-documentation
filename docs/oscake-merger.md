@@ -24,10 +24,10 @@ Option "-c": An identifier is a string defined by its type, namespace, name and 
 
 Go to the installation directory of your ORT instance and run the following command:
 
-`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a curator -id "[path to the directory containing oscc-files to merge]" -c "[package name in IVY-format]"`
+`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a merger -id "[path to the directory containing oscc-files to merge]" -c "[package name in IVY-format]"`
 
 
-## Processing & Issues & Error Handling
+## Processing, Issues & Error Handling
 
 During the processing of the input files, every package is copied into the output file - if it does not already exist. In order to avoid collisions between file references in the zip archive, a unique identifier is prepended to the reference and also to the name of the archived file. The tag `mergedIds`in the resulting `.oscc`-file contains a list of the `cid`s of the merged compliance artifact collections.
 
