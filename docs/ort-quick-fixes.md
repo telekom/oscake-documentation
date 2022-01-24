@@ -1,6 +1,6 @@
 # Branch: "oscake-reporter" - ScanCode.kt
 
-In order to get the native scan results from ScanCode the source code had to be changed:
+In order to get the native scan results from ScanCode, the source code had to be changed:
 
 File: ./ort/scanner/src/main/kotlin/scanners/scancode/ScanCode.kt
 Function: `override fun scanPathInternal...`
