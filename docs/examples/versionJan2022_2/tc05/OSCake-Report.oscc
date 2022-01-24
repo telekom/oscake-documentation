@@ -1,0 +1,211 @@
+{
+	"hasIssues": false,
+	"config": {
+		"reporter": {
+			"commandLineParams": {
+				"configFile": "../tc05_V60/conf/oscake.conf"
+			},
+			"configFile": {
+				"scopePatterns": [
+					"license*",
+					"licence*",
+					"*.license",
+					"*.licence",
+					"unlicense",
+					"unlicence",
+					"copying*",
+					"copyright",
+					"notice*",
+					"LICENSE*",
+					"LICENCE*",
+					"*.LICENSE",
+					"*.LICENCE",
+					"UNLICENSE",
+					"UNLICENCE",
+					"COPYING*",
+					"COPYRIGHT",
+					"NOTICE*"
+				],
+				"copyrightScopePatterns": [
+					"README*",
+					"readme*"
+				],
+				"sourceCodesDir": "../tc05_V60/sources",
+				"ortScanResultsDir": "../tc05_V60/results/native-scan-results",
+				"packageRestrictions": {
+					"enabled": false,
+					"onlyIncludePackages": []
+				},
+				"packageInclusions": {
+					"enabled": false,
+					"forceIncludePackages": [
+						"Maven:org.slf4j:slf4j-api:1.7.31"
+					]
+				},
+				"includeIssues": {
+					"enabled": true,
+					"level": 2
+				},
+				"includeJsonPathInLogfile4ErrorsAndWarnings": true,
+				"ignoreNOASSERTION": false,
+				"ignoreLicenseRefScancodeUnknown": false,
+				"hideSections": []
+			}
+		}
+	},
+	"complianceArtifactCollection": {
+		"cid": "Maven:de.tdosca.tc05:tdosca-tc05:1.0",
+		"author": "OSCake-Reporter",
+		"release": "0.1",
+		"date": "2022-01-24T11:30:37.977868600",
+		"archivePath": "./tdosca-tc05.zip",
+		"archiveType": "ZIP"
+	},
+	"complianceArtifactPackages": [
+		{
+			"pid": "tdosca-tc05",
+			"release": "1.0",
+			"repository": "https://github.com/Open-Source-Compliance/tdosca-tc05-simplhw.git",
+			"id": "Maven:de.tdosca.tc05:tdosca-tc05:1.0",
+			"sourceRoot": "input-sources",
+			"hasIssues": false,
+			"defaultLicenses": [
+				{
+					"foundInFileScope": "COPYING",
+					"license": "MIT",
+					"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%COPYING.MIT",
+					"hasIssues": false
+				}
+			],
+			"defaultCopyrights": [
+				{
+					"foundInFileScope": "COPYING",
+					"copyright": "Copyright 2020 Karsten Reincke, Deutsche Telekom AG"
+				},
+				{
+					"foundInFileScope": "README.md",
+					"copyright": "Copyright (c) 2020 Karsten Reincke / Deutsche Telekom AG"
+				}
+			],
+			"fileLicensings": [
+				{
+					"fileScope": "COPYING",
+					"fileContentInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%COPYING",
+					"fileLicenses": [
+						{
+							"license": "MIT",
+							"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%COPYING.MIT"
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright 2020 Karsten Reincke, Deutsche Telekom AG"
+						}
+					]
+				},
+				{
+					"fileScope": "src/main/java/de/tdosca/tc05/GreetingService.java",
+					"fileLicenses": [
+						{
+							"license": "MIT",
+							"licenseTextInArchive": null
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright (c) 2020 Karsten Reincke, Deutsche Telekom AG"
+						}
+					]
+				},
+				{
+					"fileScope": "src/main/java/de/tdosca/common/EnvService.java",
+					"fileLicenses": [
+						{
+							"license": "BSD-2-Clause",
+							"licenseTextInArchive": "Maven%de.tdosca.tc05%tdosca-tc05%1.0%input-sources%src%main%java%de%tdosca%common%EnvService.java.BSD-2-Clause"
+						},
+						{
+							"license": "BSD-2-Clause",
+							"licenseTextInArchive": null
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright (c) 2020 kreincke / Deutsche Telekom AG"
+						}
+					]
+				},
+				{
+					"fileScope": "src/test/java/de/tdosca/tc05/GreetingServiceTest.java",
+					"fileLicenses": [
+						{
+							"license": "MIT",
+							"licenseTextInArchive": null
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright (c) 2020 K.Reincke, Deutsche Telekom AG"
+						}
+					]
+				},
+				{
+					"fileScope": "README.md",
+					"fileLicenses": [
+						{
+							"license": "MIT",
+							"licenseTextInArchive": null
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright (c) 2020 Karsten Reincke / Deutsche Telekom AG"
+						}
+					]
+				},
+				{
+					"fileScope": "AUTHORS",
+					"fileLicenses": [
+						{
+							"license": "MIT",
+							"licenseTextInArchive": null
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright (c) 2020 Karsten Reincke / Deutsche Telekom AG"
+						}
+					]
+				},
+				{
+					"fileScope": "src/main/java/de/tdosca/tc05/Main.java",
+					"fileLicenses": [
+						{
+							"license": "MIT",
+							"licenseTextInArchive": null
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright (c) 2020 Karsten Reincke, Deutsche Telekom AG"
+						}
+					]
+				},
+				{
+					"fileScope": "src/test/java/de/tdosca/common/EnvServiceTest.java",
+					"fileLicenses": [
+						{
+							"license": "BSD-2-Clause",
+							"licenseTextInArchive": null
+						}
+					],
+					"fileCopyrights": [
+						{
+							"copyright": "Copyright (c) 2020 kreincke / Deutsche Telekom AG"
+						}
+					]
+				}
+			]
+		}
+	]
+}

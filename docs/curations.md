@@ -254,5 +254,5 @@ If the scanner does not find the correct license or copyright information, the o
 
 The Curator applies all defined curations to the oscc-file and produces the following output files:
 
-*  [OSCake-Report_curated.oscc](./examples/versionJan2022/tc05_curated/OSCake-Report_curated.oscc) 
-*  [tdosca-tc05_curated.zip](./examples/versionJan2022/tc05_curated/tdosca-tc05_curated.zip) 
+*  [OSCake-Report_curated.oscc](./examples/versionJan2022_2/tc05_curated/OSCake-Report_curated.oscc) 
+*  [tdosca-tc05_curated.zip](./examples/versionJan2022_2/tc05_curated/tdosca-tc05_curated.zip) 
