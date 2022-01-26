@@ -10,15 +10,18 @@ In order to keep the output volume in the \*oscc file as concise as possible, th
 An example of the `oscake.conf` may be found [here](./examples/versionJan2022_2/oscake.conf).
 
 1. `scopePatterns` are responsible for retrieving the scope of the license information of a file (default, directory, reuse, file)
-2. `sourceCodesDir` is the path to the directory where the source codes are downloaded and kept, in order to extract original license infos
-3. `ortScanResultsDir` denotes the folder where the original ORT scan results are stored
-4. `packageRestrictions` - if `enabled` the output is restricted to the packages enumerated in `onlyIncludePackages`. This list contains the package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter `dependency-granularity` (this option will be overruled!).
-5. `packageInclusions` contains a list of packages (`forceIncludePackages`). These Packages are integrated into the ouput also if the `dependency-granularity` excludes them. Only works in conjunction with the command line option `dependency-granularity`.
-6. `includeIssues` specifies, if log messages (INFO, WARN, ERROR) are included in the oscc-file. The messages are assigned to different levels: Root, Package, Default-Scope and Dir-Scope. The `level` defines the granularity of the messages: 0..ERROR, 1..WARN+ERROR, 2..WARN+ERROR+INFO.
-7. `includeJsonPathInLogfile4ErrorsAndWarnings` - when set, WARN- and ERROR-messages have a suffix representing a JsonPath in order to locate the issue in the oscc file more easily.
-8. `ignoreNOASSERTION` - when set to *true* license findings with the license indicator "NOASSERTION" are ignored.
-9. `ignoreLicenseRefScancodeUnknown` - when set to *true* license findings starting with *LicenseRef-scancode* and containing *unknown* are ignored.
-10. `hideSections = []` - contains a list of section names (*"config", "reuselicensings", "dirlicensings", "filelicensings"*) which are removed from the generated output - mostly for verification reasons. If the generated oscc-file has hidden sections no further processing (merging, deduplication, curation) is possible!
+2. `copyrightScopePatterns` contains glob-patterns to retrieve the scope of the copyright information of a file. It automatically contains the list of `scopePatterns`
+3. `scopeIgnorePatterns` exclude files which comply to the `scopePatterns` or `copyrightScopePatterns`
+4. `sourceCodesDir` is the path to the directory where the source codes are downloaded and kept, in order to extract original license infos
+5. `ortScanResultsDir` denotes the folder where the original ORT scan results are stored
+6. `packageRestrictions` - if `enabled` the output is restricted to the packages enumerated in `onlyIncludePackages`. This list contains the package names in IVY-format: e.g.: "Maven:org.yaml:snakeyaml:1.28". This configuration works independently from the commandline parameter `dependency-granularity` (this option will be overruled!).
+7. `packageInclusions` contains a list of packages (`forceIncludePackages`). These Packages are integrated into the ouput also if the `dependency-granularity` excludes them. Only works in conjunction with the command line option `dependency-granularity`.
+8. `includeIssues` specifies, if log messages (INFO, WARN, ERROR) are included in the oscc-file. The messages are assigned to different levels: Root, Package, Default-Scope and Dir-Scope. The `level` defines the granularity of the messages: 0..ERROR, 1..WARN+ERROR, 2..WARN+ERROR+INFO.
+9. `includeJsonPathInLogfile4ErrorsAndWarnings` - when set, WARN- and ERROR-messages have a suffix representing a JsonPath in order to locate the issue in the oscc file more easily.
+10. `ignoreNOASSERTION` - when set to *true* license findings with the license indicator "NOASSERTION" are ignored.
+11. `ignoreLicenseRefScancodeUnknown` - when set to *true* license findings starting with *LicenseRef-scancode* and containing *unknown* are ignored.
+12. `hideSections = []` - contains a list of section names (*"config", "reuselicensings", "dirlicensings", "filelicensings"*) which are removed from the generated output - mostly for verification reasons. If the generated oscc-file has hidden sections no further processing (merging, deduplication, curation) is possible!
+13. `lowerCaseComparisonOfScopePatterns` defines if the `scopePatterns`, `scopeIgnorePatterns` and `copyrightScopePatterns` are applied to filenames in lower case (on Windows the comparison is always done on lower case names, whereas on UNIX systems upper and lower case rules are followed; if set to true on UNIX the results are equal to Windows)
 
 ## Configuration of the OSCake-Curator
 
