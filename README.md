@@ -30,8 +30,8 @@ Contains findings and documentation on OSCake - the *OSCake-Reporter* extension 
 [architecture-and-code.md]: ./docs/architecture-and-code.md
 [integration.md]: ./docs/integration.md
 [ort-quick-fixes.md]: ./docs/ort-quick-fixes.md
-[oscake-resolver.md]: ./docs/resolver.md
-[oscake-selector.md]: ./docs/selector.md
+[oscake-resolver.md]: ./docs/oscake-resolver.md
+[oscake-selector.md]: ./docs/oscake-selector.md
 [ORT-integration.md]: ./docs/ORT-integration.md
 
 
