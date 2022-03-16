@@ -42,7 +42,7 @@ If enabled, and the level is set to 2, the oscc-file contains the following bloc
 
 The id of an issue depends on the type ('E', 'W', 'I') and gets a two-digit number as suffix (consecutively numbered for each type on root level and on package level). Therefore, it is possible to curate specific issues by the "Curator". If an issue occurs for a specific package, which is not contained in the `complianceArtifactPackages`, the id consists of the type and the identifier of the package (e.g. `"W_Maven:org.springframework.boot:spring-boot-starter:2.5.3")`. 
 
-A curation always contains the package-`id` at the very beginning, followed by the `packageModifier` (more details see below). The `resolved_issues` tag lists the issues which are treated by this curation. The Curator processes the curation and removes the listed issue-ids from the oscc-issues lists. At the end, the curated oscc-file only contains the issues, which are still open.
+A curation always contains the package-`id` at the very beginning, followed by the `packageModifier` (more details see below). The `resolved_issues` tag lists the issues which are treated by this curation. The tag can also contain wildcards to handle all errors or warnings ("W*" and "E*") The Curator processes the curation and removes the listed issue-ids from the oscc-issues lists. At the end, the curated oscc-file only contains the issues, which are still open.
 
 ```
 - id: "Maven:org.springframework.boot:spring-boot-starter:2.5.3"
@@ -83,7 +83,7 @@ Depending on the `issueLevel`in `ort.conf` the curated oscc-file contains a list
 Reported warnings in the oscc-file with origin other than from "Reporter" (e.g. Scanner issues) cannot be curated with a yml-file (because there is no package reference). Therefore, the commandline parameter: `--ignoreRootWarnings` can be used. This parameter eliminates every issue with the structure "W??" (? = any digit) from the root-warnings-list.
 
 ## Output Files
-The Curator produces the follwoing files:
+The Curator produces the following files:
 
 * `OSCake-Report_curated.oscc`: curated output file in *.oscc format 
 * `[pid]_curated.zip`: archive containing curated license files (`pid` = project identifier in oscc-file)
