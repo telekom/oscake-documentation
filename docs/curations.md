@@ -5,39 +5,40 @@ The ORT-module `oscake` provides a simple mechanism to adapt information about l
 The oscc-file contains the tag `hasIssues` on the root, the package, the default-scope and the dir-scope. If `enabled`is set to true, errors, warnings and infos, which occurred during the generation of the oscc-file (OSCakeReporter), are reported directly in the oscc-file depending on the `level` - set in `oscake.conf`.
 
 ```
-	includeIssues {
-		enabled = true
-		level = 2	# 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
-	}
+   includeIssues {
+     enabled = true
+     level = 2	# 0..ERROR, 1..WARN + ERROR, 2..INFO + 
+                #  WARN + ERROR
+   }
 ```
 
 If enabled, and the level is set to 2, the oscc-file contains the following block after the tag `hasIssues` (on root, package, default-scope and dir-scope level). If one of the lists is empty, it will not be shown. If all the lists are empty, the tag `issues` is absent:
 
 ```
-	"issues": {
-		"errors": [
-			{
-				"id": "E01",
-				"message": "Problem occurred ..."
-			}
-		],
-		"warnings": [
-			{
-				"id": "W01",
-				"message": "Issue in ORT-SCANNER - please check ORT-logfile or console output or scan-result.yml"
-			},
-			{
-				"id": "W_Maven:org.springframework.boot:spring-boot-starter:2.5.3",
-				"message": "packageRestrictions are enabled, but the package [Identifier(type=Maven, namespace=org.springframework.boot, name=spring-boot-starter, version=2.5.3)] was not found"
-			}
-		],
-		"infos": [
-			{
-				"id": "I02",
-				"message": "commandline parameter \"dependency-granularity\" is overruled due to packageRestrictions"
-			}
-		]
-	},
+  "issues": {
+    "errors": [
+      {
+        "id": "E01",
+        "message": "Problem occurred ..."
+      }
+    ],
+    "warnings": [
+      {
+        "id": "W01",
+        "message": "Issue in ORT-SCANNER - please check ORT-logfile or console output or scan-result.yml"
+      },
+      {
+        "id": "W_Maven:org.springframework.boot:spring-boot-starter:2.5.3",
+        "message": "packageRestrictions are enabled, but the package [Identifier(type=Maven, namespace=org.springframework.boot, name=spring-boot-starter, version=2.5.3)] was not found"
+      }
+    ],
+      "infos": [
+        {
+          "id": "I02",
+          "message": "commandline parameter \"dependency-granularity\" is overruled due to packageRestrictions"
+        }
+      ]
+},
 ```
 
 The id of an issue depends on the type ('E', 'W', 'I') and gets a two-digit number as suffix (consecutively numbered for each type on root level and on package level). Therefore, it is possible to curate specific issues by the "Curator". If an issue occurs for a specific package, which is not contained in the `complianceArtifactPackages`, the id consists of the type and the identifier of the package (e.g. `"W_Maven:org.springframework.boot:spring-boot-starter:2.5.3")`. 
