@@ -43,7 +43,7 @@ If enabled, and the level is set to 2, the oscc-file contains the following bloc
 
 The id of an issue depends on the type ('E', 'W', 'I') and gets a two-digit number as suffix (consecutively numbered for each type on root level and on package level). Therefore, it is possible to curate specific issues by the "Curator". If an issue occurs for a specific package, which is not contained in the `complianceArtifactPackages`, the id consists of the type and the identifier of the package (e.g. `"W_Maven:org.springframework.boot:spring-boot-starter:2.5.3")`. 
 
-A curation always contains the package-`id` at the very beginning, followed by the `packageModifier` (more details see below). The `resolved_issues` tag lists the issues which are treated by this curation. The tag can also contain wildcards to handle all errors or warnings ("W*" and "E*") The Curator processes the curation and removes the listed issue-ids from the oscc-issues lists. At the end, the curated oscc-file only contains the issues, which are still open.
+A curation always contains the package-`id` at the very beginning, followed by the `packageModifier` (more details see below). The `resolved_issues` tag lists the issues which are treated by this curation. The tag can also contain wildcards to handle all errors or warnings ("W*" and "E*") at once. The Curator processes the curation and removes the listed issue-ids from the oscc-issues lists. At the end, the curated oscc-file only contains the issues, which are still open.
 
 ```
 - id: "Maven:org.springframework.boot:spring-boot-starter:2.5.3"
@@ -61,11 +61,11 @@ Curations may be configured and enabled as follows:
 ...
   oscake {
   ...
-	curator {
-		directory = "[path to the directory, which contains the curation files]"
-		fileStore = "[path to the directory, where the corresponding license files are kept]"
-		issueLevel = 2	# -1..not enabled, 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
-	}
+   curator {
+     directory = "[path to the directory, which contains the curation files]"
+     fileStore = "[path to the directory, where the corresponding license files are kept]"
+     issueLevel = 2	# -1..not enabled, 0..ERROR, 1..WARN + ERROR, 2..INFO + WARN + ERROR
+   }
   }
 }
 ``` 
@@ -76,7 +76,7 @@ The Curator uses the `directory` to search for curation files in yml-syntax (wit
 
 Go to the installation directory of your ORT instance and run the following command:
 
-`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a curator -i "[path to the oscc-file]/OSCake-Report.oscc" -o "[path to the results directory]"`
+`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a curator -cI "[path to the oscc-file]/OSCake-Report.oscc" -cO "[path to the results directory]"`
 
 Depending on the `issueLevel`in `ort.conf` the curated oscc-file contains a list of issues of different levels.
 

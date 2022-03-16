@@ -59,7 +59,7 @@ The *Selector* uses the `directory`-entry from the config file to search for fil
 
 Go to the installation directory of your ORT instance and run the following command:
 
-`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a resolver -sI "[path to the oscc-file]/OSCake-Report.oscc" -sO "[path to the results directory]"`
+`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a selector -sI "[path to the oscc-file]/OSCake-Report.oscc" -sO "[path to the results directory]"`
 
 Depending on the `issueLevel` in `ort.conf` the resulting oscc-file contains a list of issues of different levels.
 
