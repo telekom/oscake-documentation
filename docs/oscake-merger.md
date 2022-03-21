@@ -6,12 +6,12 @@ The following commandline parameters are available:
 
 ```
 Options:
-* -id, --inputDirectory PATH  The path to a folder containing oscc files and
+* -mI, --inputDirectory PATH  The path to a folder containing oscc files and
                               their corresponding archives. May also consist
                               of subdirectories.
-  -od, --outputDirectory PATH The path to the output folder.
+  -mO, --outputDirectory PATH The path to the output folder.
 * -c, --cid TEXT              Id of the new Compliance Artifact Collection.
-  -of, --outputFile PATH      Name of the output file. When -o is also
+  -mF, --outputFile PATH      Name of the output file. When -o is also
                               specified, the path to the outputFile is
                               stripped to its name.
 

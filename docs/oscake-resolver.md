@@ -17,7 +17,7 @@ The *Resolver* can be configured in the file `ort.conf` in the `oscake`-section:
 ``` 
 
 ## Resolver Actions - *manually defined*
-Generally, every *Resolver* file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the resolver actions to a specific package contained in the original \*.oscc file. If the version is empty, the action will be applied to every package disregarding the version number. Additionally, the version number can be defined by means of an an IVY-expression - representing a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html)). If  more than one action for a specific package is found, no action for this package will be applied.
+Generally, every *Resolver* file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the resolver actions to a specific package contained in the original \*.oscc file. If the version is empty, the action will be applied to every package disregarding the version number. Additionally, the version number can be defined by means of an an IVY-expression - representing a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html)). If  more than one action for a specific package is found, no action will be applied for this package.
 
 ```
 - id: "Maven:de.tdosca:tdosca-tc08:1.0"
@@ -32,7 +32,7 @@ Generally, every *Resolver* file consists of one or more packages, identified by
 - id: "Maven:org.apache:notify:1.8"
   ....
 ```
-The `resolve`-tag may contain multiple `licenses`. The example above orders the *Resolver* to search for files in the defined `scopes` containing license findings for "Apache-2.0" and "BSD-3-Clause" but no other license. The empty quotes `""` represent the root directory of the package. The *Resolver* replaces the license by the compound license "Apache-2.0 OR BSD-3-Clause" and sets the tags "licenseTextInArchive" and "fileContentInArchive" to null (because the findings in the files may not represent the correct information anymore)
+The `resolve`-tag may contain multiple `licenses`. The example above instructs the *Resolver* to search for files in the defined `scopes` containing license findings for "Apache-2.0" and "BSD-3-Clause" but no other license. The empty quotes `""` represent the root directory of the package. The *Resolver* replaces the license by the compound license "Apache-2.0 OR BSD-3-Clause" and sets the tags "licenseTextInArchive" and "fileContentInArchive" to null (because the findings in these files may not represent the correct information anymore)
 
 Section of the changed \*.oscc-file:
 ```
