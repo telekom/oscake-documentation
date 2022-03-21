@@ -20,20 +20,12 @@ An example of the `oscake.conf` may be found [here](./examples/versionJan2022_2/
 9. `includeJsonPathInLogfile4ErrorsAndWarnings` - when set, WARN- and ERROR-messages have a suffix representing a JsonPath in order to locate the issue in the oscc file more easily.
 10. `ignoreNOASSERTION` - when set to *true* license findings with the license indicator "NOASSERTION" are ignored.
 11. `ignoreLicenseRefScancodeUnknown` - when set to *true* license findings starting with *LicenseRef-scancode* and containing *unknown* are ignored.
-12. `hideSections = []` - contains a list of section names (*"config", "reuselicensings", "dirlicensings", "filelicensings"*) which are removed from the generated output - mostly for verification reasons. If the generated oscc-file has hidden sections no further processing (merging, deduplication, curation) is possible!
-13. `lowerCaseComparisonOfScopePatterns` defines if the `scopePatterns`, `scopeIgnorePatterns` and `copyrightScopePatterns` are applied to filenames in lower case (on Windows the comparison is always done on lower case names, whereas on UNIX systems upper and lower case rules are followed; if set to true on UNIX the results are equal to Windows)
+12. `ignoreLicenseRef`- when set to *true*, license findings starting with *LicenseRef* are ignored (consequently, this setting overrules the parameter `ignoreLicenseRefScancodeUnknown`)  
+13. `hideSections = []` - contains a list of section names (*"config", "reuselicensings", "dirlicensings", "filelicensings"*) which are removed from the generated output - mostly for verification reasons. If the generated oscc-file has hidden sections no further processing (merging, deduplication, curation) is possible!
+14. `lowerCaseComparisonOfScopePatterns` defines if the `scopePatterns`, `scopeIgnorePatterns` and `copyrightScopePatterns` are applied to filenames in lower case (on Windows the comparison is always done on lower case names, whereas on UNIX systems upper and lower case rules are followed; if set to true on UNIX the results are equal to Windows)
 
-## Configuration of the OSCake-Curator
-
-A detailed description can be found [here](./curations.md#configuration-in-ortconf).
-
-## Configuration of the OSCake-Deduplicator
-
-A detailed description can be found [here](./deduplicator.md#Configuration).
-
-## Configuration of the OSCake-Merger
-
-There is no specific configuration necessary. The processing is only controlled by commandline parameters defined [here](./oscake-merger.md#commandline-parameters).
+## Configuration of the OSCake-Applications
+The options and parameters are documented in the descriptions of each OSCake-Application.
 
 ## Configuration of the ORT-Scanner
 

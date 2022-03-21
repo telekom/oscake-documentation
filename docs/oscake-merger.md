@@ -18,13 +18,13 @@ Options:
 * denotes required options.
 ```
 
-Option "-c": An identifier is a string defined by its type, namespace, name and version (e.g. "Maven:joda-time:joda-time:2.10.8" - IVY-format). If no output file is specified (option -of) the filename is generated based on the ID, whereas ":" are replaced by ".". If the identifier contains characters which are not allowed in filenames (e.g. "\*") the program is aborted.
+Option "-c": An identifier is a string defined by its type, namespace, name and version (e.g. "Maven:joda-time:joda-time:2.10.8" - IVY-format). If no output file is specified (option -mF) the filename is generated based on the ID, whereas ":" are replaced by ".". If the identifier contains characters which are not allowed in filenames (e.g. "\*") the program is aborted.
 
 ## Run the "Merger"
 
 Go to the installation directory of your ORT instance and run the following command:
 
-`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a merger -id "[path to the directory containing oscc-files to merge]" -c "[package name in IVY-format]"`
+`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a merger -mI "[path to the directory containing oscc-files to merge]" -c "[package name in IVY-format]"`
 
 
 ## Processing, Issues & Error Handling
