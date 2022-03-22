@@ -23,6 +23,7 @@ An example of the `oscake.conf` may be found [here](./examples/versionJan2022_2/
 12. `ignoreLicenseRef`- when set to *true*, license findings starting with *LicenseRef* are ignored (consequently, this setting overrules the parameter `ignoreLicenseRefScancodeUnknown`)  
 13. `hideSections = []` - contains a list of section names (*"config", "reuselicensings", "dirlicensings", "filelicensings"*) which are removed from the generated output - mostly for verification reasons. If the generated oscc-file has hidden sections no further processing (merging, deduplication, curation) is possible!
 14. `lowerCaseComparisonOfScopePatterns` defines if the `scopePatterns`, `scopeIgnorePatterns` and `copyrightScopePatterns` are applied to filenames in lower case (on Windows the comparison is always done on lower case names, whereas on UNIX systems upper and lower case rules are followed; if set to true on UNIX the results are equal to Windows)
+15. `licenseScoreThreshold` is the boundary for reporting a warning in the event that a license score is lower or equal  than this threshold. ATTENTION: the ORT-scanner may be configured to skip license findings under a specific threshold. Consequently, the option in the OSCake-Reporter may have no impact.
 
 ## Configuration of the OSCake-Applications
 The options and parameters are documented in the descriptions of each OSCake-Application.
