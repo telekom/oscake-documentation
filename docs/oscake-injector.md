@@ -1,6 +1,6 @@
 # Update the info about "distribution" and "packageType" in a Package
 
-After creating an oscc-file by the *Reporter* the file contains information about the kind of distribution (*DISTRIBUTED, PREINSTALLED, DEV*) of a package and also its package type (*EXECUTABLE, LIBRARY*). The task of the *Injector* is to offer a posibility to change this information.
+After creating an oscc-file by the *Reporter* the file contains information about the kind of distribution (*"DISTRIBUTED", "PREINSTALLED", "DEV"*) of a package and also its package type (*"EXECUTABLE", "LIBRARY"*). The task of the *Injector* is to offer a posibility to change this information.
 
 ## Configuration in ort.conf
 The Injector can be configured in the file `ort.conf` in the `oscake`-section:
