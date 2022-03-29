@@ -17,7 +17,8 @@ Contains findings and documentation on OSCake - the *OSCake-Reporter* extension 
 | [ORT-integration.md] | Documentation on module **OSCake** - *for developers*. |
 | [oscake-curator.md] | How to run the **Curator** on \*.oscc files |
 | [oscake-resolver.md] | How to manage dual licensed packages with the **Resolver**|
-| [oscake-selector.md] | How to select a specific license from dual licensed packages with the **Selector**
+| [oscake-selector.md] | How to select a specific license from dual licensed packages with the **Selector**|
+| [oscake-injector.md] | How to change the distribution type and package type in packages with the **Injector**|
 | [oscake-deduplicator.md] | How to deduplicate license and copyright information with the **Deduplicator**|
 | [oscake-merger.md] | How to merge different output files from the OSCake-Reporter by running the **Merger**|
 
@@ -32,6 +33,7 @@ Contains findings and documentation on OSCake - the *OSCake-Reporter* extension 
 [ort-quick-fixes.md]: ./docs/ort-quick-fixes.md
 [oscake-resolver.md]: ./docs/oscake-resolver.md
 [oscake-selector.md]: ./docs/oscake-selector.md
+[oscake-injector.md]: ./docs/oscake-injector.md
 [ORT-integration.md]: ./docs/ORT-integration.md
 
 
