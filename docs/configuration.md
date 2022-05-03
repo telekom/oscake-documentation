@@ -25,6 +25,7 @@ An example of the `oscake.conf` may be found [here](./examples/versionJan2022_2/
 14. `lowerCaseComparisonOfScopePatterns` defines if the `scopePatterns`, `scopeIgnorePatterns` and `copyrightScopePatterns` are applied to filenames in lower case (on Windows the comparison is always done on lower case names, whereas on UNIX systems upper and lower case rules are followed; if set to true on UNIX the results are equal to Windows)
 15. `licenseScoreThreshold` is the boundary for reporting a warning in the event that a license score is lower or equal  than this threshold. ATTENTION: the ORT-scanner may be configured to skip license findings under a specific threshold. Consequently, the option in the OSCake-Reporter may have no impact.
 16. `distributionMap`: This map allows to determine for each package if it is included in the distribution, if it will be preinstalled by the user or if it is used only for development. This mapping depends on the `scope(s)` of a package, which is set by ORT and derived from the settings of the used package manager. The `key` of the map represents this scope and may also consist of a regex expression. Furthermore, it can have a prefix describing that this mapping is only applied if this specific package manager is used. The setting of the `distribution` follows priority rules if more than one scope is mapped (from highest to lowest: *DISTRIBUTED*, *PREINSTALLED*, *DEV*)
+17. `prettyPrint`: formats the json output in the `oscc` file 
 
 ## Configuration of the OSCake-Applications
 The options and parameters are documented in the descriptions of each OSCake-Application.
@@ -129,6 +130,18 @@ Files ("compliance artifacts") which are matching the archive patterns (`glob`-[
       }
     }
 ```  
+#### ScanCode Ignore File Patterns
+The `ignorePatterns` section lists the files which should be not scanned. If this section is missing the scanner uses default values (which also includes `"**/META-INF/NOTICE").
+```
+	ignorePatterns = [
+      "**/*.ort.yml",
+      "**/*.spdx.yml",
+      "**/*.spdx.yaml",
+      "**/*.spdx.json",
+      "**/META-INF/DEPENDENCIES"
+    ]
+```
+
 ## License categorization in license-classifications.yml
 For categorization of licenses, the `license-classifications.yml`-File is used. For OSCake the category "instanced" is needed and has to be assigned to the appropriate license entries (a complete file can be found [here](./examples/versionJan2022_2/license-classifications.yml).   
 
