@@ -12,3 +12,15 @@ The OSCake-applications: Curator, Resolver, Selector, Deduplicator and Merger ar
 6. ORT-Module `oscake`: this module contains a kotlin class for every application (`OSCakeCurator.kt`, `OSCakeResolver.kt`, `OSCakeSelector.kt`,`OSCakeDeduplicator.kt`, `OSCakeMerger.kt`) and the class `OSCakeApplication.kt`, which contains properties and functions used by all of them. Furthermore, every application has its own subfolder where to put the application specific code inside.
 7. Due to similar algorithms in `OSCakeCurator.kt`, `OSCakeResolver.kt` and `OSCakeSelector.kt` the common logic is implemented as different base classes, found in the subfolder `common`. 
 8. Add `include(":oscake")`to the list found in `settings.gradle.kts` in the root directory of the project
+9. Change scanner options in ort.conf (the variable \{rawFileName\} will be replaced by a randomUUID in order to keep the different scan results for later use):
+```
+scanner {
+    options {
+        ScanCode {
+            commandLine = "--copyright --license --license-text --ignore *.ort.yml --info --strip-root --timeout 300 --ignore HERE_NOTICE --ignore META-INF/DEPENDENCIES --json ../scanner/scannerRaw/{rawFileName}.json"
+        }
+    }
+}
+``` 
+10. Change source code in `ScanCode.kt` function `runScanCode`: change `*commandLineOptions.toTypedArray(),` to `*commandLineOptions.joinToString(",").replace("{rawFileName}", java.util.UUID.randomUUID().toString()).split(",").toTypedArray(),`
+ 
