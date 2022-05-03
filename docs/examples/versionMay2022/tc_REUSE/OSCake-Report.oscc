@@ -1,0 +1,143 @@
+{
+  "hasIssues" : true,
+  "containsHiddenSections" : false,
+  "config" : {
+    "reporter" : {
+      "commandLineParams" : {
+        "configFile" : "../tc_REUSE_V70/conf/oscake.conf"
+      },
+      "configFile" : {
+        "scopePatterns" : [ "license*", "licence*", "*.license", "*.licence", "unlicense", "unlicence", "copying*", "copyright", "LICENSE*", "LICENCE*", "*.LICENSE", "*.LICENCE", "UNLICENSE", "UNLICENCE", "COPYING*", "COPYRIGHT" ],
+        "copyrightScopePatterns" : [ "README*", "readme*", "NOTICE*", "notice*" ],
+        "scopeIgnorePatterns" : [ ],
+        "sourceCodesDir" : "../tc_REUSE_V70/sources",
+        "ortScanResultsDir" : "../tc_REUSE_V70/results/native-scan-results",
+        "packageRestrictions" : {
+          "enabled" : false,
+          "onlyIncludePackages" : [ ]
+        },
+        "packageInclusions" : {
+          "enabled" : false,
+          "forceIncludePackages" : [ ]
+        },
+        "includeIssues" : {
+          "enabled" : true,
+          "level" : 2
+        },
+        "includeJsonPathInLogfile4ErrorsAndWarnings" : true,
+        "ignoreNOASSERTION" : false,
+        "ignoreLicenseRefScancodeUnknown" : false,
+        "hideSections" : [ ],
+        "lowerCaseComparisonOfScopePatterns" : true,
+        "ignoreLicenseRef" : false,
+        "licenseScoreThreshold" : 10,
+        "distributionMap" : {
+          "^smokeTest" : "DEV",
+          "^test" : "DEV",
+          "^Gradle:smokeTest" : "DEV",
+          "^Gradle:compile" : "DISTRIBUTED",
+          "runtime" : "PREINSTALLED"
+        },
+        "prettyPrint" : true
+      }
+    }
+  },
+  "complianceArtifactCollection" : {
+    "cid" : "Unmanaged::example:7dea87e9a1f8d1fa6581f73cef50d8496d90fdd1",
+    "author" : "OSCake-Reporter",
+    "release" : "0.1",
+    "date" : "2022-05-03T11:39:13.485471900",
+    "archivePath" : "./example.zip",
+    "archiveType" : "ZIP"
+  },
+  "complianceArtifactPackages" : [ {
+    "pid" : "example",
+    "release" : "7dea87e9a1f8d1fa6581f73cef50d8496d90fdd1",
+    "repository" : "https://git.fsfe.org/reuse/example.git",
+    "id" : "Unmanaged::example:7dea87e9a1f8d1fa6581f73cef50d8496d90fdd1",
+    "distribution" : "DISTRIBUTED",
+    "packageType" : "EXECUTABLE",
+    "sourceRoot" : "",
+    "reuseCompliant" : true,
+    "hasIssues" : true,
+    "issues" : {
+      "warnings" : [ {
+        "id" : "W01",
+        "message" : "License Notice was found for a file in LICENSES folder in file: LICENSES/CC-BY-4.0.txt"
+      } ]
+    },
+    "defaultLicenses" : [ ],
+    "defaultCopyrights" : [ ],
+    "reuseLicenses" : [ {
+      "foundInFileScope" : "LICENSES/CC0-1.0.txt",
+      "license" : "CC0-1.0",
+      "licenseTextInArchive" : "Unmanaged%unknown%example%7dea87e9a1f8d1fa6581f73cef50d8496d90fdd1%LICENSES%CC0-1.0.txt"
+    }, {
+      "foundInFileScope" : "LICENSES/GPL-3.0-or-later.txt",
+      "license" : "GPL-3.0-only",
+      "licenseTextInArchive" : "Unmanaged%unknown%example%7dea87e9a1f8d1fa6581f73cef50d8496d90fdd1%LICENSES%GPL-3.0-or-later.txt"
+    } ],
+    "fileLicensings" : [ {
+      "fileScope" : "img/cat.jpg",
+      "fileLicenses" : [ {
+        "license" : "CC-BY-4.0",
+        "licenseTextInArchive" : null
+      } ],
+      "fileCopyrights" : [ {
+        "copyright" : "Copyright 2017 Peter Janzen"
+      } ]
+    }, {
+      "fileScope" : "src/main.c",
+      "fileLicenses" : [ {
+        "license" : "GPL-3.0-or-later",
+        "licenseTextInArchive" : null
+      } ],
+      "fileCopyrights" : [ {
+        "copyright" : "Copyright 2019 Jane Doe <jane@example.com>"
+      } ]
+    }, {
+      "fileScope" : "img/dog.jpg",
+      "fileLicenses" : [ {
+        "license" : "GPL-3.0-or-later",
+        "licenseTextInArchive" : null
+      } ],
+      "fileCopyrights" : [ {
+        "copyright" : "Copyright 2017 Raffael Herrmann"
+      } ]
+    }, {
+      "fileScope" : "Makefile",
+      "fileLicenses" : [ {
+        "license" : "GPL-3.0-or-later",
+        "licenseTextInArchive" : null
+      } ],
+      "fileCopyrights" : [ {
+        "copyright" : "Copyright 2019 Jane Doe <jane@example.com>"
+      } ]
+    }, {
+      "fileScope" : "LICENSES/CC0-1.0.txt",
+      "fileLicenses" : [ {
+        "license" : "CC0-1.0",
+        "licenseTextInArchive" : "Unmanaged%unknown%example%7dea87e9a1f8d1fa6581f73cef50d8496d90fdd1%LICENSES%CC0-1.0.txt"
+      } ],
+      "fileCopyrights" : [ ]
+    }, {
+      "fileScope" : "LICENSES/GPL-3.0-or-later.txt",
+      "fileLicenses" : [ {
+        "license" : "GPL-3.0-only",
+        "licenseTextInArchive" : "Unmanaged%unknown%example%7dea87e9a1f8d1fa6581f73cef50d8496d90fdd1%LICENSES%GPL-3.0-or-later.txt"
+      } ],
+      "fileCopyrights" : [ {
+        "copyright" : "Copyright (c) 2007 Free Software Foundation, Inc. <http://fsf.org/>"
+      } ]
+    }, {
+      "fileScope" : "README.md",
+      "fileLicenses" : [ {
+        "license" : "GPL-3.0-or-later",
+        "licenseTextInArchive" : null
+      } ],
+      "fileCopyrights" : [ {
+        "copyright" : "Copyright 2019 Jane Doe <jane@example.com>"
+      } ]
+    } ]
+  } ]
+}
