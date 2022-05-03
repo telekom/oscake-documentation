@@ -82,7 +82,7 @@ A proposal for a complete folder structure including the necessary adapted files
 
 If you want to prepare the configuration by yourself, you can follow the steps below: 
 
-1. Adapt the ort.conf to your needs - you can use the [example](./examples/versionJan2022_2/ort.conf) and update the directory entries: `[yourFileStorageDirectory]`, `[[yourRawStorageDirectory]]` and `[yourScannerArchive]`. Specific  information about using commandline options for the scanner can be found [here](./configuration.md).
+1. Adapt the ort.conf to your needs - you can use the [example](./examples/versionJan2022_2/ort.conf) and update the directory entries makred with: `[.....]`. Specific  information about using commandline options for the scanner can be found [here](./configuration.md).
 2. Be sure that the directory `[yourFileStorageDirectory]` in `ort.conf` is empty. ORT has a mechanism to download only files which were not downloaded yet. As the OSCake-Reporter needs all the source code files, the directory **must be empty** before a new project is processed .
 3. Prepare the `license-classifications.yml` [file](./examples/versionJan2022_2/license-classifications.yml) and adapt it. ORT uses this file to categorize licenses according to the defined categories. The OSCake-Reporter needs the categorization: `instanced`.
 4. If you want to exclude some packages from being processed in a default way, create the [file](./examples/versionJan2022_2/.ort.yml) `.ort.yml` and copy it into the source code folder. Depending on the used package manager, ORT can be configured to process the repository according to different scopes; e.g. Maven uses the scope "test" to show which packages are only used for testing the project.
