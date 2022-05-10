@@ -17,16 +17,16 @@
 ## Versions from 24th of January, 2022 (updated ORT version, containing ScanCode 30.1)
 
 ### tdosca-tc05-simplhw
-- [OSCake-Report.oscc](./examples/versionJan2022_2/tc05/OSCake-Report.oscc)
-- [tdosca-tc05.zip](./examples/versionJan2022_2/tc05/tdosca-tc05.zip)
+- [OSCake-Report.oscc](./examples/versionMay2022/tc05/OSCake-Report.oscc)
+- [tdosca-tc05.zip](./examples/versionMay2022/tc05/tdosca-tc05.zip)
 
 ### tdosca-tc06-plainhw
-- [OSCake-Report.oscc](./examples/versionJan2022_2/tc06/OSCake-Report.oscc)
-- [tdosca-tc06.zip](./examples/versionJan2022_2/tc06/tdosca-tc06.zip)
+- [OSCake-Report.oscc](./examples/versionMay2022/tc06/OSCake-Report.oscc)
+- [tdosca-tc06.zip](./examples/versionMay2022/tc06/tdosca-tc06.zip)
 
 ### REUSE
-- [OSCake-Report.oscc](./examples/versionJan2022_2/tc_REUSE/OSCake-Report.oscc)
-- [example.zip](./examples/versionJan2022_2/tc_REUSE/example.zip)
+- [OSCake-Report.oscc](./examples/versionMay2022/tc_REUSE/OSCake-Report.oscc)
+- [example.zip](./examples/versionMay2022/tc_REUSE/example.zip)
 
 
 ## Versions from 12th of January, 2022

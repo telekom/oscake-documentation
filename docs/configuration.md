@@ -7,7 +7,7 @@ In order to keep the output volume in the \*oscc file as concise as possible, th
 
 ### Configuration file: OSCake.conf
 
-An example of the `oscake.conf` may be found [here](./examples/versionJan2022_2/oscake.conf).
+An example of the `oscake.conf` may be found [here](./examples/versionMay2022/oscake.conf).
 
 1. `scopePatterns` are responsible for retrieving the scope of the license information of a file (default, directory, reuse, file)
 2. `copyrightScopePatterns` contains glob-patterns to retrieve the scope of the copyright information of a file. It automatically contains the list of `scopePatterns`
@@ -143,7 +143,7 @@ The `ignorePatterns` section lists the files which should be not scanned. If thi
 ```
 
 ## License categorization in license-classifications.yml
-For categorization of licenses, the `license-classifications.yml`-File is used. For OSCake the category "instanced" is needed and has to be assigned to the appropriate license entries (a complete file can be found [here](./examples/versionJan2022_2/license-classifications.yml).   
+For categorization of licenses, the `license-classifications.yml`-File is used. For OSCake the category "instanced" is needed and has to be assigned to the appropriate license entries (a complete file can be found [here](./examples/versionMay2022/license-classifications.yml).   
 
 	categories:
 	- name: "instanced"
