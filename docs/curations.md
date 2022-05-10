@@ -168,7 +168,7 @@ If a `defaultLicensing` is set via the ORT-Analyzer (e.g. license found in pom.x
   curations:
     - file_scope: "<DEFAULT_LICENSING>"
       file_licenses:
-        - modifier: "insert"
+        - modifier: "update"
           reason: "explanation"
           license: "Apache-2.0"
           license_text_in_archive: "apache/LICENSE.Apache-2.0"
