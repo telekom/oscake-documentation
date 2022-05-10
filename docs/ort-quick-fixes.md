@@ -1,22 +1,3 @@
-# Branch: "oscake-reporter" - ScanCode.kt
-
-In order to get the native scan results from ScanCode, the source code had to be changed:
-
-File: ./ort/scanner/src/main/kotlin/scanners/scancode/ScanCode.kt
-Function: `override fun scanPathInternal...`
-
-```
-val process = ProcessCapture(
-	scannerPath.absolutePath,
-	*commandLineOptions.joinToString(",").replace("{rawFileName}", java.util.UUID.randomUUID().toString()).split(",").toTypedArray(),
-	path.absolutePath,
-	OUTPUT_FORMAT_OPTION,
-	resultFile.absolutePath
-)
-```
-
-Adaptation of the command for `*commandLineOptions` to the given example.
-
 # Branch: "oscake-reporter"
 since October 2021 - only necessary when creating a new fork or when merging with an incompatible ORT version!
 
