@@ -82,7 +82,7 @@ Depending on the `issueLevel` in `ort.conf` the resulting oscc-file contains a l
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a metadata-manager -iI ./results/OSCake-Report_curated_resolved_selected.oscc -iO ./results --ignoreFromChecks`
 >
-> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory.
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. Maybe you have to use `sudo` to execute the command above on unix systems.
 
 ## Output Files
 The *MetaDataManager* generates the following files:

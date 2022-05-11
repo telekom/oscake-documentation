@@ -30,7 +30,7 @@ Go to the installation directory of your ORT instance and run the following comm
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a merger -mI [path to oscc files] --cid:"[your package id in IVY format]" -mO [path to output directory]`
 >
-> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory.
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. Maybe you have to use `sudo` to execute the command above on unix systems.
 
 ## Processing, Issues & Error Handling
 

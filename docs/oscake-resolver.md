@@ -96,7 +96,7 @@ Depending on the `issueLevel` in `ort.conf` the resulting oscc-file contains a l
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a resolver -rI ./results/OSCake-Report_curated.oscc -rO ./results -rA ./results/analyzer-result.yml`
 >
-> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. 
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. Maybe you have to use `sudo` to execute the command above on unix systems.
 
 ## Output Files
 The Resolver produces the following files:
