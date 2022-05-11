@@ -110,7 +110,7 @@ ORT will generate the file `analyzer-result.yml` in the [outputDirectory].
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf analyze -i ./tdosca-tc05-simplhw/input-sources -o ./results`
 >
-> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. ORT will generate the file `analyzer-result.yml` in the subdirectory `./results`
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. ORT will generate the file `analyzer-result.yml` in the subdirectory `./results`. Maybe you have to use `sudo` to execute the command above on unix systems.
 
 
 ### Scanner
@@ -126,6 +126,7 @@ In case of a runtime error, the most probable cause is that the environment vari
 > Run Scanner from Docker:
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf scan -i ./results/analyzer-result.yml -o ./results`
+>  Maybe you have to use `sudo` to execute the command on unix systems.
 
 ### OSCake-Reporter
 
@@ -148,4 +149,4 @@ In case of processing errors, the logfile `OSCake.log` is generated (configurati
 > Run OSCake-Reporter from Docker:
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf report -i ./results/scan-result.yml -o ./results -fOSCake -O OSCake=configFile=./conf/oscake.conf --license-classifications-file=./conf/license-classifications.yml`
-> The generated files can be found in the folder `./results`. The logfile `OSCake.log` is created directly in the working directory.
+> The generated files can be found in the folder `./results`. The logfile `OSCake.log` is created directly in the working directory. Maybe you have to use `sudo` to execute the command above on unix systems.
