@@ -67,7 +67,7 @@ Depending on the `issueLevel` in `ort.conf` the resulting oscc-file contains a l
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a selector -sI ./results/OSCake-Report_curated_resolved.oscc -sO ./results`
 >
-> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. ORT will generate the file `analyzer-result.yml` in the subdirectory `./results`
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. 
 
 ## Output Files
 The *Selector* generates the following files:

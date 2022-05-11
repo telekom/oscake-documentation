@@ -76,8 +76,7 @@ The output files are stored in the same directory as the input files (e.g. if th
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a deduplicator -dI ./results/OSCake-Report_curated_resolved_selected_metadata.oscc`
 >
-> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. ORT will generate the file `analyzer-result.yml` in the subdirectory `./results`
-
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. 
 
 ## Examples
 The examples show selected sections of the oscc-file based on [Testcase#6](https://github.com/Open-Source-Compliance/tdosca-tc06-plainhw.git)

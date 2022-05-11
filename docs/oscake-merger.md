@@ -24,8 +24,13 @@ Option "-c": An identifier is a string defined by its type, namespace, name and 
 
 Go to the installation directory of your ORT instance and run the following command:
 
-`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a merger -mI "[path to the directory containing oscc-files to merge]" -c "[package name in IVY-format]"`
+`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a merger -mI "[path to the directory containing oscc-files to merge]" -c "[package name in IVY-format]" -mO [path to output directory]`
 
+> Run Merger from Docker using the unzipped [example file](./examples/versionMay2022/ortExample.zip):  
+>
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a merger -mI [path to oscc files] --cid:"[your package id in IVY format]" -mO [path to output directory]`
+>
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory.
 
 ## Processing, Issues & Error Handling
 
