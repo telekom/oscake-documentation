@@ -72,6 +72,12 @@ Go to the installation directory of your ORT instance and run the following comm
 
 The output files are stored in the same directory as the input files (e.g. if the oscc file is called `OSCake-Report.oscc` the resulting file is called `OSCake-Report_dedup.oscc`; the archive file also gets the suffix `_dedup`).
 
+> Run Deduplicator from Docker using the unzipped [example file](./examples/versionMay2022/ortExample.zip):  
+>
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a deduplicator -dI ./results/OSCake-Report_curated_resolved_selected_metadata.oscc`
+>
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. ORT will generate the file `analyzer-result.yml` in the subdirectory `./results`
+
 
 ## Examples
 The examples show selected sections of the oscc-file based on [Testcase#6](https://github.com/Open-Source-Compliance/tdosca-tc06-plainhw.git)

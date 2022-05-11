@@ -78,6 +78,12 @@ Go to the installation directory of your ORT instance and run the following comm
 
 Depending on the `issueLevel` in `ort.conf` the resulting oscc-file contains a list of issues of different levels.
 
+> Run MetaDataManager from Docker using the unzipped [example file](./examples/versionMay2022/ortExample.zip):  
+>
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a metadata-manager -iI ./results/OSCake-Report_curated_resolved_selected.oscc -iO ./results --ignoreFromChecks`
+>
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. ORT will generate the file `analyzer-result.yml` in the subdirectory `./results`
+
 ## Output Files
 The *MetaDataManager* generates the following files:
 

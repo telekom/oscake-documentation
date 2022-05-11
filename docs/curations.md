@@ -257,3 +257,9 @@ The Curator applies all defined curations to the oscc-file and produces the foll
 
 *  [OSCake-Report_curated.oscc](./examples/versionMay2022/tc05_curated/OSCake-Report_curated.oscc) 
 *  [tdosca-tc05_curated.zip](./examples/versionMay2022/tc05_curated/tdosca-tc05_curated.zip) 
+
+> Run Curator from Docker using the unzipped [example file](./examples/versionMay2022/ortExample.zip):  
+>
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a curator -cI ./results/OSCake-Report.oscc -cO ./results --ignoreRootWarnings`
+>
+> The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. ORT will generate the file `analyzer-result.yml` in the subdirectory `./results`
