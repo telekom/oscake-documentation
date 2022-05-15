@@ -11,7 +11,7 @@ Options:
                               of subdirectories.
   -mO, --outputDirectory PATH The path to the output folder.
 * -c, --cid TEXT              Id of the new Compliance Artifact Collection.
-  -mF, --outputFile PATH      Name of the output file. When -o is also
+  -mF, --outputFile PATH      Name of the output file. When -mO is also
                               specified, the path to the outputFile is
                               stripped to its name.
 
