@@ -1,4 +1,8 @@
 # Branch: "oscake-reporter"
+### Version of May 22
+The gradle task "installDist" may lead to errors on Windows systems for the reporter-web-app. Remove  the module in build.gradle.kts (reporter + reporter-web-app)
+
+# Branch: "oscake-reporter"
 since October 2021 - only necessary when creating a new fork or when merging with an incompatible ORT version!
 
 since March 2021
