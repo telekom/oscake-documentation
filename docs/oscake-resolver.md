@@ -47,7 +47,7 @@ Section of the changed \*.oscc-file:
 
 ```
 
-## Resolver Actions - *automatically generated*
+## Resolver Actions based on `analyzer-result.yml` - *automatically generated*
 If the commandline parameter `-rA "[path to the analyzer-result.yml]"` is set, a *Resolver* action will be automatically created for a package in the case that the `analyzer-result.yml` contains a compound license (SPDX-license-identifiers combined with "OR") in the tag `declared_licenses_processed.spdx_expression`.
 
 
@@ -81,6 +81,18 @@ Automatically generated resolver action:
 ```
 
 If an oscc file contains a [DECLARED] license in the default licensings (=when no license findings, in files matching the scopePatterns, are found during the reporter run), this license may already consist of a compound license. For this specific case, a resolver action also will be generated automatically, if no manual action is defined.
+
+## Resolver Actions based on `native-scan-results` - *automatically generated*
+
+If the commandline parameter `-rS "[path to the native-scan-results folder]"` is set, a *Resolver* action will be automatically created for a package in the case that its `scan-results_ScanCode.json` file contains a compound license (with *OR* or *AND*) in the tag `license_expressions`. As the license statement is not SPDX compliant, the single expressions are replaced by `spdx_license_key` based on the `key` of the scanners's license finding. The *Resolver* generates automatically an action for this specific file only (`scope` contains only the file path!)
+
+The sequence of the applied resolver actions is:
+1. Manually defined actions
+2. Automatically defined actions based on analyzer results
+3. Automatically defined actions based on native-scan-results
+
+As soon as an action for a package is found, all others are ignored!
+
 
 ## Run the "Resolver"
 
