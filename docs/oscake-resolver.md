@@ -16,6 +16,10 @@ The *Resolver* can be configured in the file `ort.conf` in the `oscake`-section:
   }}}
 ``` 
 
+## Commandline Parameters
+The definition of resolver actions can be a cumbersome task for big projects. Therefore, it is possible to start the resolver with the parameter `--generateTemplate` in order to write a file which contains resolver actions containing resolver blocks for packages with more than one file license. The file can be found in the configured resolver directory and is named `template.yml.tmp`.
+
+
 ## Resolver Actions - *manually defined*
 Generally, every *Resolver* file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the resolver actions to a specific package contained in the original \*.oscc file. If the version is empty, the action will be applied to every package disregarding the version number. Additionally, the version number can be defined by means of an an IVY-expression - representing a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html)). If  more than one action for a specific package is found, no action will be applied for this package.
 
@@ -115,6 +119,7 @@ The Resolver produces the following files:
 
 * `OSCake-Report_resolved.oscc`: output file in *.oscc format 
 * `[pid]_resolved.zip`: archive containing the license files (`pid` = project identifier in oscc-file)
+* `template.yml.tmp`: if the resolver was started with the commandline parameter `--generateTemplate`
 
 The original file is not changed during this process.
 
