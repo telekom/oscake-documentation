@@ -17,6 +17,10 @@ The Selector can be configured in the file `ort.conf` in the `oscake`-section:
   }}}
 ``` 
 
+## Commandline Parameters
+The definition of selector actions can be a cumbersome task for big projects. Therefore, it is possible to start the selector with the parameter `--generateSelectorTemplate` in order to write a file which contains selector actions containing selector blocks for packages with compound licenses. The file can be found in the configured selector directory and is named `template.yml.tmp`.
+
+
 ## Selector Actions
 In general, every *Selector* file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the selector actions to a specific package contained in the processed \*.oscc file. If the version is empty, the action will be applied to every package disregarding the version number. Additionally, the version number can be defined by means of an an IVY-expression - representing a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html)). If more than one action for a specific package is found, none of them will be applied. If a *Selector* action should be applied to the whole project, then the `id` must contain the keyword `[GLOBAL]`.
 
@@ -63,7 +67,7 @@ Go to the installation directory of your ORT instance and run the following comm
 
 Depending on the `issueLevel` in `ort.conf` the resulting oscc-file contains a list of issues of different levels.
 
-> Run Resolver from Docker using the unzipped [example file](./examples/versionMay2022/ortExample.zip):  
+> Run Selector from Docker using the unzipped [example file](./examples/versionMay2022/ortExample.zip):  
 >
 > `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a selector -sI ./results/OSCake-Report_curated_resolved.oscc -sO ./results`
 >
@@ -74,5 +78,6 @@ The *Selector* generates the following files:
 
 * `OSCake-Report_selected.oscc`: output file in *.oscc format 
 * `[pid]_selected.zip`: archive containing the license files (`pid` = project identifier in oscc-file)
+* `template.yml.tmp`: if the selector was started with the commandline parameter `--generateSelectorTemplate`
 
 The input file is not changed during this process.
