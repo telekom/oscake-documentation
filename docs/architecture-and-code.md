@@ -38,8 +38,8 @@ The messages are structured as follows:
 Different log-levels ("INFO", "WARN", "ERROR") are used to indicate the severity of the problem (according to the definition of levels in [Apache log4j2](https://logging.apache.org/log4j/2.x/) ). Only problems of severity "WARN" and "ERROR" are reported as `hasIssues` in the oscc-file. A warning or an error on the package-level or below (default-scope, dir-scope), automatically leads to the setting of `hasIssues` at the top level.
 
 ### Apache log4j2.xml configuration
-In order to separate log information from ORT in general and the OSCake-Reporter specifically, the log4j2.xml configuration file is used (found in folder: `cli/src/main/resources`)
-The OSCake-Reporter uses the class `org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.OSCakeLoggerManager` and therefore, the following configuration is applied (see section "Loggers"):
+In order to separate log information from ORT in general and the OSCake-Applications specifically, the log4j2.xml configuration file is used (found in folder: `cli/src/main/resources`)
+The OSCake-Apps use the classes `org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.utilsOSCakeLoggerManager` for standard logging and the class `org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.utils.OSCakeLogger` for output in csv format(see sections "Appenders" and "Loggers"):
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -54,11 +54,17 @@ The OSCake-Reporter uses the class `org.ossreviewtoolkit.reporter.reporters.osCa
     <File name="LogFile" fileName="OSCake.log" append="false">
       <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %msg%n"/>
     </File>
+    <File name="csv_appender" fileName="OSCake.csv" append="false">
+      <CsvParameterLayout format="Excel" delimiter="|"  header="TimeStamp|Level|Source|Phase|Package|Scope(Def/Dir/File)|FilePath|Message|Json-Path\n"/>
+    </File>
   </Appenders>
   <Loggers>
-    <Logger name="org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.OSCakeLoggerManager" level="info" additivity="false">
+    <Logger name="org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.utils.OSCakeLoggerManager" level="info" additivity="false">
       <AppenderRef ref="Console2"/>
       <AppenderRef ref="LogFile"/>
+    </Logger>
+    <Logger name="org.ossreviewtoolkit.reporter.reporters.osCakeReporterModel.utils.OSCakeLogger" level="info" additivity="false">
+      <AppenderRef ref="csv_appender"/>
     </Logger>
     <Root level="warn">
       <AppenderRef ref="Console"/>
@@ -66,7 +72,7 @@ The OSCake-Reporter uses the class `org.ossreviewtoolkit.reporter.reporters.osCa
   </Loggers>
 </Configuration>
 ```
-The issues are documented in the file `OSCake.log` and on the `Console2`, too. The logfile can be found in the current working directory.
+The issues are logged in the file `OSCake.log`, `Console2` and `OSCake.csv`. The logfiles (`OSCake.log and OSCake.csv`) can be found in the working directory.
 
 #### Alternative log4j2.xml configuration file
 In case that a specific configuration file for log4j2 should be used, a JVM parameter may be passed: `-Dlog4j.configurationFile=[path to the configuration file]`.
