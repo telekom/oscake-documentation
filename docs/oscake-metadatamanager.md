@@ -28,7 +28,7 @@ The MetaDataManager can be configured in the file `ort.conf` in the `oscake`-sec
 ## MetaDataManager Actions
 In general, every *MetaDataManager* file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the MetaDataManager actions to a specific package contained in the processed \*.oscc file. If the version is empty, the action will be applied to every package disregarding the version number. Additionally, the version number can be defined by means of an an IVY-expression - representing a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html)). If more than one action for a specific package is found, none of them will be applied. If a *MetaDataManager* action should be applied to the whole project, then the `id` must contain the keyword `[GLOBAL]`.
 
-Example to change the **distribution** information:
+Example to change the **distribution** information (one of `DISTRIBUTED`, `PREINSTALLED`, `DEV`):
 
 ```
 - id: "Maven:de.tdosca:tdosca-tc08:1.0"
@@ -48,7 +48,7 @@ Example to change the **distribution** information:
 
 The *distribution* tag instructs the MetaDataManager to change the kind of distribution. If the `from` information is different to the one found in the oscc-file, a warning is reported and the change is not applied. This check can be overridden by the commandline parameter `--ignoreFromChecks`.
 
-Example to change the **packageType** information:
+Example to change the **packageType** information (one of `EXECUTABLE`, `LIBRARY`):
 
 ```
 - id: "Maven:de.tdosca:tdosca-tc08:1.0"

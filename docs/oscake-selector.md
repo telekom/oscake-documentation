@@ -24,14 +24,11 @@ The definition of selector actions can be a cumbersome task for big projects. Th
 ## Selector Actions
 In general, every *Selector* file consists of one or more packages, identified by the project-`id`. The `id` meets the requirements of the class `Identifier` in ORT and consists of: type (=package manager), name space, name and version of the package. This `id` is used as a selector for applying the selector actions to a specific package contained in the processed \*.oscc file. If the version is empty, the action will be applied to every package disregarding the version number. Additionally, the version number can be defined by means of an an IVY-expression - representing a certain range of version numbers ([some IVY-examples](http://ant.apache.org/ivy/history/2.4.0/settings/version-matchers.html)). If more than one action for a specific package is found, none of them will be applied. If a *Selector* action should be applied to the whole project, then the `id` must contain the keyword `[GLOBAL]`.
 
-
 ```
-- id: "Maven:de.tdosca:tdosca-tc08:1.0"
+- id: "Gradle:de.tdosca:tdosca-tc09:1.0"
   choices:
-    - specified: "BSD-3-Clause OR Apache-2.0"
-      selected: "Apache-2.0"
-    - specified: "MIT OR LGPL-2.1-or-later"
-      selected: "MIT"
+  - specified: "Apache-2.0 OR BSD-3-Clause"
+    selected: "BSD-3-Clause"
 - id: "[GLOBAL]"
   choices:
     - specified: "EPL-2.0 OR BSD-3-Clause"
@@ -42,19 +39,23 @@ In general, every *Selector* file consists of one or more packages, identified b
 
 The *choices*-tag may contain multiple *compound licenses* defined in the tag `specified`. The example above instructs the *Selector* to search for file licensings which contain the `specified` compound license. When found, the license is replaced by the license defined in the `selected`-tag. To keep the original compound license, the tag `originalLicenses` is set.
 
+*Original* section of an \*oscc-file:
+```
+"fileScope" : "src/main/java/utils/de/SubUTILS.java",
+      "fileLicenses" : [ {
+        "license" : "Apache-2.0 OR BSD-3-Clause",
+        "licenseTextInArchive" : null
+      } ]
+```
 
 Section of the changed \*.oscc-file:
 ```
-{
-  "fileScope": "src/main/java/utils/NOTICE.MIT",
-    "fileLicenses": [
-      {
-         "license": "MIT",
-         "originalLicenses": "MIT OR LGPL-2.1-or-later",
-         "licenseTextInArchive": null
-      }],
-},
-
+"fileScope" : "src/main/java/utils/de/SubUTILS.java",
+      "fileLicenses" : [ {
+        "license" : "BSD-3-Clause",
+        "originalLicenses" : "Apache-2.0 OR BSD-3-Clause",
+        "licenseTextInArchive" : null
+      } ]
 ```
 
 ## Run the "Selector"

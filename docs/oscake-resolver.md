@@ -38,16 +38,28 @@ Generally, every *Resolver* file consists of one or more packages, identified by
 ```
 The `resolve`-tag may contain multiple `licenses`. The example above instructs the *Resolver* to search for files in the defined `scopes` containing license findings for "Apache-2.0" and "BSD-3-Clause" but no other license. The empty quotes `""` represent the root directory of the package. The *Resolver* replaces the license by the compound license "Apache-2.0 OR BSD-3-Clause" and sets the tags "licenseTextInArchive" and "fileContentInArchive" to null (because the findings in these files may not represent the correct information anymore)
 
-Section of the changed \*.oscc-file:
+*Original* section of an \*oscc-file:
+```
+"fileScope" : "[file path found in scopes]",
+      "fileLicenses" : [ {
+        "license" : "Apache-2.0",
+        "licenseTextInArchive" : null
+      }, {
+        "license" : "BSD-3-Clause",
+        "licenseTextInArchive" : "Gradle%de.tdosca%tdosca-tc09%1.0%input-sources%src%main%java%utils%de%SubUTILS.java.BSD-3-Clause"
+      } ],
+```
+
+*Resolved* section of the \*.oscc-file:
 ```
 "fileScope": "[file path found in scopes]",
-"fileContentInArchive": null
-"fileLicenses": [
-  {
-    "license": "Apache-2.0 OR BSD-3-Clause",
-    "licenseTextInArchive": null
-  }
-],
+   "fileContentInArchive": null
+   "fileLicenses": [
+     {
+       "license": "Apache-2.0 OR BSD-3-Clause",
+       "licenseTextInArchive": null
+     }
+   ],
 
 ```
 
@@ -84,11 +96,11 @@ Automatically generated resolver action:
         - ""
 ```
 
-If an oscc file contains a [DECLARED] license in the default licensings (=when no license findings, in files matching the scopePatterns, are found during the reporter run), this license may already consist of a compound license. For this specific case, a resolver action also will be generated automatically, if no manual action is defined.
+If an oscc file contains a [DECLARED] license in the default licensings (= when no license findings matches the scopePatterns during the reporter run), this license may already consist of a compound license. For this specific case, a resolver action also will be generated automatically, if no manual action is defined.
 
 ## Resolver Actions based on `native-scan-results` - *automatically generated*
 
-If the commandline parameter `-rS "[path to the native-scan-results folder]"` is set, a *Resolver* action will be automatically created for a package in the case that its `scan-results_ScanCode.json` file contains a compound license (with *OR* or *AND*) in the tag `license_expressions`. As the license statement is not SPDX compliant, the single expressions are replaced by `spdx_license_key` based on the `key` of the scanners's license finding. The *Resolver* generates automatically an action for this specific file only (`scope` contains only the file path!)
+If the commandline parameter `-rS "[path to the native-scan-results folder]"` is set, a *Resolver* action will be automatically created for a package in the case that its `scan-results_ScanCode.json` file contains a compound license (e.g. *OR*) in the tag `license_expressions`. As the license statement is not SPDX compliant, the single expressions are replaced by `spdx_license_key` based on the `key` of the scanners's license finding. The *Resolver* generates automatically an action for this specific file only (`scope` contains only the file path!)
 
 The sequence of the applied resolver actions is:
 1. Manually defined actions
