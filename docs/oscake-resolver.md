@@ -116,13 +116,13 @@ The Resolver uses the `directory`-entry from the config file to search for files
 
 Go to the installation directory of your ORT instance and run the following command:
 
-`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a resolver -rI "[path to the oscc-file]/OSCake-Report.oscc" -rO "[path to the results directory]" -rA "[path to the analyzer-result.yml]"`
+`cli\build\install\ort\bin\ort -c "[path to your ort.conf]/ort.conf" oscake -a resolver -rI "[path to the oscc-file]/OSCake-Report.oscc" -rO "[path to the results directory]" -rA "[path to the analyzer-result.yml] -rS [path to the native-scan-results-directory] "`
 
 Depending on the `issueLevel` in `ort.conf` the resulting oscc-file contains a list of issues of different levels.
 
 > Run Resolver from Docker using the unzipped [example file](./examples/versionMay2022/ortExample.zip):  
 >
-> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a resolver -rI ./results/OSCake-Report_curated.oscc -rO ./results -rA ./results/analyzer-result.yml`
+> `docker run -v [localPathTo]/ortExample:/project -w /project ort -c ./conf/ort.conf oscake -a resolver -rI ./results/OSCake-Report_curated.oscc -rO ./results -rA ./results/analyzer-result.yml -rS ./results/native-scan-results`
 >
 > The option -v mounts the local directory into the folder `/project`. The option -w sets the working directory to `/project`. Consequently, every path in the example is relative to the working directory. Maybe you have to use `sudo` to execute the command above on unix systems.
 
